@@ -22,8 +22,8 @@ public class Client extends Utilisateur{
     private Date date_validation;
     private int code_s;
 
-    public Client(String nom, String prenom, Date dn, String ad, String vl, int zip, String email, String pw, String img,String nbc,Date dv,int cs) {
-        super(nom, prenom, dn, ad, vl, zip, email, pw, img);
+    public Client(String nom, String prenom, Date dn,Character sexe,String ad, String vl, int zip, String email, String pw, String img,String nbc,Date dv,int cs) {
+        super(nom, prenom, dn,sexe, ad, vl, zip, email, pw, img);
             this.nbc=nbc;
         this.date_validation=dv;
         this.code_s=cs;

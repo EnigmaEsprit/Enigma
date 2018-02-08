@@ -42,7 +42,7 @@ public class ClientService implements IClient{
             else
             {
                 try {
-                    stm.executeUpdate("INSERT INTO users(nom,prenom,dateDeNaissance,adresse,ville,zip,email,password,type,imageUser,numeroDeCarteBancaire,dateDeValidation,codeSecret) VALUES('"+c.getNom()+"','"+c.getPrenom()+"','"+c.getDate_naissance()+"','"+c.getAdresse()+"','"+c.getVille()+"',"+c.getZip()+",'"+c.getEmail()+"','"+c.getMdp()+"','client','"+c.getImg()+"','"+c.getNbc()+"','"+c.getDate_validation()+"',"+c.getCode_s()+")");
+                    stm.executeUpdate("INSERT INTO users(nom,prenom,dateDeNaissance,sexe,adresse,ville,zip,email,password,type,imageUser,numeroDeCarteBancaire,dateDeValidation,codeSecret) VALUES('"+c.getNom()+"','"+c.getPrenom()+"','"+c.getDate_naissance()+"','"+c.getSexe()+"','"+c.getAdresse()+"','"+c.getVille()+"',"+c.getZip()+",'"+c.getEmail()+"','"+c.getMdp()+"','client','"+c.getImg()+"','"+c.getNbc()+"','"+c.getDate_validation()+"',"+c.getCode_s()+")");
                 } catch (Exception e) {
                     System.out.println("Insert");
                     System.out.println(e);
@@ -71,7 +71,7 @@ public class ClientService implements IClient{
         try {
             ResultSet res = stm.executeQuery("SELECT * FROM users WHERE email='"+c.getEmail()+"'");
             
-            stm.executeUpdate("UPDATE users SET nom='"+c.getNom()+"',prenom='"+c.getPrenom()+"',dateDeNaissance='"+c.getDate_naissance()+"',adresse='"+c.getAdresse()+"',ville='"+c.getVille()+"',zip="+c.getZip()+",password='"+c.getMdp()+"',numeroDeCarteBancaire='"+c.getNbc()+"',dateDeValidation='"+c.getDate_validation()+"',codeSecret="+c.getCode_s()+" WHERE email='"+c.getEmail()+"'");
+            stm.executeUpdate("UPDATE users SET nom='"+c.getNom()+"',prenom='"+c.getPrenom()+"',dateDeNaissance='"+c.getDate_naissance()+"',sexe='"+c.getSexe()+"',adresse='"+c.getAdresse()+"',ville='"+c.getVille()+"',zip="+c.getZip()+",password='"+c.getMdp()+"',numeroDeCarteBancaire='"+c.getNbc()+"',dateDeValidation='"+c.getDate_validation()+"',codeSecret="+c.getCode_s()+" WHERE email='"+c.getEmail()+"'");
        
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -95,7 +95,7 @@ public class ClientService implements IClient{
         try {
            ResultSet res = stm.executeQuery("SELECT * FROM users WHERE email='"+c.getEmail()+"'");
             while (res.next()) {                
-                System.out.println("Image: "+res.getString(11)+"\nNom: "+res.getString(2)+"\nPrenom: "+res.getString(3)+"\nDate de naissance: "+res.getDate(4)+"\nAdresse: "+res.getString(5)+"\nVille: "+res.getString(6)+"\nZIP: "+res.getInt(7)+"\nE-mail: "+res.getString(8)+"\nPassword: "+res.getString(9)+"\nNumero de carte bancaire: "+res.getString(12)+"\nDate de validation: "+res.getDate(13)+"\nCode secraite: "+res.getInt(14));
+                System.out.println("Image: "+res.getString(12)+"\nNom: "+res.getString(2)+"\nPrenom: "+res.getString(3)+"\nDate de naissance: "+res.getDate(4)+"\nSexe "+res.getString(5)+"\nAdresse: "+res.getString(6)+"\nVille: "+res.getString(7)+"\nZIP: "+res.getInt(8)+"\nE-mail: "+res.getString(9)+"\nPassword: "+res.getString(10)+"\nNumero de carte bancaire: "+res.getString(13)+"\nDate de validation: "+res.getDate(14)+"\nCode secraite: "+res.getInt(15));
             }
         } catch (SQLException ex) {
             System.out.println("Consulter");

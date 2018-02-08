@@ -16,8 +16,8 @@ public class Vendeur extends Utilisateur{
     private String sutiation_fiscal;
     private String numero_bancaire;
     
-    public Vendeur(String nom, String prenom, Date dn, String ad, String vl, int zip, String email, String pw,String img,String stf,String nc) {
-        super(nom, prenom, dn, ad, vl, zip, email, pw,img);
+    public Vendeur(String nom, String prenom, Date dn, Character sexe, String ad, String vl, int zip, String email, String pw,String img,String stf,String nc) {
+        super(nom, prenom, dn,sexe, ad ,vl, zip, email, pw,img);
         this.sutiation_fiscal=stf;
         this.numero_bancaire=nc;
     }

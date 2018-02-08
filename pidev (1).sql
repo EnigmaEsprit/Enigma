@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mer. 07 fév. 2018 à 15:27
+-- Généré le :  jeu. 08 fév. 2018 à 09:39
 -- Version du serveur :  5.7.19
 -- Version de PHP :  5.6.31
 
@@ -236,6 +236,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
   `dateDeNaissance` date NOT NULL,
+  `sexe` char(1) NOT NULL,
   `adresse` varchar(100) NOT NULL,
   `ville` varchar(20) NOT NULL,
   `zip` int(11) NOT NULL,
@@ -249,18 +250,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `situaitionFiscal` varchar(20) DEFAULT NULL,
   `ribBancaire` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `nom`, `prenom`, `dateDeNaissance`, `adresse`, `ville`, `zip`, `email`, `password`, `type`, `imageUser`, `numeroDeCarteBancaire`, `dateDeValidation`, `codeSecret`, `situaitionFiscal`, `ribBancaire`) VALUES
-(3, 'boumaiza', 'oussama', '1993-04-03', 'rue du grand maghreb', 'nabeul', 8011, 'boumaizaoussama@yahoo.fr', 'azerty', 'client', '', '54158796325874', '2019-04-03', 158, '', ''),
-(4, 'Ali', 'Salah', '1970-01-01', 'rue du grand maghreb', 'nabeul', 8011, 'boumaizaoussamab@gmail.com', 'null', 'client', '', '54788969852014', '1970-01-01', 125, NULL, NULL),
-(6, 'Boumaiza', 'Oussama', '3893-05-03', 'rue du grand maghreb', 'nabeul', 8011, '\0boumaizaoussamabb@gmail.com', 'null', 'client', '', '54788969852014', '1970-01-01', 125, NULL, NULL),
-(7, 'Boumaiza', 'Oussama', '3893-05-03', 'rue du grand maghreb', 'nabeul', 8011, '\0boumaizaoussama@gmail.com', 'starac', 'client', '', '54788969852014', '1970-01-01', 125, NULL, NULL),
-(11, 'salwa', 'laibi', '1970-01-01', 'rue du grand maghreb', 'nabeul', 8011, 'laribisalwa@yahoo.fr', 'salwa', 'vendeur', '', NULL, NULL, NULL, 'tres bien', '152465547852314');
+INSERT INTO `users` (`id`, `nom`, `prenom`, `dateDeNaissance`, `sexe`, `adresse`, `ville`, `zip`, `email`, `password`, `type`, `imageUser`, `numeroDeCarteBancaire`, `dateDeValidation`, `codeSecret`, `situaitionFiscal`, `ribBancaire`) VALUES
+(3, 'boumaiza', 'oussama', '1993-04-03', '', 'rue du grand maghreb', 'nabeul', 8011, 'boumaizaoussama@yahoo.fr', 'azerty', 'client', '', '54158796325874', '2019-04-03', 158, '', ''),
+(4, 'Ali', 'Salah', '1970-01-01', '', 'rue du grand maghreb', 'nabeul', 8011, 'boumaizaoussamab@gmail.com', 'null', 'client', '', '54788969852014', '1970-01-01', 125, NULL, NULL),
+(6, 'Boumaiza', 'Oussama', '3893-05-03', '', 'rue du grand maghreb', 'nabeul', 8011, '\0boumaizaoussamabb@gmail.com', 'null', 'client', '', '54788969852014', '1970-01-01', 125, NULL, NULL),
+(7, 'Boumaiza', 'Oussama', '3893-05-03', '', 'rue du grand maghreb', 'nabeul', 8011, '\0boumaizaoussama@gmail.com', 'starac', 'client', '', '54788969852014', '1970-01-01', 125, NULL, NULL);
 
 --
 -- Contraintes pour les tables déchargées

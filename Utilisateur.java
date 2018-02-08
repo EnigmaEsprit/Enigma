@@ -16,16 +16,18 @@ public class Utilisateur {
      private String nom;
     private String prenom;
     private Date date_naissance;
+    private Character sexe;
     private String adresse;
     private String ville;
     private int zip;
     private String email;
     private String mdp;
     private String img;
-      public Utilisateur(String nom,String prenom,Date dn,String ad,String vl,int zip,String email,String pw,String img){
+      public Utilisateur(String nom,String prenom,Date dn,Character sexe,String ad,String vl,int zip,String email,String pw,String img){
        this.nom = nom;
        this.prenom = prenom;
        this.date_naissance = dn;
+       this.sexe =sexe;
        this.adresse = ad;
        this.ville = vl;
        this.zip = zip;
@@ -56,6 +58,14 @@ public class Utilisateur {
 
     public void setDate_naissance(Date date_naissance) {
         this.date_naissance = date_naissance;
+    }
+
+    public Character getSexe() {
+        return sexe;
+    }
+
+    public void setSexe(Character sexe) {
+        this.sexe = sexe;
     }
 
     public String getAdresse() {

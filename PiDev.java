@@ -26,7 +26,7 @@ public class PiDev {
         ClientService cs = new ClientService();
         
        Client c;
-        c = new Client("Boumaiza","Oussama",new Date(1993,04,03),"rue du grand maghreb Dar Chaabane Fehrie","nabeul", 8011,"boumaizaoussama@gmail.com","starac","C:/img","54788969852014",new java.sql.Date(20180402), 125);
+        c = new Client("Boumaiza","Oussama",new Date(1993,04,03),'H',"rue du grand maghreb Dar Chaabane Fehrie","nabeul", 8011,"boumaizaoussama@gmail.com","starac","C:/img","54788969852014",new java.sql.Date(20180402), 125);
        // Client c1 = new Client("boumaiza", "oussama", new Date(19930403), "rue du grand maghreb", "nabeul", 8011, "oussama@gmail.com", "147852", "C:\image\oussama", "12345678901234", new Date(20180502), 854);
        // System.out.println(c);
        // c1 = new Client("Boumaiza", "Saif", new Date(19890103), "rue du grand maghreb", "Nabeul", 8011, "saif@yahoo.fr", "123", "C:\img1", "12345678901234", new Date(20180901),158);
@@ -38,7 +38,7 @@ public class PiDev {
         //cs.modifierClientImg(c, "C:/oussama/img/1");
        // cs.afficherClient(c);
         VendeurService vs= new VendeurService();
-       Vendeur v = new Vendeur("salwa", "laibi", new Date(19690112), "rue du grand maghreb", "nabeul", 8011, "laribisalwa@yahoo.fr", "salwa","D:/img", "exellent", "152465547852314");
+       Vendeur v = new Vendeur("salwa", "laibi", new Date(19690112),'F', "rue du grand maghreb", "nabeul", 8011, "laribisalwa@yahoo.fr", "salwa","D:/img", "exellent", "152465547852314");
      //  vs.ajouterVendeur(v);
       //vs.modifierVendeur(v);
       //vs.modifierVendeurImg(v, "C/Salwa/img");
