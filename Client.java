@@ -5,7 +5,7 @@
  */
 package entites;
 
-import java.sql.Date;
+import java.util.Date;
 
 
 
@@ -19,15 +19,23 @@ public class Client extends Utilisateur{
      *
      */
     private String nbc;
-    private Date date_validation;
+    private String date_validation;
     private int code_s;
 
-    public Client(String nom, String prenom, Date dn,Character sexe,String ad, String vl, int zip, String email, String pw, String img,String nbc,Date dv,int cs) {
-        super(nom, prenom, dn,sexe, ad, vl, zip, email, pw, img);
+    public Client(String nom, String prenom, String dn,String sexe,String ad, String vl, int zip,String nt ,String email, String pw/*, String img*/,String nbc,String dv,int cs) {
+        super(nom, prenom, dn,sexe, ad, vl, zip, nt,email, pw/*, img*/);
             this.nbc=nbc;
         this.date_validation=dv;
         this.code_s=cs;
     }
+ public Client(int id,String nom, String prenom, String dn,String sexe,String ad, String vl, int zip,String nt ,String email, String pw/*, String img*/,String nbc,String dv,int cs) {
+        super(id,nom, prenom, dn,sexe, ad, vl, zip, nt,email, pw/*, img*/);
+            this.nbc=nbc;
+        this.date_validation=dv;
+        this.code_s=cs;
+    }
+
+  
     
 
 
@@ -41,11 +49,11 @@ public class Client extends Utilisateur{
         this.nbc = nbc;
     }
 
-    public Date getDate_validation() {
+    public String getDate_validation() {
         return date_validation;
     }
 
-    public void setDate_validation(Date date_validation) {
+    public void setDate_validation(String date_validation) {
         this.date_validation = date_validation;
     }
 
@@ -58,7 +66,7 @@ public class Client extends Utilisateur{
     }
     public String toString()
     {
-        return "nom: "+getNom()+"prenom: "+getPrenom()+"DN: "+getDate_naissance()+"AD: "+getAdresse()+"VL: "+getVille()+"ZIP: "+getZip()+"MAIL: "+getEmail()+"MDP: "+getMdp()+"NBC: "+getNbc()+"DV: "+getDate_validation()+"CS: "+getCode_s();
+        return "nom: "+getNom()+" prenom: "+getPrenom()+" DN: "+getDate_naissance()+" AD: "+getAdresse()+" VL: "+getVille()+" ZIP: "+getZip()+" NTE: "+getNt()+" MAIL: "+getEmail()+" MDP: "+getMdp()+" NBC: "+getNbc()+" DV: "+getDate_validation()+" CS: "+getCode_s();
     }
    
     /**

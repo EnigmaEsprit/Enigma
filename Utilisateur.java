@@ -5,35 +5,57 @@
  */
 package entites;
 
-import java.sql.Date;
-import sun.security.util.Password;
-
 /**
  *
  * @author user
  */
 public class Utilisateur {
-     private String nom;
+    private int id;
+    private String nom;
     private String prenom;
-    private Date date_naissance;
-    private Character sexe;
+    private String date_naissance;
+    private String sexe;
     private String adresse;
     private String ville;
     private int zip;
+    private String nt;
     private String email;
     private String mdp;
-    private String img;
-      public Utilisateur(String nom,String prenom,Date dn,Character sexe,String ad,String vl,int zip,String email,String pw,String img){
-       this.nom = nom;
-       this.prenom = prenom;
-       this.date_naissance = dn;
-       this.sexe =sexe;
-       this.adresse = ad;
-       this.ville = vl;
-       this.zip = zip;
-       this.email = email;
-       this.mdp = pw;
-       this.img=img;
+    // private String img;
+ public Utilisateur(int id,String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw/*,String img*/) {
+        this.id=id;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.date_naissance = dn;
+        this.sexe = sexe;
+        this.adresse = ad;
+        this.ville = vl;
+        this.zip = zip;
+        this.nt =nt;
+        this.email = email;
+        this.mdp = pw;
+        // this.img=img;
+    }
+    public Utilisateur(String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw/*,String img*/) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.date_naissance = dn;
+        this.sexe = sexe;
+        this.adresse = ad;
+        this.ville = vl;
+        this.zip = zip;
+        this.nt =nt;
+        this.email = email;
+        this.mdp = pw;
+        // this.img=img;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNom() {
@@ -52,19 +74,19 @@ public class Utilisateur {
         this.prenom = prenom;
     }
 
-    public Date getDate_naissance() {
+    public String getDate_naissance() {
         return date_naissance;
     }
 
-    public void setDate_naissance(Date date_naissance) {
+    public void setDate_naissance(String date_naissance) {
         this.date_naissance = date_naissance;
     }
 
-    public Character getSexe() {
+    public String getSexe() {
         return sexe;
     }
 
-    public void setSexe(Character sexe) {
+    public void setSexe(String sexe) {
         this.sexe = sexe;
     }
 
@@ -92,6 +114,14 @@ public class Utilisateur {
         this.zip = zip;
     }
 
+    public String getNt() {
+        return nt;
+    }
+
+    public void setNt(String nt) {
+        this.nt = nt;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -108,12 +138,12 @@ public class Utilisateur {
         this.mdp = mdp;
     }
 
-    public String getImg() {
+    /* public String getImg() {
         return img;
     }
 
     public void setImg(String img) {
         this.img = img;
     }
-    
+     */
 }

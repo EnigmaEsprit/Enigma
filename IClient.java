@@ -13,10 +13,17 @@ import entites.Utilisateur;
  * @author user
  */
 public interface IClient {
-    public void ajouterClient(Client c);
-    public void supprimerClient(Client c);
-    public void modifierClient(Client c);
+
+    /**
+     *
+     * @param c
+     * @return
+     */
+    public boolean ajouterClient(Client c);
+    public void supprimerClient(String a);
+    public void modifierClient(Client c,String mail);
     public void modifierClientImg(Client c,String img);
     public void afficherClient(Client c);
-    
+    public Client rechercheParMail(String mail,String pass);
+    public boolean recherche(String mail);
 }

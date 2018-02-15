@@ -12,7 +12,7 @@ import entites.Vendeur;
  * @author user
  */
 public interface IVendeur {
-     public void ajouterVendeur(Vendeur v);
+     public boolean ajouterVendeur(Vendeur v);
     public void supprimerVendeur(Vendeur v);
     public void modifierVendeur(Vendeur v);
     public void modifierVendeurImg(Vendeur v,String img);

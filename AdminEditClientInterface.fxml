@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.MeshView?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pidevapp.AdminEditClientInterfaceController">
+   <children>
+      <Pane layoutX="10.0" layoutY="83.0" prefHeight="579.0" prefWidth="246.0" style="-fx-background-color: #c59f54c9;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="68.0">
+         <children>
+            <Button layoutX="38.0" layoutY="505.0" mnemonicParsing="false" onAction="#btnespAdminAction" prefHeight="39.0" prefWidth="162.0" text="LogOut">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children></Pane>
+      <Button layoutX="37.0" layoutY="110.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="162.0" text="Catalogues">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="38.0" layoutY="184.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="162.0" text="Boutiques">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="37.0" layoutY="261.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="162.0" text="Panier">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="36.0" layoutY="342.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="162.0" text="Promotion">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="37.0" layoutY="427.0" mnemonicParsing="false" onAction="#btnespClientAction" prefHeight="39.0" prefWidth="162.0" text="Espace Client">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="37.0" layoutY="505.0" mnemonicParsing="false" onAction="#btnespVendeurAction" prefHeight="39.0" prefWidth="162.0" text="Espace Vendeur">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Pane layoutX="251.0" layoutY="81.0" prefHeight="529.0" prefWidth="955.0" style="-fx-background-color: #c49e564b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="246.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="68.0">
+         <children>
+            <Label layoutX="72.0" layoutY="453.0" text="Pssword*:">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="password" layoutX="205.0" layoutY="450.0" prefHeight="26.0" prefWidth="380.0" promptText="Saisir votre mot de passe" />
+            <Button fx:id="anuller" layoutX="849.0" layoutY="541.0" mnemonicParsing="false" onAction="#btnAnnulerAction" prefHeight="30.0" prefWidth="92.0" text="Annuler">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="id" layoutX="315.0" layoutY="58.0" prefWidth="55.0" textFill="#18d570">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="72.0" layoutY="495.0" text="Comfirmer Password*:">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="cpassword" layoutX="231.0" layoutY="493.0" prefHeight="26.0" prefWidth="352.0" promptText="Comfirmer mot de passe" />
+            <Button fx:id="editer" layoutX="971.0" layoutY="541.0" mnemonicParsing="false" onAction="#btnEditAction" prefHeight="30.0" prefWidth="92.0" text="Modifier">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <MeshView layoutX="46.0" layoutY="220.0" />
+      <Label layoutX="304.0" layoutY="113.0" text="Editer compte Client">
+         <font>
+            <Font name="Agency FB" size="37.0" />
+         </font>
+      </Label>
+      <Label layoutX="316.0" layoutY="195.0" text="Nom:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nom" layoutX="362.0" layoutY="195.0" prefHeight="26.0" prefWidth="178.0" promptText="Exp: Boumaiza" />
+      <Label layoutX="556.0" layoutY="195.0" text="Prenom:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="prenom" layoutX="627.0" layoutY="194.0" prefHeight="26.0" prefWidth="201.0" promptText="Exp: Oussama" />
+      <Label layoutX="316.0" layoutY="246.0" text="Date de naissance:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datedenaissance" layoutX="461.0" layoutY="245.0" prefHeight="26.0" prefWidth="138.0" promptText="Exp: 03/04/1993" />
+      <Label layoutX="638.0" layoutY="249.0" text="Sexe:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="sexe" layoutX="694.0" layoutY="246.0" prefHeight="26.0" prefWidth="138.0" promptText="Choisir votre sexe" />
+      <Label layoutX="316.0" layoutY="298.0" text="Adresse:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="adresse" layoutX="389.0" layoutY="297.0" prefHeight="26.0" prefWidth="440.0" promptText="Saisir votre adresse" />
+      <Label layoutX="316.0" layoutY="351.0" text="Ville:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="ville" layoutX="365.0" layoutY="349.0" prefHeight="26.0" prefWidth="201.0" promptText="Exp: Nabeul" />
+      <Label layoutX="581.0" layoutY="351.0" text="ZIP:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="zip" layoutX="622.0" layoutY="349.0" prefHeight="26.0" prefWidth="208.0" promptText="Exp: 8011" />
+      <Label layoutX="315.0" layoutY="407.0" text="Numero de Telephone:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="497.0" layoutY="407.0" text="(+216)">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="numerodetelephone" layoutX="552.0" layoutY="406.0" prefHeight="26.0" prefWidth="281.0" promptText="6 chiffre(exp: 21547896)" />
+      <Label layoutX="315.0" layoutY="466.0" text="E-mail:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="email" layoutX="448.0" layoutY="463.0" prefHeight="26.0" prefWidth="386.0" promptText="Saisir votre @ mail (exp:oussama.boumaiza@esprit.tn)" />
+      <Label fx:id="labmsg" layoutX="628.0" layoutY="133.0" prefHeight="20.0" prefWidth="193.0" textFill="#da1212">
+         <font>
+            <Font name="System Italic" size="14.0" />
+         </font>
+      </Label>
+      <Pane layoutX="11.0" layoutY="10.0" prefHeight="73.0" prefWidth="1200.0" style="-fx-background-color: #0f0f0f00;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="60.0" fitWidth="78.0" layoutX="572.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@27497994_2435990249958703_1746954523_n.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
