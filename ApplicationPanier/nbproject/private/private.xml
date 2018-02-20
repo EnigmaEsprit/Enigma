@@ -7,18 +7,18 @@
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/entites/Produit.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/applicationpanier/FXMLInterfaceModificationQuantiteController.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/entites/FonctionPanier.java</file>
+            <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/applicationpanier/FXMLCommandesInterfaceController.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/applicationpanier/ApplicationPanier.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/services/UserServices.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/applicationpanier/FXMLDocumentController.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/services/ProduitServices.java</file>
-            <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/entites/User.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/entites/LigneCommande.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/applicationpanier/FXMLPanierInterfaceController.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/services/LigneCommandesServices.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/applicationpanier/FXMLInterface2Controller.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/entites/Commande.java</file>
+            <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/applicationpanier/AlertMaker.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/applicationpanier/FXMLStatistiquesController.java</file>
-            <file>file:/G:/3ieme_annee/PIDEV/Atelier/ApplicationPanier/src/applicationpanier/FXMLDocument.fxml</file>
         </group>
     </open-files>
 </project-private>

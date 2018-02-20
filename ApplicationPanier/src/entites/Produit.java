@@ -23,6 +23,7 @@ public class Produit {
     private ImageView imageProduit;
     private Button bouton;
     private TextField quantiteTextField;
+    private double prixTotal;
  
    
     public Produit() {
@@ -57,6 +58,16 @@ public class Produit {
         this.bouton = bouton;
         this.quantiteTextField = quantiteTextField;
     }
+
+    public Produit(int idProduit, String nomProduit, int quantiteProduit, double prixProduit, ImageView imageProduit, Button bouton, double prixTotal) {
+        this.idProduit = idProduit;
+        this.nomProduit = nomProduit;
+        this.quantiteProduit = quantiteProduit;
+        this.prixProduit = prixProduit;
+        this.imageProduit = imageProduit;
+        this.bouton = bouton;
+        this.prixTotal = prixTotal;
+    }
     
     
 
@@ -75,6 +86,14 @@ public class Produit {
     
      public double prixTotal(){
         return getPrixProduit()*getQuantiteProduit();
+    }
+
+    public double getPrixTotal() {
+       return getPrixProduit()*getQuantiteProduit();
+    }
+
+    public void setPrixTotal(double prixTotal) {
+        this.prixTotal = prixTotal;
     }
 
    

@@ -138,7 +138,7 @@ public class CommandesServices {
         try {
             Statement stm = conn.createStatement();
             ResultSet rest
-                    = stm.executeQuery("select * from commandes");
+                    = stm.executeQuery("select commandes.*,users.nom from commandes join users on commandes.idUser=users.id");
             /* ResultSet rest
                     = stm.executeQuery("select commandes.*,users.id from commandes"
                             + "INNER JOIN users on commandes.idUser = users.id");*/
@@ -150,6 +150,7 @@ public class CommandesServices {
                 c.setEtat(rest.getInt(4));
                 c.setDateDeCommande(rest.getDate(5));
                 c.setIdTransaction(rest.getInt(6));
+                c.setNom(rest.getString(7));
                 commandes.add(c);
 
             }

@@ -7,11 +7,21 @@ package applicationpanier;
 
 import applicationpanier.AlertMaker;
 import applicationpanier.FXMLInterfaceModificationQuantiteController;
+import com.itextpdf.text.BaseColor;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.List;
+import com.itextpdf.text.ListItem;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXAlert;
 import entites.Commande;
 import entites.FonctionPanier;
 import entites.LigneCommande;
 import entites.Produit;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -38,6 +48,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import services.CommandesServices;
@@ -51,8 +64,6 @@ import services.ProduitServices;
  */
 public class FXMLPanierInterfaceController implements Initializable {
 
-    @FXML
-    private Button btViderPanier;
     @FXML
     private TableView<Produit> listeProduit;
     @FXML
@@ -77,19 +88,25 @@ public class FXMLPanierInterfaceController implements Initializable {
     private ObservableList<Produit> data = FXCollections.observableArrayList();
     ProduitServices ps = new ProduitServices();
     @FXML
-    private TableColumn<?, ?> qtechange;
-    @FXML
-    private Button btPageProduit;
-    @FXML
     private Label prixTotal;
-    @FXML
-    private ImageView imagePanier;
     @FXML
     private Label nombreProduitsDansPanier;
     @FXML
+    private Button btViderPanier;
+    @FXML
+    private Button btPageProduit;
+    @FXML
     private Button btnPayer;
-    
-    
+    @FXML
+    private TableColumn<?, ?> qtechange;
+    @FXML
+    private ImageView imagePanier;
+    @FXML
+    private AnchorPane AnchorPaneView3;
+    @FXML
+    private Pane paneView;
+    @FXML
+    private Button btnGenererPdf;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -98,6 +115,10 @@ public class FXMLPanierInterfaceController implements Initializable {
         loadData();
         setColumn();
         actualiserPrix();
+        btnGenererPdf.setOnMouseClicked((MouseEvent e) ->{
+            
+           GenererPdf();
+        });
 
     }
 
@@ -117,6 +138,7 @@ public class FXMLPanierInterfaceController implements Initializable {
         prixColumn.setCellValueFactory(new PropertyValueFactory<>("prixProduit"));
         imageColumn.setCellValueFactory(new PropertyValueFactory<>("imageProduit"));
         suppressionColumn.setCellValueFactory(new PropertyValueFactory<>("bouton"));
+        prixTotalColumn.setCellValueFactory(new PropertyValueFactory<>("prixTotal"));
 
     }
 
@@ -128,7 +150,7 @@ public class FXMLPanierInterfaceController implements Initializable {
     }
 
     private void actualiserPage() {
-       
+
     }
 
     @FXML
@@ -163,18 +185,17 @@ public class FXMLPanierInterfaceController implements Initializable {
 
     }
 
-    private void loadData(){
-        
+    private void loadData() {
+
         data.clear();
-         int i = 1;
-        
+        int i = 1;
+
         ImageView image;
 
         System.out.println(FonctionPanier.getListeProduit());
 
         for (Produit p : FonctionPanier.getListeProduit()) {
 
-           
             Button btSupp = new Button("Supprimer");
             //TextField quantiteTextField = new TextField();
 
@@ -184,7 +205,7 @@ public class FXMLPanierInterfaceController implements Initializable {
             image.setFitHeight(90.0);
             image.setFitWidth(75.0);
             //quantiteTextField.setText("" + p.getQuantiteProduit());
-            data.add(new Produit(p.getIdProduit(),p.getNomProduit(),p.getQuantiteProduit(), p.getPrixProduit(), image, btSupp));
+            data.add(new Produit(p.getIdProduit(), p.getNomProduit(), p.getQuantiteProduit(), p.getPrixProduit(), image, btSupp, p.getPrixTotal()));
             System.out.println(p);
 
             btSupp.setOnAction(event -> {
@@ -205,10 +226,10 @@ public class FXMLPanierInterfaceController implements Initializable {
             });
 
             //FonctionPanier.modifierQTeArticle(p, Integer.parseInt(quantiteTextField.getText()));
-
         }
         listeProduit.setItems(data);
     }
+
     @FXML
     private void optionModifierQuantiteProduit(ActionEvent event) {
         Produit selectPourModification = listeProduit.getSelectionModel().getSelectedItem();
@@ -217,30 +238,29 @@ public class FXMLPanierInterfaceController implements Initializable {
             return;
 
         }
-        
-      //  LoadWindow("FXMLInterfaceModificationQuantite.fxml", "Modification Quantite");
-         try{
-             FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLInterfaceModificationQuantite.fxml"));
-             
+
+        //  LoadWindow("FXMLInterfaceModificationQuantite.fxml", "Modification Quantite");
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("FXMLInterfaceModificationQuantite.fxml"));
+
             Parent homePageParent = loader.load();
-            FXMLInterfaceModificationQuantiteController  controller = (FXMLInterfaceModificationQuantiteController)loader.getController();
-             
+            FXMLInterfaceModificationQuantiteController controller = (FXMLInterfaceModificationQuantiteController) loader.getController();
+
             controller.inflateUI(selectPourModification);
             //////recupere l'id produit
-            FXMLInterfaceModificationQuantiteController.idProduitstatic=selectPourModification.getIdProduit();
-           
-            
+            FXMLInterfaceModificationQuantiteController.idProduitstatic = selectPourModification.getIdProduit();
+
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle("Modification Quantite");
             stage.setScene(new Scene(homePageParent));
             stage.show();
-      
-        }catch(IOException ex){
-             System.out.println("");
-             System.out.println("aaaaaaaaaaaaa");
-            Logger.getLogger(FXMLPanierInterfaceController.class.getName()).log(Level.SEVERE,null,ex);
+
+        } catch (IOException ex) {
+            System.out.println("");
+            System.out.println("aaaaaaaaaaaaa");
+            Logger.getLogger(FXMLPanierInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       /* stage.setOnCloseRequest((e)->{
+        /* stage.setOnCloseRequest((e)->{
            actualiserPage( new ActionEvent());
         });*/
     }
@@ -250,109 +270,165 @@ public class FXMLPanierInterfaceController implements Initializable {
         FonctionPanier.supprimePanier();
         optionActualiser(new ActionEvent());
         actualiserPrix();
-        
+
     }
 
     @FXML
     private void optionActualiser(ActionEvent event) {
-        
-      // FonctionPanier.modifierQTeArticle(p, Integer.parseInt(quantiteTextField.getText()));
-      actualiserPrix();
+
+        // FonctionPanier.modifierQTeArticle(p, Integer.parseInt(quantiteTextField.getText()));
+        actualiserPrix();
         loadData();
     }
-    private void LoadWindow(String loc,String title){
-        try{
+
+    private void LoadWindow(String loc, String title) {
+        try {
             Parent homePageParent = FXMLLoader.load(getClass().getResource(loc));
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle(title);
             stage.setScene(new Scene(homePageParent));
             stage.show();
-      
-        }catch(IOException ex){
-            Logger.getLogger(FXMLPanierInterfaceController.class.getName()).log(Level.SEVERE,null,ex);
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLPanierInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @FXML
-    private void ValiderPaiement(ActionEvent event)  {
-        /*
-        $Cmd->AddCmdInBd($idTrans);
-			$idCmd = Commande::findByIdCmdWithIdTrans($idTrans);
-			$Cmd->updateEtat($idCmd);
-			
-			echo "<br><br> id transaction: ";
-			var_dump($idCmd);
+    private void ValiderPaiement(ActionEvent event) {
+        
+        CommandesServices cmdService = new CommandesServices();
+        System.out.println("******************");
+        int idTransaction = Integer.parseInt(generate(5));
+        System.out.println("*****************");
+        Commande cmd = new Commande();
+        cmd.setIdUser(3);
+        cmd.setIdTransaction(idTransaction);
+        cmd.setEtat(0);
+        cmd.setPrixTotal(FonctionPanier.MontantGlobal());
+        cmdService.ajouterCommande(cmd);
+        //cmdService.modifierEtat();
 
-			echo "<br><br>";
-			echo "<br><br> id commande: ";
-			//var_dump($Lcmd->getIdCmd());
+        /**
+         * ****************************ligne**********
+         */
+        int idCmd = cmdService.rechercherParIdTransaction(idTransaction);
+        System.out.println(idCmd);
+        //  cmdService.modifierEtat(idCmd);
 
-			echo "<br><br>";
+        for (Produit p : FonctionPanier.getListeProduit()) {
+            int i = 0;
+            System.out.println(i++);
+            LigneCommande lcmd = new LigneCommande();
+            lcmd.setIdProduit(p.getIdProduit());
+            System.out.println(i++);
+            lcmd.setQuantite(p.getQuantiteProduit());
+            System.out.println(i++);
 
-			$ligneCmd->AddLigneCmdInBd($idCmd);*/
-         CommandesServices cmdService = new CommandesServices();
-         System.out.println("******************");
-         int idTransaction = Integer.parseInt(generate(5));
-         System.out.println("*****************");
-         Commande cmd = new Commande();
-         cmd.setIdUser(3);
-         cmd.setIdTransaction(idTransaction);
-         cmd.setEtat(0);
-         cmd.setPrixTotal(FonctionPanier.MontantGlobal());
-         cmdService.ajouterCommande(cmd);
-         //cmdService.modifierEtat();
-         
-         /******************************ligne***********/
-         
-         int idCmd =cmdService.rechercherParIdTransaction(idTransaction);
-         System.out.println(idCmd);
-       //  cmdService.modifierEtat(idCmd);
-         
-         for(Produit p: FonctionPanier.getListeProduit()){
-             int i=0;
-             System.out.println(i++);
-             LigneCommande lcmd = new LigneCommande();
-             lcmd.setIdProduit(p.getIdProduit());
-              System.out.println(i++);
-             lcmd.setQuantite(p.getQuantiteProduit());
-              System.out.println(i++);
-             
-             lcmd.setPrixUnitaire(p.getPrixProduit());
-                     lcmd.setPrixTotal(p.prixTotal());
-              System.out.println(i++);
-           
-            
+            lcmd.setPrixUnitaire(p.getPrixProduit());
+            lcmd.setPrixTotal(p.prixTotal());
+            System.out.println(i++);
+
             lcmd.setIdCommande(idCmd);
-             System.out.println(idCmd);
-             System.out.println(i++);
-            
-             LigneCommandesServices lcmdService = new LigneCommandesServices();
+            System.out.println(idCmd);
+            System.out.println(i++);
+
+            LigneCommandesServices lcmdService = new LigneCommandesServices();
             lcmdService.ajouterProduit(lcmd);
-              System.out.println(i++);
-         }
-         
-         
+            System.out.println(i++);
+        }
+
     }
-    
-   
-    
-      public String generate(int length)
-{
-	    String chars = "1234567890"; // Tu supprimes les lettres dont tu ne veux pas
-	    String pass = "";
-	    for(int x=0;x<length;x++)
-	    {
-	       int i = (int)Math.floor(Math.random() * 10); // Si tu supprimes des lettres tu diminues ce nb
-	       pass += chars.charAt(i);
-	    }
-	   System.out.println(pass);
-	    return pass;
-}
+
+    public String generate(int length) {
+        String chars = "1234567890"; // Tu supprimes les lettres dont tu ne veux pas
+        String pass = "";
+        for (int x = 0; x < length; x++) {
+            int i = (int) Math.floor(Math.random() * 10); // Si tu supprimes des lettres tu diminues ce nb
+            pass += chars.charAt(i);
+        }
+        System.out.println(pass);
+        return pass;
+    }
 
     @FXML
     private void statitisques(ActionEvent event) {
-        
+
         LoadWindow("FXMLStatistiques.fxml", "Statistiques");
     }
-   
+
+    @FXML
+    private void ConsulterCommandes(ActionEvent event) {
+        LoadWindow("FXMLCommandesInterface.fxml", "Liste des Commandes");
+    }
+
+    @FXML
+    private void GenererPdfMethode(ActionEvent event) {
+    }
+    private void GenererPdf() {
+         Document document =new Document();
+        try{
+           
+           PdfWriter writer= PdfWriter.getInstance(document, new FileOutputStream("test.pdf"));
+            document.open();
+            document.add(new Paragraph("Exemple"));
+            
+            PdfPTable table = new PdfPTable(5);
+            table.setWidthPercentage(105);
+            table.setSpacingBefore(11f);
+            table.setSpacingAfter(11f);
+            
+            float[] colWidth={2f,2f,2f,2f,2f};
+            table.setWidths(colWidth);
+            PdfPCell c1=new PdfPCell(new Paragraph(""));
+             PdfPCell c2=new PdfPCell(new Paragraph("Libelle"));
+              PdfPCell c3=new PdfPCell(new Paragraph("Quantite"));
+              PdfPCell c4=new PdfPCell(new Paragraph("prix Unitaire"));
+              PdfPCell c5=new PdfPCell(new Paragraph("Prix Total"));
+              
+              c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+     
+              c1.setBackgroundColor(BaseColor.DARK_GRAY);
+              
+              table.addCell(c1);
+              table.addCell(c2);
+              table.addCell(c3);
+              table.addCell(c4);
+              table.addCell(c5);
+              
+              
+              for(Produit p: FonctionPanier.getListeProduit()){
+                  table.addCell(new Paragraph(""));
+              table.addCell(new Paragraph(""+p.getNomProduit()));
+              table.addCell(new Paragraph(""+p.getQuantiteProduit()));
+              table.addCell(new Paragraph(""+p.getPrixProduit()));
+              table.addCell(new Paragraph(""+p.getPrixTotal()));
+              
+              }
+           
+              
+              document.add(table);
+              
+              List orderList = new List(List.ORDERED);
+              orderList.add(new ListItem("Fun"));
+              orderList.add(new ListItem("Technology"));
+              orderList.add(new ListItem("Tic"));
+              orderList.add(new ListItem("Java"));
+              orderList.add(new ListItem("mation"));
+              
+              document.add(orderList);
+              
+              
+              
+            document.close();
+            writer.close();
+            
+            AlertMaker.showSimpleAlert("Success", "Generation du panier.pdf \n Location:G:\\3ieme_annee\\PIDEV\\Atelier\\ApplicationPanier");
+            
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        System.out.println("itext PDF program executed");
+    }
+
 }

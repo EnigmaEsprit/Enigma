@@ -62,8 +62,12 @@ public class LigneCommandesServices {
      public List<LigneCommande> rechercherProduitEtQuantite(Date date){
          List<LigneCommande> lignecommandes = new ArrayList<>();
         try {
-            Statement stm = conn.createStatement();
-            ResultSet rest = stm.executeQuery("SELECT SUM(L.quantite),P.nomProduit  from lignecommandes L JOIN produits P on L.idProduit = P.idProduit Join commandes C on L.idCommande= C.idCommande where C.dateDeCommande like 'date%' group by P.nomProduit ");
+           
+            PreparedStatement statement = conn.prepareStatement("SELECT SUM(L.quantite),P.nomProduit  from lignecommandes L JOIN produits P on L.idProduit = P.idProduit Join commandes C on L.idCommande= C.idCommande where C.dateDeCommande = ? group by P.nomProduit ");    
+            statement.setDate(1, date);    
+            
+           
+            ResultSet rest = statement.executeQuery();
             while (rest.next()) {
                 LigneCommande l = new LigneCommande();
                

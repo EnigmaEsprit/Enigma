@@ -1,23 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/9.0.1" fx:controller="applicationpanier.FXMLStatiquesController">
+<AnchorPane id="AnchorPane" prefHeight="524.0" prefWidth="863.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationpanier.FXMLStatistiquesController">
    <children>
-      <VBox prefHeight="400.0" prefWidth="600.0">
+      <VBox prefHeight="524.0" prefWidth="601.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="545.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Statistiques Produits Vendus" textAlignment="CENTER" wrappingWidth="600.5367736816406">
                <font>
                   <Font size="24.0" />
                </font>
             </Text>
-            <Pane fx:id="PaneView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            <Pane fx:id="PaneView" prefHeight="350.0" prefWidth="607.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Separator layoutX="604.0" layoutY="-31.0" orientation="VERTICAL" prefHeight="524.0" prefWidth="8.0" />
+               </children></Pane>
          </children>
       </VBox>
+      <VBox layoutX="617.0" layoutY="49.0" prefHeight="474.0" prefWidth="534.0">
+         <children>
+            <PieChart fx:id="pieChart" prefHeight="457.0" prefWidth="534.0" title="Produits Vendus Par date" />
+         </children>
+      </VBox>
+      <DatePicker fx:id="dateStats" layoutX="840.0" layoutY="10.0" promptText="Date Statistiques" />
+      <Button fx:id="btnStats" layoutX="1087.0" layoutY="10.0" mnemonicParsing="false" text="Lancer" />
    </children>
 </AnchorPane>
