@@ -1,0 +1,26 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 15 févr. 2017, 01:11:22
+    Author     : Imen Rajhi
+*/
+
+.button {
+    -fx-text-fill: white;
+    -fx-font: 14 'Bree Serif';
+    -fx-background-radius: 5px;
+    -padding-left: 50px;
+    -fx-background-color:  #7f171f ; 
+    
+}
+
+.dialog-pane .header{
+    -fx-font: 18 'Bree Serif';
+}
+
+#btnNo {
+    -fx-background-color: #075a52;
+}

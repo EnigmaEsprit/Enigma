@@ -1,0 +1,16 @@
+/*
+ * Empty Stylesheet file.
+ */
+
+.mainFxmlClass {
+
+}
+#supprimer {
+    -fx-text-fill: white;
+    -fx-font: 11 'system';
+    -fx-background-radius: 5px;
+    -padding-left: 50px;
+   
+    -fx-background-color:#400000;
+    
+}
