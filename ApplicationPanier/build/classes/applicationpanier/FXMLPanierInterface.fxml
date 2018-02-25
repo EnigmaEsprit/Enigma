@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
@@ -12,19 +12,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPaneView3" prefHeight="562.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationpanier.FXMLPanierInterfaceController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPaneView3" prefHeight="606.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationpanier.FXMLPanierInterfaceController">
    <children>
-      <Pane fx:id="paneView" prefHeight="562.0" prefWidth="762.0" style="-fx-background-color: #c59f54;">
+      <Pane fx:id="paneView" prefHeight="606.4" prefWidth="938.4" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button fx:id="btViderPanier" layoutX="603.0" layoutY="516.0" mnemonicParsing="false" onAction="#viderPanier" text="ViderPanier" />
-            <Button fx:id="btPageProduit" layoutX="18.0" layoutY="516.0" mnemonicParsing="false" onAction="#pageProduitFonction" text="Page Produit" />
-            <Button fx:id="btnPayer" layoutX="670.0" layoutY="26.0" mnemonicParsing="false" onAction="#ValiderPaiement" prefHeight="25.0" prefWidth="61.0" text="Payer" />
-            <Label layoutX="320.0" layoutY="19.0" prefHeight="40.0" prefWidth="194.0" text="Votre Panier" textAlignment="CENTER">
+            <Label alignment="CENTER" layoutX="381.0" layoutY="19.0" prefHeight="40.0" prefWidth="194.0" text="Votre Panier" textAlignment="CENTER">
                <font>
                   <Font name="System Bold Italic" size="18.0" />
                </font>
             </Label>
-            <TableView fx:id="listeProduit" layoutY="75.0" prefHeight="424.0" prefWidth="762.0">
+            <TableView fx:id="listeProduit" layoutY="75.0" prefHeight="464.0" prefWidth="938.0">
                <columns>
                   <TableColumn fx:id="imageColumn" prefWidth="132.7999541759491" />
                   <TableColumn fx:id="libelleColumn" prefWidth="109.60003662109375" text="Libelle" />
@@ -47,24 +44,50 @@
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                </columnResizePolicy>
             </TableView>
-            <Label fx:id="prixTotal" layoutX="455.0" layoutY="519.0" text="Prix Total: ">
+            <Label fx:id="prixTotal" layoutX="478.0" layoutY="551.0" prefHeight="33.0" prefWidth="257.0" text="Prix Total: ">
                <font>
-                  <Font name="System Bold Italic" size="14.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <ImageView fx:id="imagePanier" fitHeight="40.0" fitWidth="46.0" layoutX="555.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Image/shopping-cart.png" />
-               </image>
-            </ImageView>
-            <Label fx:id="nombreProduitsDansPanier" layoutX="588.0" layoutY="30.0" text="Label">
+            <Label fx:id="nombreProduitsDansPanier" layoutX="610.0" layoutY="19.0" prefHeight="40.0" prefWidth="160.0" text="Label">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
                </font>
+               <graphic>
+                  <ImageView fx:id="imagePanier" fitHeight="40.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/shopping-cart.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
-            <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" onAction="#statitisques" prefHeight="25.0" prefWidth="50.0" text="stats" />
-            <Button layoutX="87.0" layoutY="26.0" mnemonicParsing="false" onAction="#ConsulterCommandes" text="Commandes" />
-            <Button fx:id="btnGenererPdf" layoutX="185.0" layoutY="27.0" mnemonicParsing="false" onAction="#GenererPdfMethode" prefHeight="25.0" prefWidth="95.0" text="Generer Pdf" />
+            <JFXButton fx:id="btPageProduit" layoutX="14.0" layoutY="551.0" onAction="#pageProduitFonction" prefHeight="33.0" prefWidth="118.0" stylesheets="@paymentCard.css" text="Page Produit" />
+            <JFXButton fx:id="btnPayer" layoutX="790.0" layoutY="23.0" onAction="#ValiderPaiement" prefHeight="33.0" prefWidth="134.0" stylesheets="@paymentCard.css" text="Payer">
+               <graphic>
+                  <ImageView fitHeight="28.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/payment-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
+            <JFXButton fx:id="btnGenererPdf" layoutX="280.0" layoutY="23.0" onAction="#GenererPdfMethode" prefHeight="33.0" prefWidth="134.0" stylesheets="@paymentCard.css" text="Generer Pdf">
+               <graphic>
+                  <ImageView fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/pdf.png" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
+            <JFXButton layoutX="128.0" layoutY="23.0" onAction="#ConsulterCommandes" prefHeight="33.0" prefWidth="134.0" stylesheets="@paymentCard.css" text="Commandes" />
+            <JFXButton layoutX="14.0" layoutY="23.0" onAction="#statitisques" prefHeight="33.0" prefWidth="77.0" stylesheets="@paymentCard.css" text="Stats" />
+            <JFXButton fx:id="btViderPanier" layoutX="790.0" layoutY="551.0" onAction="#viderPanier" prefHeight="33.0" prefWidth="134.0" stylesheets="@paymentCard.css" text="Vider Panier">
+               <graphic>
+                  <ImageView fitHeight="24.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/Clear-Basket-512.png" />
+                     </image>
+                  </ImageView>
+               </graphic></JFXButton>
          </children>
       </Pane>
    </children>

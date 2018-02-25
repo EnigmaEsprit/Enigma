@@ -18,6 +18,7 @@ import entites.Commande;
 import entites.FonctionPanier;
 import entites.Produit;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.PasswordAuthentication;
 import java.net.URL;
 import java.util.Date;
@@ -31,8 +32,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -43,7 +47,10 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
@@ -67,8 +74,6 @@ import services.CommandesServices;
  */
 public class FXMLCommandesInterfaceController implements Initializable {
 
-    @FXML
-    private TableColumn<Commande, String> IdCommandeColumn;
     @FXML
     private TableColumn<Commande, String> prixTotalColumn;
     @FXML
@@ -95,6 +100,8 @@ public class FXMLCommandesInterfaceController implements Initializable {
     private AnchorPane AnchorPaneView;
     @FXML
     private Button btnGenererPdf;
+    @FXML
+    private HBox HBox;
     
     
     @Override
@@ -105,6 +112,8 @@ public class FXMLCommandesInterfaceController implements Initializable {
         listeCommandes.prefWidthProperty().bind(AnchorPaneView.widthProperty());
          PaneView.prefHeightProperty().bind(AnchorPaneView.widthProperty());
         PaneView.prefWidthProperty().bind(AnchorPaneView.widthProperty());
+        HBox.prefHeightProperty().bind(AnchorPaneView.heightProperty());
+        HBox.prefWidthProperty().bind(AnchorPaneView.widthProperty());
         
         
         btnGenererPdf.setOnMouseClicked((MouseEvent e)->{
@@ -126,6 +135,7 @@ public class FXMLCommandesInterfaceController implements Initializable {
 
     @FXML
     private void statitisques(ActionEvent event) {
+        LoadWindow("FXMLStatistiques.fxml", "Statistiques");
     }
 
     
@@ -162,7 +172,7 @@ public class FXMLCommandesInterfaceController implements Initializable {
         
      private void setColumn(){
     
-        IdCommandeColumn.setCellValueFactory(new PropertyValueFactory<>("idCommande"));
+       
         prixTotalColumn.setCellValueFactory(new PropertyValueFactory<>("prixTotal"));
         userColumn.setCellValueFactory(new PropertyValueFactory<>("nom"));
         etatColumn.setCellValueFactory(new PropertyValueFactory<>("etat"));
@@ -184,25 +194,25 @@ public class FXMLCommandesInterfaceController implements Initializable {
             document.open();
             document.add(new Paragraph("Exemple"));
             
-            PdfPTable table = new PdfPTable(6);
+            PdfPTable table = new PdfPTable(5);
             table.setWidthPercentage(105);
             table.setSpacingBefore(11f);
             table.setSpacingAfter(11f);
             
-            float[] colWidth={2f,2f,2f,2f,2f,2f};
+            float[] colWidth={2f,2f,2f,2f,2f};
             table.setWidths(colWidth);
-            PdfPCell c1=new PdfPCell(new Paragraph("Id Commande"));
+           
              PdfPCell c2=new PdfPCell(new Paragraph("Prix Total"));
               PdfPCell c3=new PdfPCell(new Paragraph("Nom user"));
               PdfPCell c4=new PdfPCell(new Paragraph("etat"));
               PdfPCell c5=new PdfPCell(new Paragraph("date Commande"));
               PdfPCell c6=new PdfPCell(new Paragraph("Id Transaction"));
               
-              c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+            /* c1.setHorizontalAlignment(Element.ALIGN_CENTER);
      
-              c1.setBackgroundColor(BaseColor.DARK_GRAY);
+              c1.setBackgroundColor(BaseColor.DARK_GRAY);*/
               
-              table.addCell(c1);
+             
               table.addCell(c2);
               table.addCell(c3);
               table.addCell(c4);
@@ -237,6 +247,7 @@ public class FXMLCommandesInterfaceController implements Initializable {
             writer.close();
             
             AlertMaker.showSimpleAlert("Success", "Generation du panier.pdf \n Location:G:\\3ieme_annee\\PIDEV\\Atelier\\ApplicationPanier");
+            
             notifications();
         }catch(Exception e){
             System.out.println(e);
@@ -338,6 +349,17 @@ public void sendEmail(){
         }
 }
 
+ private void LoadWindow(String loc, String title) {
+        try {
+            Parent homePageParent = FXMLLoader.load(getClass().getResource(loc));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            stage.setTitle(title);
+            stage.setScene(new Scene(homePageParent));
+            stage.show();
 
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLPanierInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }

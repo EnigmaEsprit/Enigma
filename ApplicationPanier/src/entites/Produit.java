@@ -5,6 +5,7 @@
  */
 package entites;
 
+import java.text.NumberFormat;
 import java.util.Objects;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -16,6 +17,7 @@ import javafx.scene.image.ImageView;
  */
 public class Produit {
     
+   
     private int idProduit;
     private String nomProduit;
     private int quantiteProduit;
@@ -25,7 +27,10 @@ public class Produit {
     private TextField quantiteTextField;
     private double prixTotal;
  
-   
+    private int quantiteProduitClient;
+    
+     
+     
     public Produit() {
     }
 
@@ -71,21 +76,38 @@ public class Produit {
     
     
 
-    public Produit(String nomProduit, int quantiteProduit, double prixProduit) {
+    public Produit(String nomProduit, int quantiteProduitClient, double prixProduit) {
         this.nomProduit = nomProduit;
-        this.quantiteProduit = quantiteProduit;
+        this.quantiteProduitClient = quantiteProduitClient;
         this.prixProduit = prixProduit;
     }
 
-    public Produit(int idProduit, String nomProduit, int quantiteProduit, double prixProduit) {
+    public Produit(int idProduit, String nomProduit, int quantiteProduitClient, double prixProduit) {
+        this.idProduit = idProduit;
+        this.nomProduit = nomProduit;
+        this.quantiteProduitClient = quantiteProduitClient;
+        this.prixProduit = prixProduit;
+    }
+
+    public Produit(int idProduit, String nomProduit, int quantiteProduit, double prixProduit, int quantiteProduitClient) {
         this.idProduit = idProduit;
         this.nomProduit = nomProduit;
         this.quantiteProduit = quantiteProduit;
         this.prixProduit = prixProduit;
+        this.quantiteProduitClient = quantiteProduitClient;
     }
+    
     
      public double prixTotal(){
         return getPrixProduit()*getQuantiteProduit();
+    }
+
+    public int getQuantiteProduitClient() {
+        return quantiteProduitClient;
+    }
+
+    public void setQuantiteProduitClient(int quantiteProduitClient) {
+        this.quantiteProduitClient = quantiteProduitClient;
     }
 
     public double getPrixTotal() {

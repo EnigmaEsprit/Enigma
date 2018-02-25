@@ -56,6 +56,8 @@ public class FXMLStatistiquesController implements Initializable {
     }    
     private void loadDataBarChart(){
         System.out.println("ooooooooooooooooooooooooooooooooooooooo");
+        
+        
         PaneView.getChildren().clear();
         CategoryAxis xAxis = new CategoryAxis();
         xAxis.setLabel("libelle des Produits");

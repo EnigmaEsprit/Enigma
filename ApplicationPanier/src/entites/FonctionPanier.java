@@ -54,7 +54,7 @@ public class FonctionPanier implements IPanier{
          
         if(positionProduit !=0){
  
-        panier.get(positionProduit-1).setQuantiteProduit(panier.get(positionProduit-1).getQuantiteProduit()+p.getQuantiteProduit());
+        panier.get(positionProduit-1).setQuantiteProduitClient(panier.get(positionProduit-1).getQuantiteProduitClient()+p.getQuantiteProduitClient());
             System.out.println("modification quantité du produit: "+ panier.get(positionProduit-1).getNomProduit());
         }
        
@@ -82,6 +82,9 @@ public class FonctionPanier implements IPanier{
         if(!panier.isEmpty()){
             
             System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+            System.out.println(p.getQuantiteProduit());
+            System.out.println(p.getQuantiteProduitClient());
+            System.out.println(qteProduit);
             System.out.println(panier);
             System.out.println(p);
              System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
@@ -91,14 +94,22 @@ public class FonctionPanier implements IPanier{
            if(qteProduit>0)
            {
             int positionProduit=1;
-        
+            
+           
+                
+            
          positionProduit+= rechercherProduit(p.getNomProduit());
          System.out.println("oooooooooooooooooooooooooooo");
            if(positionProduit !=0){
-                 panier.get(positionProduit-1).setQuantiteProduit(qteProduit);
+               
+               if(qteProduit<= panier.get(positionProduit-1).getQuantiteProduit())
+               {
+               System.out.println(panier.get(positionProduit-1).getQuantiteProduit());
+                 panier.get(positionProduit-1).setQuantiteProduitClient(qteProduit);
                  System.out.println("oooooooooooooooooooooooooooo");
                  result=true;
              }
+           }
            
            }
        
@@ -152,7 +163,7 @@ public class FonctionPanier implements IPanier{
     
     double total=0;
     for(int i=0; i<panier.size();i++){
-    total += panier.get(i).getQuantiteProduit()*panier.get(i).getPrixProduit();
+    total += panier.get(i).getQuantiteProduitClient()*panier.get(i).getPrixProduit();
     }
     return total;
     }

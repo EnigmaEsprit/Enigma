@@ -5,6 +5,7 @@
  */
 package applicationpanier;
 
+import com.jfoenix.controls.JFXTextField;
 import entites.FonctionPanier;
 import entites.Produit;
 import java.net.URL;
@@ -26,9 +27,9 @@ import javafx.stage.Stage;
 public class FXMLInterfaceModificationQuantiteController implements Initializable {
 
     @FXML
-    private Label nomProduitLabel;
+    private JFXTextField nomProduitLabel;
     @FXML
-    private Label PrixProduitLabel;
+    private JFXTextField PrixProduitLabel;
     @FXML
     private TextField quantiteProduit;
     @FXML
@@ -41,6 +42,7 @@ public class FXMLInterfaceModificationQuantiteController implements Initializabl
     private Boolean estEnModeEdit= false;
     
     public static int idProduitstatic;
+    public static int quantiteProduitTotal;
 
     public static int getIdProduitstatic() {
         return idProduitstatic;
@@ -58,6 +60,7 @@ public class FXMLInterfaceModificationQuantiteController implements Initializabl
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
     }    
 
     @FXML
@@ -67,6 +70,7 @@ public class FXMLInterfaceModificationQuantiteController implements Initializabl
     @FXML
     private void modifierQuantiteSceneBa(ActionEvent event) {
         
+       
         
         String libelle = nomProduitLabel.getText();
         Double prix = Double.parseDouble(PrixProduitLabel.getText());
@@ -74,9 +78,13 @@ public class FXMLInterfaceModificationQuantiteController implements Initializabl
         
         Produit p = new Produit(idProduitstatic,libelle,quantite,prix);
         
-        gererModification(p);
-          Stage stage = (Stage) rootPane.getScene().getWindow();
-        stage.close();
+            if(gererModification(p)){
+                 Stage stage = (Stage) rootPane.getScene().getWindow();
+        stage.close(); 
+            }       
+        
+        
+        
     }
 
     @FXML
@@ -89,17 +97,23 @@ public class FXMLInterfaceModificationQuantiteController implements Initializabl
          
          nomProduitLabel.setText(""+p.getNomProduit());
          PrixProduitLabel.setText(""+p.getPrixProduit());
-         quantiteProduit.setText(""+p.getQuantiteProduit());
-        
+         quantiteProduit.setText(""+p.getQuantiteProduitClient());
+         
+         nomProduitLabel.setEditable(false);
+        PrixProduitLabel.setEditable(false);
          estEnModeEdit=true;
      }
      
-     private void gererModification(Produit p)
+     private Boolean gererModification(Produit p)
      {
-         if(FonctionPanier.modifierQTeArticle(p, p.getQuantiteProduit())){
+         if(FonctionPanier.modifierQTeArticle(p, p.getQuantiteProduitClient())){
+             
+             
              AlertMaker.showSimpleAlert("Success", "Quantite Modifie");
+             return true;
          }else{
-             AlertMaker.showErrorMessage("Failed","Ne peut pas modifier");
+             AlertMaker.showErrorMessage("Failed","Ne peut pas modifier, veuillez saisir une quantite inférieure");
+             return false;
          }
          
      }

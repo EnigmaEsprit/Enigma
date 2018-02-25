@@ -122,7 +122,11 @@ public class FXMLInterface2Controller implements Initializable {
                 
                 /*Ajout Produit dans le panier*/
                 
-                p.setQuantiteProduit(1);
+               // p.setQuantiteProduit(1);
+                System.out.println(p.getQuantiteProduit());
+                System.out.println(p.getQuantiteProduitClient());
+                p.setQuantiteProduitClient(1);
+                System.out.println(p.getQuantiteProduitClient());
                  nombreProduitsDansPanier.setText("= "+FonctionPanier.compterArticles());
                 FonctionPanier.ajouterArticle(p);
                  nombreProduitsDansPanier.setText("= "+FonctionPanier.compterArticles());

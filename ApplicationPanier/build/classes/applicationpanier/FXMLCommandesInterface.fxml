@@ -1,27 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AnchorPaneView" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationpanier.FXMLCommandesInterfaceController">
+<AnchorPane id="AnchorPane" fx:id="AnchorPaneView" prefHeight="606.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="applicationpanier.FXMLCommandesInterfaceController">
    <children>
-      <Pane fx:id="PaneView" prefHeight="508.0" prefWidth="704.0" style="-fx-background-color: #c59f54;">
+      <Pane fx:id="PaneView" prefHeight="606.0" prefWidth="938.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="261.0" layoutY="19.0" prefHeight="40.0" prefWidth="194.0" text="Listes Des Commandes" textAlignment="CENTER">
-               <font>
-                  <Font name="System Bold Italic" size="18.0" />
-               </font>
-            </Label>
-            <TableView fx:id="listeCommandes" layoutY="66.0" prefHeight="435.0" prefWidth="704.0">
+            <HBox fx:id="HBox" prefHeight="67.0" prefWidth="938.0">
+               <children>
+                  <JFXButton onAction="#statitisques" prefHeight="33.0" prefWidth="180.0" stylesheets="@paymentCard.css" text="stats">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="37.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/stats.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+                  <Label alignment="CENTER" prefHeight="55.0" prefWidth="300.0" text="Listes Des Commandes" textAlignment="CENTER">
+                     <font>
+                        <Font name="System Bold Italic" size="18.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="200.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXButton fx:id="btnGenererPdf" onAction="#GenererPdfMethode" prefHeight="41.0" prefWidth="228.0" stylesheets="@paymentCard.css" text="Generer Pdf">
+                     <HBox.margin>
+                        <Insets bottom="10.0" left="140.0" right="10.0" top="10.0" />
+                     </HBox.margin>
+                     <graphic>
+                        <ImageView fitHeight="38.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/pdf.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <TableView fx:id="listeCommandes" layoutY="66.0" prefHeight="540.0" prefWidth="938.0">
               <columns>
-                  <TableColumn fx:id="IdCommandeColumn" prefWidth="49.60003662109375" text="ID" />
                   <TableColumn fx:id="prixTotalColumn" prefWidth="88.00003051757812" text="Prix Totale" />
                   <TableColumn fx:id="userColumn" prefWidth="146.39996337890625" text="Utilisateur" />
                   <TableColumn fx:id="etatColumn" prefWidth="80.800048828125" text="etat" />
@@ -41,8 +75,6 @@
                   </ContextMenu>
                </contextMenu>
             </TableView>
-            <Button layoutX="31.0" layoutY="26.0" mnemonicParsing="false" onAction="#statitisques" prefHeight="25.0" prefWidth="134.0" text="stats" />
-            <Button fx:id="btnGenererPdf" layoutX="541.0" layoutY="27.0" mnemonicParsing="false" onAction="#GenererPdfMethode" prefHeight="25.0" prefWidth="95.0" text="Generer Pdf" />
          </children>
       </Pane>
    </children>
