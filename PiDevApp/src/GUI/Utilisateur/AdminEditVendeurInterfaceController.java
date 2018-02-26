@@ -571,5 +571,27 @@ public class AdminEditVendeurInterfaceController implements Initializable {
 
     @FXML
     private void PanierFenetre(ActionEvent event) {
+        LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);
+    }
+    
+    private void LoadWindowParent(String loc,ActionEvent event){
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(loc));
+            
+            Parent root = (Parent) loader.load();
+           
+             
+            Stage window;
+            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(new Scene(root));
+
+            window.show();
+
+           
+        } catch (IOException ex) {
+            Logger.getLogger(AdminEditClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 }

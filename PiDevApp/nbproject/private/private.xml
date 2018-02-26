@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/G:/3ieme_annee/PIDEV/Atelier/PiDevApp/src/GUI/Panier/FXMLPaymentCardController.java</file>
-            <file>file:/G:/3ieme_annee/PIDEV/Atelier/PiDevApp/src/GUI/Utilisateur/LoginController.java</file>
-            <file>file:/G:/3ieme_annee/PIDEV/Atelier/PiDevApp/src/GUI/Utilisateur/AdminEditVendeurInterfaceController.java</file>
-            <file>file:/G:/3ieme_annee/PIDEV/Atelier/PiDevApp/src/GUI/Utilisateur/ClientEditeInterfaceController.java</file>
-            <file>file:/G:/3ieme_annee/PIDEV/Atelier/PiDevApp/src/GUI/Utilisateur/InscriptionController.java</file>
-            <file>file:/G:/3ieme_annee/PIDEV/Atelier/PiDevApp/src/GUI/Panier/FXMLPanierInterfaceController.java</file>
+            <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/Main/PiDevApp.java</file>
+            <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/GUI/Utilisateur/ClientEditeInterfaceController.java</file>
+            <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/GUI/Utilisateur/ChangerPassowrdVendeurVContoller.java</file>
+            <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/GUI/Utilisateur/ChangerPassowrdVendeurV.fxml</file>
+            <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/service/Utilisateur/VendeurService.java</file>
+            <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/GUI/Utilisateur/Login.fxml</file>
         </group>
     </open-files>
 </project-private>

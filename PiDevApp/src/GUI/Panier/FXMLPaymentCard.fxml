@@ -4,78 +4,242 @@
 <?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="378.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Panier.FXMLPaymentCardController">
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Panier.FXMLPaymentCardController">
    <children>
-      <VBox layoutX="-93.0" layoutY="100.0" prefHeight="378.0" prefWidth="693.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="261.0" layoutY="75.0" prefHeight="585.0" prefWidth="1340.0" style="-fx-background-color: #c49e564b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <Label fx:id="labelPayment" prefHeight="90.0" prefWidth="603.0" text="   Paiement Par Carte" textAlignment="CENTER" textFill="#c59f54">
-               <font>
-                  <Font name="System Bold Italic" size="24.0" />
-               </font>
-               <VBox.margin>
-                  <Insets right="20.0" />
-               </VBox.margin>
-               <graphic>
-                  <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <Pane layoutX="206.0" layoutY="25.0" prefHeight="537.0" prefWidth="948.0" style="-fx-background-color: white;">
+               <children>
+                  <VBox layoutX="128.0" layoutY="79.0" prefHeight="378.0" prefWidth="693.0">
+                     <children>
+                        <Label prefHeight="90.0" prefWidth="603.0" text="   Paiement Par Carte" textAlignment="CENTER" textFill="#c59f54">
+                           <font>
+                              <Font name="System Bold Italic" size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets right="20.0" />
+                           </VBox.margin>
+                           <graphic>
+                              <ImageView fitHeight="70.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/Mastercard-visa-PNG.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Label>
+                        <JFXTextField fx:id="email" focusColor="#c59f54" prefHeight="58.0" prefWidth="600.0" promptText="Entrer votre e-mail">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="20.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <JFXTextField fx:id="numeroCarte" focusColor="#c59f54" layoutX="30.0" layoutY="72.0" prefHeight="58.0" prefWidth="600.0" promptText="Entrer votre numéro bancaire">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" top="10.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <HBox prefHeight="82.0" prefWidth="600.0">
+                           <children>
+                              <JFXTextField fx:id="MoisValidite" focusColor="#c59f54" prefHeight="58.0" prefWidth="600.0" promptText="MM">
+                                 <HBox.margin>
+                                    <Insets left="20.0" right="5.0" />
+                                 </HBox.margin>
+                              </JFXTextField>
+                              <JFXTextField fx:id="AnneeValidite" focusColor="#c59f54" layoutX="30.0" layoutY="10.0" prefHeight="58.0" prefWidth="600.0" promptText="YY" />
+                              <JFXPasswordField fx:id="ccvTextField" prefHeight="58.0" prefWidth="600.0" promptText="CCV">
+                                 <padding>
+                                    <Insets left="5.0" right="20.0" />
+                                 </padding>
+                              </JFXPasswordField>
+                           </children>
+                        </HBox>
+                        <JFXTextField fx:id="codeZip" focusColor="#c59f54" prefHeight="58.0" prefWidth="600.0" promptText="Entrer votre code zip">
+                           <VBox.margin>
+                              <Insets left="20.0" right="20.0" />
+                           </VBox.margin>
+                        </JFXTextField>
+                        <HBox prefHeight="58.0" prefWidth="600.0">
+                           <children>
+                              <JFXButton fx:id="btnValider" onAction="#validerFunction" prefHeight="60.0" prefWidth="400.0" stylesheets="@paymentCard.css" text="Valider">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                              <JFXButton fx:id="btnAnnuler" layoutX="10.0" layoutY="10.0" onAction="#AnnulerFunction" prefHeight="60.0" prefWidth="400.0" stylesheets="@paymentCard.css" text="Annuler">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Label fx:id="labelPayment" alignment="TOP_LEFT" layoutX="638.0" layoutY="49.0" prefHeight="37.0" prefWidth="324.0" text="Montant" textFill="#c59f54">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../Images/payment-512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Label>
+               </children></Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="127.0" layoutY="20.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="61.0" fitWidth="138.0" layoutX="559.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/LOGO_SOUK_Blan.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Pane fx:id="menu" layoutX="33.0" layoutY="30.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
+         <children>
+            <Pane fx:id="menu3" layoutX="197.0" layoutY="414.0" prefHeight="155.0" prefWidth="209.0">
+               <children>
+                  <Button fx:id="Maps" layoutX="1.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnMapsAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BA55D3;" text="Maps">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="10.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Images/Mastercard-visa-PNG.png" />
+                        <Image url="@../../Images/placeholder.png" />
                      </image>
                   </ImageView>
-               </graphic>
-            </Label>
-            <JFXTextField fx:id="email" focusColor="#c59f54" prefHeight="58.0" prefWidth="600.0" promptText="Entrer votre e-mail">
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" top="20.0" />
-               </VBox.margin>
-            </JFXTextField>
-            <JFXTextField fx:id="numeroCarte" focusColor="#c59f54" layoutX="30.0" layoutY="72.0" prefHeight="58.0" prefWidth="600.0" promptText="Entrer votre numéro bancaire">
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" top="10.0" />
-               </VBox.margin>
-            </JFXTextField>
-            <HBox prefHeight="82.0" prefWidth="600.0">
-               <children>
-                  <JFXTextField fx:id="MoisValidite" focusColor="#c59f54" prefHeight="58.0" prefWidth="600.0" promptText="MM">
-                     <HBox.margin>
-                        <Insets left="20.0" right="5.0" />
-                     </HBox.margin>
-                  </JFXTextField>
-                  <JFXTextField fx:id="AnneeValidite" focusColor="#c59f54" layoutX="30.0" layoutY="10.0" prefHeight="58.0" prefWidth="600.0" promptText="YY" />
-                  <JFXPasswordField fx:id="ccvTextField" prefHeight="58.0" prefWidth="600.0" promptText="CCV">
-                     <padding>
-                        <Insets left="5.0" right="20.0" />
-                     </padding>
-                  </JFXPasswordField>
-               </children>
-            </HBox>
-            <JFXTextField fx:id="codeZip" focusColor="#c59f54" prefHeight="58.0" prefWidth="600.0" promptText="Entrer votre code zip">
-               <VBox.margin>
-                  <Insets left="20.0" right="20.0" />
-               </VBox.margin>
-            </JFXTextField>
-            <HBox prefHeight="58.0" prefWidth="600.0">
-               <children>
-                  <JFXButton fx:id="btnValider" onAction="#validerFunction" prefHeight="60.0" prefWidth="400.0" stylesheets="@paymentCard.css" text="Valider">
+                  <Button fx:id="recherche" layoutX="2.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnRechercheAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #AFEEEE;" text="   Search Contact">
                      <font>
                         <Font size="18.0" />
                      </font>
-                  </JFXButton>
-                  <JFXButton fx:id="btnAnnuler" layoutX="10.0" layoutY="10.0" onAction="#AnnulerFunction" prefHeight="60.0" prefWidth="400.0" stylesheets="@paymentCard.css" text="Annuler">
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/hiring.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="menu2" layoutX="197.0" layoutY="251.0" prefHeight="224.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="espClient1" layoutX="3.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnespClientAction" onMouseEntered="#afficherSuite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #F4A460;" text="Espace Client">
                      <font>
                         <Font size="18.0" />
                      </font>
-                  </JFXButton>
+                  </Button>
+                  <Button fx:id="espVendeur1" layoutX="2.0" layoutY="87.0" mnemonicParsing="false" onAction="#btnespVendeurAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FFF5EE;" text="Espace Vendeur">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="espAdmin1" layoutX="2.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnespAdminAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #5F9EA0;" text="LogOut">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="5.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/man.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="2.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/boss.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/logout.png" />
+                     </image>
+                  </ImageView>
                </children>
-            </HBox>
+            </Pane>
+            <Button layoutX="2.0" layoutY="31.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="106.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="186.0" mnemonicParsing="false" onAction="#PanierFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #2E8B57;" text="Panier">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="264.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #708090;" text="Promotion">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Log" layoutX="3.0" layoutY="415.0" mnemonicParsing="false" onMouseEntered="#afficherSuite" onMouseExited="#exite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #8FBC8F;" text="LogIN">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Event" layoutX="2.0" layoutY="338.0" mnemonicParsing="false" onAction="#btnEventAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #E9967A;" text="Evenements">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Contacts" layoutX="2.0" layoutY="491.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Contacts">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="14.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/store%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="13.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/basket.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/online-shop.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="12.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/pantone.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="426.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/login.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="349.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/event.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/contacts.png" />
+               </image>
+            </ImageView>
          </children>
-      </VBox>
+      </Pane>
    </children>
 </AnchorPane>

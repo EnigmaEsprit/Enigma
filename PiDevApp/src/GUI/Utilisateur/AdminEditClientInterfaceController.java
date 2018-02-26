@@ -344,7 +344,7 @@ menu.setTranslateX(-190);
     @FXML
     private void PanierFenetre(ActionEvent event) {
         
-        LoadWindow("/GUI/Panier/FXMLPanierInterface.fxml", "Panier");
+        LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml", event);
     }
 
     

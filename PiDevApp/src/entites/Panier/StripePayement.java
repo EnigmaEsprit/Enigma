@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entites;
+package entites.Panier;
 
 import com.stripe.Stripe;
 import com.stripe.exception.APIConnectionException;

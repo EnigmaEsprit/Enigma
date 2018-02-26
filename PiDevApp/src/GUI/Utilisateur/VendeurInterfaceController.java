@@ -25,6 +25,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuBar;
+import javafx.scene.control.MenuItem;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -81,14 +84,11 @@ public class VendeurInterfaceController implements Initializable {
     private Button Log;
     @FXML
     private Button Event;
-    @FXML
     private Pane menu3;
     @FXML
-    private Button recherche;
-    @FXML
-    private Button Maps;
-    @FXML
     private Button Contacts;
+    @FXML
+    private Button Editer;
 
     /**
      * Initializes the controller class.
@@ -96,6 +96,7 @@ public class VendeurInterfaceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+      
                             menu.setTranslateX(-190);
     TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), menu);
 
@@ -111,7 +112,7 @@ public class VendeurInterfaceController implements Initializable {
         menuTranslation.play();
     });
      menu2.setVisible(false);
-     menu3.setVisible(false);
+  
     }    
     public void myFunction() {
        
@@ -155,24 +156,7 @@ public class VendeurInterfaceController implements Initializable {
               System.out.println(Util.connectedUser);
         if (Util.connectedUser==null)
         {
-           try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            LoadWindowParent("Login.fxml", event);
         }
         else
         {
@@ -199,46 +183,12 @@ public class VendeurInterfaceController implements Initializable {
     @FXML
     private void btnespVendeurAction(ActionEvent event) {
         Util.connectedUserVendeur=null;
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginVendeur.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("LoginVendeur.fxml", event);
         
     }
  @FXML
     private void btnespAdminAction(ActionEvent event) {
-         try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginAdmin.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     LoadWindowParent("LoginAdmin.fxml", event);
     }
 
       @FXML
@@ -275,34 +225,21 @@ public class VendeurInterfaceController implements Initializable {
  
     }
 
-    @FXML
     private void btnRechercheAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/RechercheContactInterface.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
         
     }
 
-    @FXML
     private void btnMapsAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
+    }
+
+    
+    
+    private void LoadWindowParent(String loc,ActionEvent event){
         try {
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/Maps.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(loc));
             
             Parent root = (Parent) loader.load();
            
@@ -316,11 +253,25 @@ public class VendeurInterfaceController implements Initializable {
 
            
         } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(VendeurInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+
+ 
+
+    @FXML
+    private void statswindow(ActionEvent event) {
+          LoadWindowParent("/GUI/Panier/FXMLStatistiques.fxml", event);
     }
 
     @FXML
-    private void PanierFenetre(ActionEvent event) {
+    private void CommandesFenetre(ActionEvent event) {
+         LoadWindowParent("/GUI/Panier/FXMLCommandesInterface.fxml", event);
+    }
+
+    @FXML
+    private void btnChangePasswordAction(ActionEvent event) {
+        LoadWindowParent("ChangerPassowrdVendeurV.fxml", event);
+        
     }
 }

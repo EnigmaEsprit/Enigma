@@ -76,7 +76,7 @@ public class Client extends Utilisateur{
     }
     public String toString()
     {
-        return "nom: "+getNom()+" prenom: "+getPrenom()+" DN: "+getDate_naissance()+" AD: "+getAdresse()+" VL: "+getVille()+" ZIP: "+getZip()+" NTE: "+getNt()+" MAIL: "+getEmail()+" MDP: "+getMdp()+" NBC: "+getNbc()+" DV: "+getDate_validation()+" CS: "+getCode_s();
+        return "id: "+getId()+"nom: "+getNom()+" prenom: "+getPrenom()+" DN: "+getDate_naissance()+" AD: "+getAdresse()+" VL: "+getVille()+" ZIP: "+getZip()+" NTE: "+getNt()+" MAIL: "+getEmail()+" MDP: "+getMdp()+" NBC: "+getNbc()+" DV: "+getDate_validation()+" CS: "+getCode_s();
     }
    
     /**

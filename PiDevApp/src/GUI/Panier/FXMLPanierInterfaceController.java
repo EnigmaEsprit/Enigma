@@ -373,7 +373,7 @@ public class FXMLPanierInterfaceController implements Initializable {
     private void ValiderPaiement(ActionEvent event) {
        
         if(Util.connectedUser !=null){
-             LoadWindow("FXMLPaymentCard.fxml", "Paiement Par Carte");
+             LoadWindowParent("FXMLPaymentCard.fxml",event);
         }else{
             
             UtilisateurConnectePourPayer = false;
@@ -388,12 +388,12 @@ public class FXMLPanierInterfaceController implements Initializable {
     @FXML
     private void statitisques(ActionEvent event) {
 
-        LoadWindow("FXMLStatistiques.fxml", "Statistiques");
+        LoadWindowParent("FXMLStatistiques.fxml",event);
     }
 
     @FXML
     private void ConsulterCommandes(ActionEvent event) {
-        LoadWindow("FXMLCommandesInterface.fxml", "Liste des Commandes");
+        LoadWindowParent("FXMLCommandesInterface.fxml",event);
     }
 
     @FXML

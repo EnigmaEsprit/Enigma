@@ -2,17 +2,56 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import java.net.URL?>
 
-<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Panier.TestpanierController">
-   <children>
+<AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Utilisateur.ChangerPassowrdVendeurVContoller">
+   <stylesheets>
+        <URL value="@/Images/style.css" />
+    </stylesheets> 
+    <children>
       <Pane layoutX="261.0" layoutY="75.0" prefHeight="585.0" prefWidth="1340.0" style="-fx-background-color: #c49e564b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
             <Pane layoutX="206.0" layoutY="25.0" prefHeight="537.0" prefWidth="948.0" style="-fx-background-color: #c59f54c9;" />
+            <Button fx:id="annuler" layoutX="899.0" layoutY="504.0" mnemonicParsing="false" onAction="#btnAnnulerAction" prefHeight="30.0" prefWidth="92.0" stylesheets="@style.css" text="Annuler">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="Editer" layoutX="1013.0" layoutY="504.0" mnemonicParsing="false" onAction="#btnEditAction" prefHeight="30.0" prefWidth="92.0" stylesheets="@style.css" text="Editer">
+               <font>
+                  <Font name="System Italic" size="14.0" />
+               </font>
+            </Button>
+            <Label layoutX="354.0" layoutY="145.0" text="Pssword actuelle*:">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="passwordactuelle" layoutX="513.0" layoutY="139.0" prefHeight="33.0" prefWidth="379.0" promptText="Saisir votre mot de passe actuelle" stylesheets="@style.css" />
+            <Label layoutX="354.0" layoutY="232.0" text="Nouveau Pssword*:">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="password" layoutX="515.0" layoutY="228.0" prefHeight="33.0" prefWidth="379.0" promptText="Saisir votre nouveau mot de passe" stylesheets="@style.css" />
+            <Label layoutX="354.0" layoutY="324.0" text="Comfirmer Password*:">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="cpassword" layoutX="517.0" layoutY="319.0" prefHeight="33.0" prefWidth="379.0" promptText="Comfirmer votre nouvelle mot de passe" stylesheets="@style.css" />
+            <Label layoutX="252.0" layoutY="46.0" text="Change Password">
+               <font>
+                  <Font name="Agency FB" size="37.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <Pane layoutX="127.0" layoutY="20.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -27,33 +66,9 @@
             <Insets />
          </opaqueInsets>
       </Pane>
-      <Pane fx:id="menu" layoutX="33.0" layoutY="30.0" prefHeight="584.0" prefWidth="197.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
+      <Pane fx:id="menu" layoutX="63.0" layoutY="60.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <Pane fx:id="menu3" layoutX="200.0" layoutY="414.0" prefHeight="143.0" prefWidth="200.0">
-               <children>
-                  <Button fx:id="Maps" layoutX="1.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnMapsAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BA55D3;" text="Maps">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="10.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/placeholder.png" />
-                     </image>
-                  </ImageView>
-                  <Button fx:id="recherche" layoutX="2.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnRechercheAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #AFEEEE;" text="   Search Contact">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Button>
-                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../Images/hiring.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane fx:id="menu2" layoutX="200.0" layoutY="251.0" prefHeight="224.0" prefWidth="200.0">
+            <Pane fx:id="menu2" layoutX="197.0" layoutY="251.0" prefHeight="224.0" prefWidth="200.0">
                <children>
                   <Button fx:id="espClient1" layoutX="3.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnespClientAction" onMouseEntered="#afficherSuite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #F4A460;" text="Espace Client">
                      <font>
@@ -92,12 +107,12 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="2.0" layoutY="106.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
+            <Button layoutX="2.0" layoutY="106.0" mnemonicParsing="false" onAction="#statswindow" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #9ACD32;" text="Statistiques">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="2.0" layoutY="186.0" mnemonicParsing="false" onAction="#PanierFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #2E8B57;" text="Panier">
+            <Button layoutX="2.0" layoutY="186.0" mnemonicParsing="false" onAction="#CommandesFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FFD700;" text="Commandes">
                <font>
                   <Font size="18.0" />
                </font>
@@ -117,19 +132,19 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Contacts" layoutX="2.0" layoutY="491.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Contacts">
+            <Button fx:id="Contacts" layoutX="2.0" layoutY="491.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Reclamations">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="14.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="8.0" layoutY="119.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Images/store%20(1).png" />
+                  <Image url="@../../Images/pie-chart.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="13.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="9.0" layoutY="198.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Images/basket.png" />
+                  <Image url="@../../Images/list.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
@@ -154,7 +169,7 @@
             </ImageView>
             <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="503.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../Images/contacts.png" />
+                  <Image url="@../../Images/exclamation.png" />
                </image>
             </ImageView>
          </children>

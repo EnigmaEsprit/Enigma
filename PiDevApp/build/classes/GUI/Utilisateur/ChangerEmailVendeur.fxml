@@ -69,9 +69,9 @@
             <Insets />
          </opaqueInsets>
       </Pane>
-      <Pane fx:id="menu" layoutX="13.0" layoutY="10.0" prefHeight="584.0" prefWidth="198.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="5.0" AnchorPane.topAnchor="66.0">
+      <Pane fx:id="menu" layoutX="63.0" layoutY="60.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <Pane fx:id="menu3" layoutX="200.0" layoutY="414.0" prefHeight="143.0" prefWidth="200.0">
+            <Pane fx:id="menu3" layoutX="197.0" layoutY="414.0" prefHeight="155.0" prefWidth="209.0">
                <children>
                   <Button fx:id="Maps" layoutX="1.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnMapsAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BA55D3;" text="Maps">
                      <font>
@@ -95,7 +95,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="menu2" layoutX="200.0" layoutY="251.0" prefHeight="224.0" prefWidth="200.0">
+            <Pane fx:id="menu2" layoutX="197.0" layoutY="251.0" prefHeight="224.0" prefWidth="200.0">
                <children>
                   <Button fx:id="espClient1" layoutX="3.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnespClientAction" onMouseEntered="#afficherSuite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #F4A460;" text="Espace Client">
                      <font>

@@ -5,6 +5,10 @@
  */
 package GUI.Panier;
 
+import GUI.Utilisateur.ClientInterfaceController;
+import GUI.Utilisateur.LoginController;
+import GUI.Utilisateur.VendeurInterfaceController;
+import Util.Util;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
@@ -29,6 +33,7 @@ import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -38,6 +43,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -101,26 +107,62 @@ public class FXMLCommandesInterfaceController implements Initializable {
     private TableView<Commande> listeCommandes;
     @FXML
     private Pane PaneView;
-    @FXML
     private AnchorPane AnchorPaneView;
     @FXML
     private Button btnGenererPdf;
     @FXML
     private HBox HBox;
+    @FXML
+    private Pane paneView;
+    @FXML
+    private AnchorPane paneViewEntete;
+    @FXML
+    private Pane menu;
+    private Pane menu3;
+    @FXML
+    private Pane menu2;
+    @FXML
+    private Button espClient1;
+    @FXML
+    private Button espVendeur1;
+    @FXML
+    private Button espAdmin1;
+    @FXML
+    private Button Log;
+    @FXML
+    private Button Event;
+    @FXML
+    private Button Contacts;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        listeCommandes.setMaxHeight(900);
+       /* listeCommandes.setMaxHeight(900);
       listeCommandes.prefHeightProperty().bind(AnchorPaneView.widthProperty());
         listeCommandes.prefWidthProperty().bind(AnchorPaneView.widthProperty());
          PaneView.prefHeightProperty().bind(AnchorPaneView.widthProperty());
         PaneView.prefWidthProperty().bind(AnchorPaneView.widthProperty());
         HBox.prefHeightProperty().bind(AnchorPaneView.heightProperty());
-        HBox.prefWidthProperty().bind(AnchorPaneView.widthProperty());
+        HBox.prefWidthProperty().bind(AnchorPaneView.widthProperty());*/
         
-        
+         menu.setTranslateX(-190);
+    TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), menu);
+
+    menuTranslation.setFromX(-190);
+    menuTranslation.setToX(0);
+
+    menu.setOnMouseEntered(evt -> {
+        menuTranslation.setRate(1);
+        menuTranslation.play();
+    });
+    menu.setOnMouseExited(evt -> {
+        menuTranslation.setRate(-1);
+        menuTranslation.play();
+    });
+    menu2.setVisible(false);
+  
+    
         btnGenererPdf.setOnMouseClicked((MouseEvent e)->{
             GenererPdf();
             sendEmail();
@@ -377,6 +419,164 @@ public void sendEmail(){
         } catch (IOException ex) {
             Logger.getLogger(FXMLPanierInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+     @FXML
+    private void btnespClientAction(ActionEvent event) {
+              System.out.println(Util.connectedUser);
+        if (Util.connectedUser==null)
+        {
+            LoadWindowParent("/GUI/Utilisateur/Login.fxml", event);
+        }
+        else
+        {
+           try {
+              
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/ClientInterface.fxml"));
+                Parent root = (Parent) loader.load();
+                ClientInterfaceController ClientIn = loader.getController();
+                ClientIn.myFunction();
+                Stage window;
+                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(new Scene(root));
+                window.show();
+
+            } catch (IOException ex) {
+                System.out.println("catch : " + ex.getMessage());
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        }
+
+       
+    
+    @FXML
+    private void btnespVendeurAction(ActionEvent event) {
+        if(Util.connectedUserVendeur==null){
+            LoadWindowParent("/GUI/Utilisateur/LoginVendeur.fxml", event);
+        }
+        else 
+        {
+              try {
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/VendeurInterface.fxml"));
+                Parent root = (Parent) loader.load();
+                VendeurInterfaceController ClientIn = loader.getController();
+                ClientIn.myFunction();
+                Stage window;
+                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(new Scene(root));
+                window.show();
+
+            } catch (IOException ex) {
+                System.out.println("catch : " + ex.getMessage());
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+    }
+    }
+ @FXML
+    private void btnespAdminAction(ActionEvent event) {
+            
+             LoadWindowParent("/GUI/Utilisateur/LoginAdmin.fxml", event);
+    }
+
+    @FXML
+    private void afficherSuite(MouseEvent event) {
+        menu.setVisible(true);
+        menu2.setVisible(true);
+ 
+    }
+
+    @FXML
+    private void exite(MouseEvent event) {
+         menu2.setOnMouseEntered(evt -> {menu2.setVisible(true);});
+         menu2.setOnMouseExited(evt -> {menu2.setVisible(false);});
+       
+        menu2.setVisible(false);
+    }
+
+
+    @FXML
+    private void exitemenu3(MouseEvent event) {
+        menu3.setOnMouseEntered(evt -> {menu3.setVisible(true);});
+         menu3.setOnMouseExited(evt -> {menu3.setVisible(false);});
+       
+        menu3.setVisible(false);
+    }
+
+    @FXML
+    private void afficherSuitemenu3(MouseEvent event) {
+         menu.setVisible(true);
+        menu3.setVisible(true);
+ 
+    }
+
+    private void btnRechercheAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
+    }
+
+    private void btnMapsAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
+    }
+
+    private void PanierFenetre(ActionEvent event) {
+        
+       LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml", event);
+    }
+
+    private void LoadWindow(String loc){
+         try {
+            Parent homePageParent = FXMLLoader.load(getClass().getResource(loc));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            //stage.setTitle(name);
+            stage.setScene(new Scene(homePageParent));
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLPanierInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void LoadWindowParent(String loc,ActionEvent event){
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(loc));
+            
+            Parent root = (Parent) loader.load();
+           
+             
+            Stage window;
+            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(new Scene(root));
+
+            window.show();
+
+           
+        } catch (IOException ex) {
+            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+
+    @FXML
+    private void btnEventAction(ActionEvent event) {
+    }
+
+      
+   
+
+ 
+
+    @FXML
+    private void statswindow(ActionEvent event) {
+          LoadWindowParent("/GUI/Panier/FXMLStatistiques.fxml", event);
+    }
+
+    @FXML
+    private void CommandesFenetre(ActionEvent event) {
+         LoadWindowParent("/GUI/Panier/FXMLCommandesInterface.fxml", event);
     }
 
 }

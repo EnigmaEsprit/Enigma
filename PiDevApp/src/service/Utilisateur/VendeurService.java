@@ -184,7 +184,29 @@ try {
         return insert;
     }
 
-     
+      public boolean modifierPasswordVendeur(String mdp) {
+        
+          
+            boolean insert = false;
+        
+        try {
+            
+            
+         
+            stm.executeUpdate("UPDATE users SET password='" + mdp + "'WHERE email='" +Util.connectedUserVendeur.getEmail() + "' and type = 'vendeur'");
+               System.out.println("Update Password vendeur");
+               insert = true;
+        } catch (SQLException ex) {
+            System.out.println(ex);
+            
+       
+            
+      
+
+
+    }
+        return insert;
+    }
 }
 
    

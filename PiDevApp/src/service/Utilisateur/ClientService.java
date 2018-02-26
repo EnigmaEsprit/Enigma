@@ -174,7 +174,7 @@ public class ClientService implements IClient {
             ResultSet res = stm.executeQuery("SELECT * FROM users WHERE type ='client' AND email ='" + mail+"'");
             System.out.println("ooook"); 
             res.next();
-             c = new Client(res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getInt(8), res.getString(9), res.getString(10), res.getString(11), res.getString(14), res.getString(15), res.getString(16));
+             c = new Client(res.getInt(1),res.getString(2), res.getString(3), res.getString(4), res.getString(5), res.getString(6), res.getString(7), res.getInt(8), res.getString(9), res.getString(10), res.getString(11), res.getString(14), res.getString(15), res.getString(16));
              System.out.println(c);
         } catch (SQLException ex) {
             Logger.getLogger(ClientService.class.getName()).log(Level.SEVERE, null, ex);

@@ -6,6 +6,9 @@
 package GUI.Panier;
 
 import GUI.Panier.AlertMaker;
+import GUI.Utilisateur.ClientInterfaceController;
+import GUI.Utilisateur.LoginController;
+import GUI.Utilisateur.VendeurInterfaceController;
 import Util.Util;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
@@ -16,18 +19,31 @@ import entites.Panier.Commande;
 import entites.Panier.FonctionPanier;
 import entites.Panier.LigneCommande;
 import entites.Produit.Produit;
-import entites.StripePayement;
+import entites.Panier.StripePayement;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import service.Panier.CommandesServices;
 import service.Panier.LigneCommandesServices;
 
@@ -54,7 +70,6 @@ public class FXMLPaymentCardController implements Initializable {
     private JFXTextField MoisValidite;
     @FXML
     private JFXTextField AnneeValidite;
-    @FXML
     private AnchorPane rootPane;
     @FXML
     private Label labelPayment;
@@ -63,9 +78,48 @@ public class FXMLPaymentCardController implements Initializable {
      * Initializes the controller class.
      */
     static NumberFormat format;
+    @FXML
+    private Pane menu;
+    @FXML
+    private Pane menu3;
+    @FXML
+    private Button Maps;
+    @FXML
+    private Button recherche;
+    @FXML
+    private Pane menu2;
+    @FXML
+    private Button espClient1;
+    @FXML
+    private Button espVendeur1;
+    @FXML
+    private Button espAdmin1;
+    @FXML
+    private Button Log;
+    @FXML
+    private Button Event;
+    @FXML
+    private Button Contacts;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+         menu.setTranslateX(-190);
+    TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), menu);
+
+    menuTranslation.setFromX(-190);
+    menuTranslation.setToX(0);
+
+    menu.setOnMouseEntered(evt -> {
+        menuTranslation.setRate(1);
+        menuTranslation.play();
+    });
+    menu.setOnMouseExited(evt -> {
+        menuTranslation.setRate(-1);
+        menuTranslation.play();
+    });
+    menu2.setVisible(false);
+    menu3.setVisible(false);
          format = NumberFormat.getCurrencyInstance(Locale.FRANCE);
         
 
@@ -148,17 +202,19 @@ public class FXMLPaymentCardController implements Initializable {
         int idTransaction = Integer.parseInt(generate(5));
         System.out.println("*****************");
         Commande cmd = new Commande();
-        cmd.setIdUser(3);
+        
+        System.out.println("id user: "+Util.connectedUser);
+        cmd.setIdUser(Util.connectedUser.getId());
         cmd.setIdTransaction(idTransaction);
         cmd.setEtat(0);
         cmd.setPrixTotal(FonctionPanier.MontantGlobal());
         cmdService.ajouterCommande(cmd);
-        //cmdService.modifierEtat();
+        
 
-        /**
-         * ****************************ligne**********
+        /*
+         * *******************ligne*******************
          */
-        int idCmd = cmdService.rechercherParIdTransaction(idTransaction);
+       int idCmd = cmdService.rechercherParIdTransaction(idTransaction);
         System.out.println(idCmd);
         
          cmdService.modifierEtat(idCmd);
@@ -195,4 +251,151 @@ public class FXMLPaymentCardController implements Initializable {
         System.out.println(pass);
         return pass;
     }
+
+    @FXML
+    private void btnespClientAction(ActionEvent event) {
+              System.out.println(Util.connectedUser);
+        if (Util.connectedUser==null)
+        {
+            LoadWindowParent("/GUI/Utilisateur/Login.fxml", event);
+        }
+        else
+        {
+           try {
+              
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/ClientInterface.fxml"));
+                Parent root = (Parent) loader.load();
+                ClientInterfaceController ClientIn = loader.getController();
+                ClientIn.myFunction();
+                Stage window;
+                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(new Scene(root));
+                window.show();
+
+            } catch (IOException ex) {
+                System.out.println("catch : " + ex.getMessage());
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        }
+
+       
+    
+    @FXML
+    private void btnespVendeurAction(ActionEvent event) {
+        if(Util.connectedUserVendeur==null){
+            LoadWindowParent("/GUI/Utilisateur/LoginVendeur.fxml", event);
+        }
+        else 
+        {
+              try {
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/VendeurInterface.fxml"));
+                Parent root = (Parent) loader.load();
+                VendeurInterfaceController ClientIn = loader.getController();
+                ClientIn.myFunction();
+                Stage window;
+                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(new Scene(root));
+                window.show();
+
+            } catch (IOException ex) {
+                System.out.println("catch : " + ex.getMessage());
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+    }
+    }
+ @FXML
+    private void btnespAdminAction(ActionEvent event) {
+            
+             LoadWindowParent("/GUI/Utilisateur/LoginAdmin.fxml", event);
+    }
+
+    @FXML
+    private void afficherSuite(MouseEvent event) {
+        menu.setVisible(true);
+        menu2.setVisible(true);
+ 
+    }
+
+    @FXML
+    private void exite(MouseEvent event) {
+         menu2.setOnMouseEntered(evt -> {menu2.setVisible(true);});
+         menu2.setOnMouseExited(evt -> {menu2.setVisible(false);});
+       
+        menu2.setVisible(false);
+    }
+
+
+    @FXML
+    private void exitemenu3(MouseEvent event) {
+        menu3.setOnMouseEntered(evt -> {menu3.setVisible(true);});
+         menu3.setOnMouseExited(evt -> {menu3.setVisible(false);});
+       
+        menu3.setVisible(false);
+    }
+
+    @FXML
+    private void afficherSuitemenu3(MouseEvent event) {
+         menu.setVisible(true);
+        menu3.setVisible(true);
+ 
+    }
+
+    @FXML
+    private void btnRechercheAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
+    }
+
+    @FXML
+    private void btnMapsAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
+    }
+
+    @FXML
+    private void PanierFenetre(ActionEvent event) {
+        
+       LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);
+    }
+
+    private void LoadWindow(String loc){
+         try {
+            Parent homePageParent = FXMLLoader.load(getClass().getResource(loc));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            //stage.setTitle(name);
+            stage.setScene(new Scene(homePageParent));
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLPaymentCardController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void LoadWindowParent(String loc,ActionEvent event){
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(loc));
+            
+            Parent root = (Parent) loader.load();
+           
+             
+            Stage window;
+            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(new Scene(root));
+
+            window.show();
+
+           
+        } catch (IOException ex) {
+            Logger.getLogger(FXMLPaymentCardController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+
+    @FXML
+    private void btnEventAction(ActionEvent event) {
+    }
+
 }

@@ -355,9 +355,7 @@ public class LoginController implements Initializable {
         }
     }
 
-    @FXML
-    private void PanierFenetre(ActionEvent event) {
-    }
+    
     
     private void LoadWindowParent(String loc,ActionEvent event){
         try {
@@ -379,5 +377,10 @@ public class LoginController implements Initializable {
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+        @FXML
+    private void PanierFenetre(ActionEvent event) {
+        LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);
+    }
+    
 
 }
