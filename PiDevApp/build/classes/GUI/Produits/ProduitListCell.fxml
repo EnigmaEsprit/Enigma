@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ProduitListCellController">
+   <children>
+      <GridPane fx:id="root" hgap="5.0" layoutX="102.0" layoutY="110.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="117.0" prefWidth="367.0" vgap="5.0">
+         <children>
+            <Label text="Nom produit" />
+            <Label text="Prix" GridPane.rowIndex="1" />
+            <Label text="Reference" GridPane.rowIndex="2" />
+            <Label text="Quantite" GridPane.rowIndex="3" />
+            <Label fx:id="id" GridPane.columnIndex="1" />
+            <TextField fx:id="colprix" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" />
+            <TextField fx:id="colref" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" />
+            <TextField fx:id="colquantite" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" />
+            <TextField fx:id="colNom" GridPane.columnIndex="1" />
+         </children>
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+         </columnConstraints>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <rowConstraints>
+            <RowConstraints vgrow="NEVER" />
+            <RowConstraints maxHeight="27.0" minHeight="27.0" prefHeight="27.0" vgrow="NEVER" />
+            <RowConstraints maxHeight="27.0" minHeight="27.0" prefHeight="27.0" vgrow="NEVER" />
+            <RowConstraints vgrow="NEVER" />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>

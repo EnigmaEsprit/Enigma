@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AjoutArticleController">
+   <children>
+      <ImageView fitHeight="550.0" fitWidth="900.0" layoutY="-4.0" opacity="0.48" pickOnBounds="true">
+         <image>
+            <Image url="@../images/back.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="30.0" layoutY="53.0" prefHeight="26.0" prefWidth="245.0" text="Ajout article">
+         <font>
+            <Font size="39.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imharticle" fitHeight="196.0" fitWidth="319.0" layoutX="467.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/default.png" />
+         </image>
+      </ImageView>
+      <VBox layoutX="707.0" layoutY="343.0" prefHeight="71.0" prefWidth="79.0" spacing="10.0" stylesheets="@../../../../JavaFXSpringBootApp-master/src/main/resources/styles/Styles.css">
+         <children>
+            <HBox prefHeight="112.0" prefWidth="510.0">
+               <children>
+                  <Label fx:id="AcrticleId">
+                     <HBox.margin>
+                        <Insets left="25.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+               <VBox.margin>
+                  <Insets left="25.0" />
+               </VBox.margin>
+            </HBox>
+            <Button id="BtnReset" fx:id="upload" mnemonicParsing="false" onAction="#UpladImage" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: white;" text="Upload">
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX" color="#1965d0" />
+               </effect>
+            </Button>
+            <HBox prefHeight="29.0" prefWidth="280.0" spacing="10.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <Text layoutX="486.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Upload image" />
+      <JFXTextField fx:id="TFRef" focusColor="WHITE" layoutX="24.0" layoutY="186.0" maxWidth="328.0" minWidth="192.0" prefHeight="33.0" prefWidth="328.0" promptText="Reference produit" unFocusColor="BLACK" />
+      <JFXTextField fx:id="TFPrix" focusColor="WHITE" layoutX="23.0" layoutY="238.0" maxWidth="328.0" minWidth="192.0" prefHeight="33.0" prefWidth="328.0" promptText="Prix produit" unFocusColor="#140000" />
+      <JFXTextField fx:id="TFQuantite" focusColor="WHITE" layoutX="26.0" layoutY="291.0" maxWidth="319.0" minWidth="189.0" prefHeight="33.0" prefWidth="319.0" promptText="Quantite" unFocusColor="BLACK" />
+      <JFXTextField fx:id="TFNom" layoutX="30.0" layoutY="145.0" maxWidth="319.0" minWidth="319.0" prefHeight="33.0" prefWidth="319.0" promptText="Nom Produit" unFocusColor="BLACK" />
+      <JFXButton fx:id="saveArticle" layoutX="698.0" layoutY="478.0" onAction="#AjouterArticle" prefHeight="47.0" prefWidth="141.0" style="-fx-background-color: #a32020;" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="lstmagasin" layoutX="30.0" layoutY="343.0" prefHeight="25.0" prefWidth="157.0" promptText="choisir magasin" />
+   </children>
+</AnchorPane>

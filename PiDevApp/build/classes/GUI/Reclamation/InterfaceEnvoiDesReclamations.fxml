@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="container" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reclamation.InterfaceEnvoiDesReclamationsController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutY="25.0" prefHeight="655.0" prefWidth="211.0" spacing="20.0" style="-fx-border-color: #0F0F0F; -fx-background-color: #cfb176;">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#openPageAccueil" prefHeight="48.0" prefWidth="165.0" text="Catalogue">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="31.0" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#openClientPage" prefHeight="48.0" prefWidth="202.0" text="Espace Client">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="31.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#openVendeurPage" prefHeight="48.0" prefWidth="202.0" text="Espace Vendeur">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="31.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#openFAQPage" prefHeight="48.0" prefWidth="202.0" text="FAQ">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="80.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="211.0" layoutY="25.0" prefHeight="655.0" prefWidth="813.0" spacing="15.0" style="-fx-border-color: #0F0F0F; -fx-background-color: #e5dac5;">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="470.0" text="Envoyer une réclamation">
+               <font>
+                  <Font size="39.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="40.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" prefHeight="57.0" prefWidth="191.0" spacing="20.0">
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="34.0" prefWidth="317.0" text="Votre adresse E-mail* : ">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="champEmail" prefHeight="35.0" prefWidth="408.0" promptText="Ex: xyz@domaine.xyz">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="31.0" layoutY="152.0" prefHeight="57.0" prefWidth="771.0" spacing="20.0">
+               <children>
+                  <Label text="Type de reclamation adressée : ">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="typeReclamation" editable="true" prefHeight="35.0" prefWidth="408.0" promptText="Type de reclamation" visibleRowCount="5" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="31.0" layoutY="152.0" prefHeight="57.0" prefWidth="191.0" spacing="20.0">
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="34.0" prefWidth="317.0" text="Objet de votre reclamation: ">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="champObjetReclamation" prefHeight="35.0" prefWidth="408.0" promptText="Ex: Produit abimé à la livraison">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" layoutX="31.0" layoutY="296.0" prefHeight="182.0" prefWidth="771.0" spacing="20.0">
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="34.0" prefWidth="317.0" text="Contenu* : ">
+                     <font>
+                        <Font size="23.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="champContenuReclamation" maxHeight="-Infinity" prefHeight="173.0" prefWidth="410.0" promptText="Entrez le contenu de votre réclamation ici." style="-fx-font-family: Lucida Console;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextArea>
+               </children>
+            </HBox>
+            <Button fx:id="btnEnvoiReclamation" mnemonicParsing="false" onMouseClicked="#envoyerUneReclamation" prefHeight="62.0" prefWidth="356.0" text="Envoyez votre réclamation">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+            <HBox prefHeight="25.0" prefWidth="771.0">
+               <children>
+                  <Label style="-fx-font-style: italic;" text="Les champs marqués d'un (*) sont obligatoires." />
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="30.0" />
+         </padding>
+      </VBox>
+      <MenuBar prefHeight="30.0" prefWidth="1024.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

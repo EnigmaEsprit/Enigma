@@ -1,0 +1,524 @@
+/*#name1{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+	-fx-focus-color: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#txtPassword1{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#name1:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#name1:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+ 
+#txtPassword1:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+ 
+#txtPassword1:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#btnLogin1 {
+    -fx-background-color:#F0E68C ;
+    -fx-background-radius:0;
+    -fx-border-color:transparent;
+    -fx-border-width: 0 3 3 0;
+}
+
+#btnLogin1:hover {
+    -fx-background-color:#FFFFF0;
+    -fx-background-radius:0;
+    
+    -fx-border-width: 0 3 3 0;
+}
+#SupprimerCompte{
+    -fx-background-color:#F0E68C ;
+    -fx-background-radius:0;
+    -fx-border-color:transparent;
+    -fx-border-width: 0 3 3 0;
+}
+#SupprimerCompte:hover {
+    -fx-background-color:#FFFFF0;
+    -fx-background-radius:0;
+    
+    -fx-border-width: 0 3 3 0;
+}
+#Editer{
+    -fx-background-color:#F0E68C ;
+    -fx-background-radius:0;
+    -fx-border-color:transparent;
+    -fx-border-width: 0 3 3 0;
+}
+#Editer:hover {
+    -fx-background-color:#FFFFF0;
+    -fx-background-radius:0;
+    
+    -fx-border-width: 0 3 3 0;
+}
+#nom{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#nom:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#nom:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#datedenaissance{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#datedenaissance:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#datedenaissance:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#adresse{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#adresse:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#adresse:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#ville{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#ville:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#ville:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#numerodetelephone{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#numerodetelephone:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#numerodetelephone:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#email{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#email:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#email:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#cemail{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#cemail:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#cemail:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#password{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#password:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#password:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#numerodecartebancaire{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#numerodecartebancaire:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#numerodecartebancaire:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#datedevalidation{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#datedevalidation:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#datedevalidation:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#ccv{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#ccv:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#ccv:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+
+}
+#cpassword{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#cpassword:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#cpassword:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#zip{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#zip:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#zip:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#sexe{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#sexe:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#sexee:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#prenom{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#prenom:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#prenom:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#annuler {
+    -fx-background-color:#F0E68C ;
+    -fx-background-radius:0;
+    -fx-border-color:transparent;
+    -fx-border-width: 0 3 3 0;
+}
+
+#annuler:hover {
+    -fx-background-color:#FFFFF0;
+    -fx-background-radius:0;
+    
+    -fx-border-width: 0 3 3 0;
+}
+#rib{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#rib:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#rib:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#numerodecartebancairel{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#numerodecartebancaire:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#numerodecartebancaire:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}#datedevalidation{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#datedevalidation:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#datedevalidation:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}#ccv{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#ccv:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+
+#ccv:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+#Inscrit{
+    -fx-background-color:#F0E68C ;
+    -fx-background-radius:0;
+    -fx-border-color:transparent;
+    -fx-border-width: 0 3 3 0;
+}
+#Inscrit:hover {
+    -fx-background-color:#FFFFF0;
+    -fx-background-radius:0;
+    
+    -fx-border-width: 0 3 3 0;
+}*/
+/*#txtPassword:hover
+{
+    -fx-background-color: transparent, #909090, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}
+ 
+#txtPassword:focused
+{
+    -fx-background-color: transparent, #009EF, transparent, white;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}*/
+
+#Catalogues {
+    -fx-background-color: black, lightgray;
+    -fx-background-insets: 0px, 1px;
+    -fx-background-radius: 5px, 4px;
+}
+#Catalogues:hover {
+    -fx-background-color: black, lightgray;
+    -fx-background-insets: 0px, 5px 10px 5px 10px;
+    -fx-background-radius: 0px, 0px;
+    -fx-background-radius: 5px 0px 5px 0px, 4px 0px 4px 0px;
+}
+#Boutiques {
+    -focus-color: transparent;
+    -border-color: black;
+    -fill-color: lightgray;
+    -fx-background-color: -focus-color, -border-color, -fill-color;
+    -fx-background-insets: -1.5px, 0px, 1px;
+    -fx-background-radius: 6.5px, 5px, 4px;
+}
+#Boutiques:hover {
+    -fill-color: white;
+}
+#Boutiques:focused {
+    -focus-color: cornflowerblue;
+}
+#Boutiques:pressed {
+    -fill-color: gray;
+}
+/*#menu {
+    
+    -fx-spacing: 5;
+}
+
+#menu .button {
+    -fx-pref-height: 30;
+    -fx-pref-width: 200;
+    -fx-background-color: #66F;
+}
+
+#menu .button:hover {
+    -fx-background-color: #F6F;
+}*/
+/*#txtPassword{
+	-fx-background-color: transparent, white, transparent, white;
+	-fx-text-box-border: transparent;
+    -fx-background-radius: 0, 0, 0, 0;
+    -fx-padding: 0.166667em;
+}*/

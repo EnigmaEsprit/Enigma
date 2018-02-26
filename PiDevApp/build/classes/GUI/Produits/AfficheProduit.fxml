@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AfficheProduitController">
+    <stylesheets>
+        <URL value="@afficheproduit.css" />
+    </stylesheets>
+   <children>
+      <AnchorPane fx:id="AP1" prefHeight="500.0" prefWidth="900.0">
+         <children>
+            <ImageView fitHeight="507.0" fitWidth="978.0" layoutY="-7.0" opacity="0.63" pickOnBounds="true">
+               <image>
+                  <Image url="@../images/back.png" />
+               </image>
+            </ImageView>
+            <TableView fx:id="tableArticle" layoutX="28.0" layoutY="86.0" opacity="0.65" prefHeight="376.0" prefWidth="798.0">
+              <columns>
+                <TableColumn fx:id="colNom" prefWidth="167.0" text="Nom Produit" />
+                  <TableColumn fx:id="colPrix" prefWidth="115.0" text="Prix" />
+                  <TableColumn fx:id="colRef" prefWidth="170.0" text="Reference" />
+                  <TableColumn fx:id="colQuantite" prefWidth="118.0" text="Quantite" />
+                  <TableColumn fx:id="colPhoto" prefWidth="227.0" text="Photo" />
+              </columns>
+               <effect>
+                  <ColorAdjust brightness="0.26" contrast="0.5" hue="-0.74" saturation="-0.45" />
+               </effect>
+            </TableView>
+            <JFXTextField fx:id="recherche" layoutX="660.0" layoutY="25.0" onAction="#rechercherArticles" promptText="Rechercher" unFocusColor="BLACK" />
+            <JFXButton layoutX="48.0" layoutY="28.0" onAction="#ajouterProduit" prefHeight="31.0" prefWidth="114.0" style="-fx-background-color: #a32020;" text="Ajouter Produit" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

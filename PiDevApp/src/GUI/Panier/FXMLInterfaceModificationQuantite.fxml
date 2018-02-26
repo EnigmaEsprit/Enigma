@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="279.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Panier.FXMLInterfaceModificationQuantiteController">
+   <children>
+      <JFXTextField fx:id="nomProduitLabel" focusColor="#c59f54" layoutX="11.0" layoutY="68.0" prefHeight="34.0" prefWidth="372.0" promptText="libelle" />
+      <HBox layoutY="231.0" prefHeight="48.0" prefWidth="402.0">
+         <children>
+            <JFXButton fx:id="btnok" onAction="#modifierQuantiteSceneBa" prefHeight="58.0" prefWidth="210.0" stylesheets="@paymentCard.css" text="Valider">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+            <JFXButton fx:id="btnannuler" layoutX="10.0" layoutY="10.0" onAction="#annulermodifierQuantiteSceneBa" prefHeight="58.0" prefWidth="210.0" stylesheets="@paymentCard.css" text="Annuler">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </HBox>
+      <Label alignment="CENTER" prefHeight="58.0" prefWidth="123.0" style="-fx-background-color: #c59f54; -fx-text-fill: white;" text="Modification Quantite Produit" textAlignment="CENTER" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Label>
+      <JFXTextField fx:id="PrixProduitLabel" focusColor="#c59f54" layoutX="11.0" layoutY="111.0" prefHeight="34.0" prefWidth="372.0" promptText="Prix " />
+      <JFXTextField fx:id="quantiteProduit" focusColor="#c59f54" layoutX="11.0" layoutY="157.0" onAction="#quantiteTextFielEdit" prefHeight="34.0" prefWidth="372.0" promptText="Quantite" />
+      <ImageView fitHeight="36.0" fitWidth="34.0" layoutX="58.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Images/edit-512.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
