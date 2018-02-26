@@ -8,9 +8,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
+<?import java.net.URL?>
 
 <AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="279.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Panier.FXMLInterfaceModificationQuantiteController">
-   <children>
+     <stylesheets>
+        <URL value="@/Images/style.css" />
+    </stylesheets>
+    <children>
       <JFXTextField fx:id="nomProduitLabel" focusColor="#c59f54" layoutX="11.0" layoutY="68.0" prefHeight="34.0" prefWidth="372.0" promptText="libelle" />
       <HBox layoutY="231.0" prefHeight="48.0" prefWidth="402.0">
          <children>

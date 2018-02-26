@@ -163,7 +163,7 @@
 #espAdmin {
     -fx-background-color:     #5F9EA0 
     
-}
+}/*
 .table-view {
     -fx-table-header-border-color: transparent;
     -fx-table-cell-border-color: -fx-box-border;  
@@ -181,26 +181,28 @@
 .table-view .show-hide-columns-button
 {
     -fx-background-color: transparent;
-}
+}*/
 
 .table-view .column-header .label,.table-view .column-drag-header .label
 {
     -fx-alignment: CENTER_LEFT;
 }
-
+/*
 .table-view .column-header-background
 {
-    -fx-background-color:  #c49e564b;
+    -fx-background-color:  #ffffff;
 }
-
+*/
 .table-view:focused{
 	-fx-background-color:transparent;
 }
+/*
 .table-row-cell:odd{
-	-fx-background-color: #bfff00;
+	-fx-background-color: #ffffff;
 	-fx-background-insets: 0,0 0 1 0;
 }
 .table-row-cell:even{
-	-fx-background-color:#ffb3b3;
+	-fx-background-color:#000000;
 	-fx-background-color: 0,0 0 1 0;
 }
+*/

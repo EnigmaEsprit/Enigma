@@ -14,6 +14,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import java.net.URL?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Panier.FXMLCommandesInterfaceController">
     <stylesheets>

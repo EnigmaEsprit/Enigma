@@ -1229,5 +1229,9 @@ public class MapsController implements Initializable,MapComponentInitializedList
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void PanierFenetre(ActionEvent event) {
+    }
     
 }

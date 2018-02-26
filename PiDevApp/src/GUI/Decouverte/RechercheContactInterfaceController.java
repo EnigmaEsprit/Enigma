@@ -396,5 +396,9 @@ public class RechercheContactInterfaceController implements Initializable {
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void PanierFenetre(ActionEvent event) {
+    }
     
 }
