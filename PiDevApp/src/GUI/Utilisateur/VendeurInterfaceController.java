@@ -86,9 +86,9 @@ public class VendeurInterfaceController implements Initializable {
     private Button Event;
     private Pane menu3;
     @FXML
-    private Button Contacts;
-    @FXML
     private Button Editer;
+    @FXML
+    private Button Reclamation;
 
     /**
      * Initializes the controller class.
@@ -210,7 +210,6 @@ public class VendeurInterfaceController implements Initializable {
     private void btnEventAction(ActionEvent event) {
     }
 
-    @FXML
     private void exitemenu3(MouseEvent event) {
         menu3.setOnMouseEntered(evt -> {menu3.setVisible(true);});
          menu3.setOnMouseExited(evt -> {menu3.setVisible(false);});
@@ -218,7 +217,6 @@ public class VendeurInterfaceController implements Initializable {
         menu3.setVisible(false);
     }
 
-    @FXML
     private void afficherSuitemenu3(MouseEvent event) {
          menu.setVisible(true);
         menu3.setVisible(true);
@@ -273,5 +271,9 @@ public class VendeurInterfaceController implements Initializable {
     private void btnChangePasswordAction(ActionEvent event) {
         LoadWindowParent("ChangerPassowrdVendeurV.fxml", event);
         
+    }
+
+    @FXML
+    private void btnReclamationAction(ActionEvent event) {
     }
 }

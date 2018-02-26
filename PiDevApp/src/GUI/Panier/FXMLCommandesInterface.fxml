@@ -14,9 +14,13 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import java.net.URL?>
 
 <AnchorPane id="AnchorPane" prefHeight="650.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Panier.FXMLCommandesInterfaceController">
-   <children>
+    <stylesheets>
+        <URL value="@/Images/style.css" />
+    </stylesheets>
+    <children>
       <Pane layoutX="261.0" layoutY="75.0" prefHeight="585.0" prefWidth="1340.0" style="-fx-background-color: #c49e564b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
             <Pane layoutX="206.0" layoutY="25.0" prefHeight="537.0" prefWidth="948.0" style="-fx-background-color: #c59f54c9;">
@@ -168,7 +172,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Contacts" layoutX="2.0" layoutY="491.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Reclamations">
+            <Button fx:id="Reclamation" layoutX="2.0" layoutY="491.0" mnemonicParsing="false" onAction="#btnReclamation" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Reclamations">
                <font>
                   <Font size="18.0" />
                </font>

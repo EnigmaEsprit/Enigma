@@ -148,30 +148,34 @@ public class InscriptionController implements Initializable {
     private void btnInscritAction(ActionEvent event) throws ParseException {
         int var;
         SendEmail IES = new SendEmail();
-        if ((nom.getText().length() == 0)
-                || (prenom.getText().length() == 0)
-                || (datedenaissance.getEditor().getText().length() == 0)
-                || (sexe.getValue().length() == 0)
-                || (adresse.getText().length() == 0)
-                || (ville.getText().length() == 0)
-                || (zip.getText().length() == 0)
-                || !(ValidationService.numerique_Validation(zip.getText()))
-                || (numerodetelephone.getText().length() != 8)
-                || !(ValidationService.numerique_Validation(numerodetelephone.getText()))
-                || !(ValidationService.email_Validation(email.getText()))
-                || !(email.getText().equals(cemail.getText()))
-                || (password.getText().length() == 0)
-                || (cpassword.getText().length() == 0)
-                || !(password.getText().equals(cpassword.getText()))
-                || !(ValidationService.numerique_Validation(numerodecartebancaire.getText()))
-                || (numerodecartebancaire.getText().length() != 16)
-                || (datedevalidation.getEditor().getText().length() == 0)
-                || !(ValidationService.numerique_Validation(ccv.getText()))
-                || (ccv.getText().length() == 0) //((String.valueOf(Integer.valueOf(numerodecartebancaire.getText())).length()!=14)||datedevalidation.getEditor().getText().length()
-                ) {
-            labmsg.setText("Verfier votre champs!");
+        if (nom.getText().length() == 0)
+            { labmsg.setText("verifier votre Nom");}
+        else if(prenom.getText().length() == 0)
+            { labmsg.setText("verfier votre Prenom");}
+        else if (datedenaissance.getEditor().getText().length() == 0)
+            { labmsg.setText("verfier votre Date de naissance");}
+        else if(sexe.getValue().length() == 0)
+            { labmsg.setText("verfier votre Sexe");}
+        else if(adresse.getText().length() == 0)
+            { labmsg.setText("verfier votre Adresse");}
+        else if (ville.getText().length() == 0)
+            { labmsg.setText("verfier votre Ville");}
+        else if((zip.getText().length() == 0)|| !(ValidationService.numerique_Validation(zip.getText())))
+            { labmsg.setText("verfier votre Zip");}      
+        else if ((numerodetelephone.getText().length() != 8) || !(ValidationService.numerique_Validation(numerodetelephone.getText())))
+            { labmsg.setText("verfier votre Numero de Telephone");}
+        else if(!(ValidationService.email_Validation(email.getText()))|| !(email.getText().equals(cemail.getText())))
+            { labmsg.setText("verfier votre Mail");}
+        else if ((password.getText().length() == 0)|| (cpassword.getText().length() == 0)|| !(password.getText().equals(cpassword.getText())))
+            { labmsg.setText("verfier votre Password");}
+        else if(!(ValidationService.numerique_Validation(numerodecartebancaire.getText()))|| (numerodecartebancaire.getText().length() != 16))
+            { labmsg.setText("verfier votre Numero de card bancaire");}
+        else if(datedevalidation.getEditor().getText().length() == 0)
+            { labmsg.setText("verfier votre Date de validation");}
+        else if(!(ValidationService.numerique_Validation(ccv.getText())) || (ccv.getText().length() == 0) ) 
+            { labmsg.setText("verfier votre CCV");}
             
-        } else {
+         else {
                 String dn = datedenaissance.getValue().toString();
                        String dv = datedevalidation.getValue().toString();
                 Client c = new Client(nom.getText(), prenom.getText(), dn, sexe.getValue(), adresse.getText(), ville.getText(), Integer.valueOf(zip.getText()), numerodetelephone.getText(), email.getText(), password.getText(), numerodecartebancaire.getText(), dv, ccv.getText());

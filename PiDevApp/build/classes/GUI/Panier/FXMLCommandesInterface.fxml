@@ -168,7 +168,7 @@
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Contacts" layoutX="2.0" layoutY="491.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Reclamations">
+            <Button fx:id="Reclamation" layoutX="2.0" layoutY="491.0" mnemonicParsing="false" onAction="#btnReclamation" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Reclamations">
                <font>
                   <Font size="18.0" />
                </font>

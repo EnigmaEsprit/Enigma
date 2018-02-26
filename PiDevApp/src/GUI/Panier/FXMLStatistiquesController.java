@@ -73,7 +73,7 @@ public class FXMLStatistiquesController implements Initializable {
     @FXML
     private Button Event;
     @FXML
-    private Button Contacts;
+    private Button Reclamation;
 
     /**
      * Initializes the controller class.
@@ -238,7 +238,6 @@ public class FXMLStatistiquesController implements Initializable {
     }
 
 
-    @FXML
     private void exitemenu3(MouseEvent event) {
         menu3.setOnMouseEntered(evt -> {menu3.setVisible(true);});
          menu3.setOnMouseExited(evt -> {menu3.setVisible(false);});
@@ -246,7 +245,6 @@ public class FXMLStatistiquesController implements Initializable {
         menu3.setVisible(false);
     }
 
-    @FXML
     private void afficherSuitemenu3(MouseEvent event) {
          menu.setVisible(true);
         menu3.setVisible(true);
@@ -312,6 +310,10 @@ public class FXMLStatistiquesController implements Initializable {
     @FXML
     private void CommandesFenetre(ActionEvent event) {
          LoadWindowParent("/GUI/Panier/FXMLCommandesInterface.fxml", event);
+    }
+
+    @FXML
+    private void btnReclamationAction(ActionEvent event) {
     }
 
 
