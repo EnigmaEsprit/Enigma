@@ -6,7 +6,10 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ClientEditeInterfaceController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/Main/SplashFXMLController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ChangePasswordController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Reclamation/InterfaceEnvoiDesReclamationsController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Panier/paymentCard.css</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/entites/Panier/StripePayement.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/Main/SplashFXML.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/Main/PiDevApp.java</file>
         </group>
