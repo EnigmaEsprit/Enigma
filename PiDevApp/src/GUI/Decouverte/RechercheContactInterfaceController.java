@@ -133,7 +133,7 @@ public class RechercheContactInterfaceController implements Initializable {
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(new Scene(root));
+            window.setScene(new Scene(root));  window.setResizable(false);
 
             window.show();
 
@@ -152,7 +152,7 @@ public class RechercheContactInterfaceController implements Initializable {
                 ClientIn.myFunction();
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setScene(new Scene(root));
+                window.setScene(new Scene(root));  window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -178,7 +178,7 @@ public class RechercheContactInterfaceController implements Initializable {
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(new Scene(root));
+            window.setScene(new Scene(root));  window.setResizable(false);
 
             window.show();
 
@@ -197,7 +197,7 @@ public class RechercheContactInterfaceController implements Initializable {
                 ClientIn.myFunction();
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setScene(new Scene(root));
+                window.setScene(new Scene(root));  window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -221,7 +221,7 @@ public class RechercheContactInterfaceController implements Initializable {
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(new Scene(root));
-
+  window.setResizable(false);
             window.show();
 
            
@@ -365,7 +365,7 @@ public class RechercheContactInterfaceController implements Initializable {
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(new Scene(root));
-
+  window.setResizable(false);
             window.show();
 
            
@@ -388,7 +388,7 @@ public class RechercheContactInterfaceController implements Initializable {
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(new Scene(root));
-
+              window.setResizable(false);
             window.show();
 
            

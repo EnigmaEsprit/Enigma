@@ -28,6 +28,7 @@ public class PiDevApp extends Application {
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.show();
     }
 

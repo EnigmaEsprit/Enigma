@@ -414,6 +414,7 @@ public void sendEmail(){
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle(title);
             stage.setScene(new Scene(homePageParent));
+              stage.setResizable(false);
             stage.show();
 
         } catch (IOException ex) {
@@ -439,6 +440,7 @@ public void sendEmail(){
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                  window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -467,6 +469,7 @@ public void sendEmail(){
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                  window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -530,6 +533,7 @@ public void sendEmail(){
             Stage stage = new Stage(StageStyle.DECORATED);
             //stage.setTitle(name);
             stage.setScene(new Scene(homePageParent));
+            stage.setResizable(false);
             stage.show();
 
         } catch (IOException ex) {
@@ -549,7 +553,7 @@ public void sendEmail(){
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(new Scene(root));
-
+  window.setResizable(false);
             window.show();
 
            

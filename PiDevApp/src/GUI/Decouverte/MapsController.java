@@ -1197,7 +1197,7 @@ public class MapsController implements Initializable,MapComponentInitializedList
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(new Scene(root));
+            window.setScene(new Scene(root));  window.setResizable(false);
 
             window.show();
 
@@ -1220,7 +1220,7 @@ public class MapsController implements Initializable,MapComponentInitializedList
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(new Scene(root));
+            window.setScene(new Scene(root));  window.setResizable(false);
 
             window.show();
 

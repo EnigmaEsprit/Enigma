@@ -179,7 +179,7 @@ menu.setTranslateX(-190);
            
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
+            window.setScene(new Scene(root));  window.setResizable(false);
             window.show();
         } catch (IOException ex) {
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
@@ -214,7 +214,7 @@ menu.setTranslateX(-190);
            
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
+            window.setScene(new Scene(root));  window.setResizable(false);
             window.show();
         } catch (IOException ex) {
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
@@ -256,7 +256,7 @@ menu.setTranslateX(-190);
                 ClientIn.myFunction();
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setScene(new Scene(root));
+                window.setScene(new Scene(root));  window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -284,7 +284,7 @@ menu.setTranslateX(-190);
                 ClientIn.myFunction();
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setScene(new Scene(root));
+                window.setScene(new Scene(root));  window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -353,7 +353,7 @@ menu.setTranslateX(-190);
             Parent homePageParent = FXMLLoader.load(getClass().getResource(loc));
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle(title);
-            stage.setScene(new Scene(homePageParent));
+            stage.setScene(new Scene(homePageParent));stage.setResizable(false);
             stage.show();
 
         } catch (IOException ex) {
@@ -372,7 +372,7 @@ menu.setTranslateX(-190);
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(new Scene(root));
+            window.setScene(new Scene(root));  window.setResizable(false);
 
             window.show();
 
