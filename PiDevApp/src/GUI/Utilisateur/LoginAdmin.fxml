@@ -20,7 +20,7 @@
       <Pane fx:id="paneimage3" prefHeight="542.0" prefWidth="1346.0" stylesheets="@style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0" />
       <Pane layoutX="265.0" layoutY="93.0" prefHeight="529.0" prefWidth="955.0" style="-fx-background-color: #c49e564b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <Pane layoutX="451.0" layoutY="106.0" prefHeight="376.0" prefWidth="407.0" style="-fx-border-color: #ADD8E6;">
+            <Pane fx:id="login" layoutX="451.0" layoutY="106.0" prefHeight="376.0" prefWidth="407.0" style="-fx-border-color: #ADD8E6;">
                <children>
                   <TextField fx:id="name1" layoutX="82.0" layoutY="140.0" prefHeight="39.0" prefWidth="252.0" promptText="Username">
                      <stylesheets>

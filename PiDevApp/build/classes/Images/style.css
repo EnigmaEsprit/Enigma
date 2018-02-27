@@ -11,6 +11,12 @@
     -fx-background-image: url("artisanat3.jpg");
 
     
+}
+#login{
+    
+ -fx-border-radius:7;
+    -fx-background-radius: 7, 7, 7, 7;
+    
 }/*
 .banner {
     -fx-background-color: #5AC2DD;
@@ -39,36 +45,43 @@
 	-fx-background-color: transparent, white, transparent, white;
 	-fx-text-box-border: transparent;
 	-fx-focus-color: transparent;
-    -fx-background-radius: 0, 0, 0, 0;
+      
+    -fx-border-radius:7;
+    -fx-background-radius: 7, 7, 7, 7;
     -fx-padding: 0.166667em;
 }
 
 .text-field:hover
 {
     -fx-background-color: transparent, #909090, transparent, white;
-    -fx-background-radius: 0, 0, 0, 0;
+     -fx-background-radius: 7, 7, 7, 7;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
     -fx-padding: 0.166667em;
 }
 
 .text-field:focused
 {
     -fx-background-color: transparent, #009EF, transparent, white;
-    -fx-background-radius: 0, 0, 0, 0;
+     -fx-background-radius: 7, 7, 7, 7;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
     -fx-padding: 0.166667em;
 }
  
 
 .button {
     -fx-background-color:#F0E68C ;
-    -fx-background-radius:0;
+    -fx-background-radius:7;
+    -fx-border-radius:7;
     -fx-border-color:transparent;
     -fx-border-width: 0 3 3 0;
 }
 
 .button:hover {
     -fx-background-color:#FFFFF0;
-    -fx-background-radius:0;
-    
+    -fx-background-radius:7;
+    -fx-border-radius:7;
     -fx-border-width: 0 3 3 0;
 }
 .combo-box .list-cell 
@@ -77,20 +90,25 @@
     -fx-background-color: transparent;
     -fx-text-fill: -fx-text-base-color;
     -fx-padding: 3 0 2 7;
-    -fx-cell-size: 1.66667em; 
+    -fx-cell-size: 1.66667em;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
 }
 
 .combo-box-popup .list-view 
 {
     -fx-background-color: white, white;
     -fx-background-insets: 0, 1;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
     -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 8, 0.0 , 0 , 0 );
 }    
 
 .combo-box-popup .list-view .list-cell 
 {
     -fx-padding: 4 0 4 5;
-
+     -fx-background-radius:7;
+    -fx-border-radius:7;
     /* No alternate highlighting */
     -fx-background-color: white;
 }
@@ -100,12 +118,16 @@
     -fx-background: -fx-accent;
     -fx-background-color: -fx-selection-bar;
     -fx-text-fill: -fx-selection-bar-text;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
 }
 
 .combo-box-popup .list-view .list-cell:filled:hover 
 {
     -fx-background-color: white;
     -fx-text-fill: -fx-text-inner-color;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
 }
 
 .combo-box-base  
@@ -115,26 +137,36 @@
     -fx-background-radius: 5, 5, 4, 3;
     -fx-background-insets: 0 0 -1 0, 0, 1, 2;
     -fx-padding: 0;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
 }
 
 .combo-box-base:hover
 {
     -fx-color: -fx-hover-base;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
 }
 
 .combo-box-base:showing 
 {
     -fx-color: -fx-pressed-base;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
 }
 
 .combo-box-base:focused {
     -fx-background-color: -fx-focus-color, -fx-outer-border, -fx-inner-border, -fx-body-color;
     -fx-background-radius: 6.4, 4, 5, 3;
     -fx-background-insets: -1.4, 0, 1, 2;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
 }
 
 .combo-box-base:disabled {
     -fx-opacity: .4;
+     -fx-background-radius:7;
+    -fx-border-radius:7;
 }
 #Catalogeus {
     -fx-background-color:#FF6347 

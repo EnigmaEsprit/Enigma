@@ -152,7 +152,7 @@ public class InscriptionController implements Initializable {
             { labmsg.setText("verifier votre Nom");}
         else if(prenom.getText().length() == 0)
             { labmsg.setText("verfier votre Prenom");}
-        else if (datedenaissance.getEditor().getText().length() == 0)
+        else if (datedenaissance.getValue().toString().length() == 0)
             { labmsg.setText("verfier votre Date de naissance");}
         else if(sexe.getValue().length() == 0)
             { labmsg.setText("verfier votre Sexe");}
