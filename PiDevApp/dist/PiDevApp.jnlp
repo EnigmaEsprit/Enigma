@@ -8,6 +8,25 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
+    <jar href="PiDevApp.jar" size="16942267" download="eager" />
+    <jar href="lib/GMapsFX-2.0.9.jar" size="166541" download="eager" />
+    <jar href="lib/activation.jar" size="124332" download="eager" />
+    <jar href="lib/commons-logging-1.2.jar" size="61829" download="eager" />
+    <jar href="lib/controlsfx-8.40.14.jar" size="1215643" download="eager" />
+    <jar href="lib/fontbox-1.0.1.jar" size="1484430" download="eager" />
+    <jar href="lib/gson-2.2.2.jar" size="189285" download="eager" />
+    <jar href="lib/itextpdf-5.5.9.jar" size="2287148" download="eager" />
+    <jar href="lib/javax.mail-1.4.4.jar" size="495041" download="eager" />
+    <jar href="lib/jfoenix-8.0.1.jar" size="2405715" download="eager" />
+    <jar href="lib/jfoenix-9.0.0.jar" size="2143342" download="eager" />
+    <jar href="lib/jfoenix.jar" size="2211776" download="eager" />
+    <jar href="lib/mail-1.4.7.jar" size="521157" download="eager" />
+    <jar href="lib/mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="lib/paypal-core-1.7.1.jar" size="129861" download="eager" />
+    <jar href="lib/pdfbox-1.0.1.jar" size="2509519" download="eager" />
+    <jar href="lib/stripe-java-5.32.0.jar" size="254222" download="eager" />
+=======
     <jar href="PiDevApp.jar" size="16942349" download="eager" />
     <jar href="lib\GMapsFX-2.0.9.jar" size="166541" download="eager" />
     <jar href="lib\activation.jar" size="124332" download="eager" />
@@ -25,6 +44,7 @@
     <jar href="lib\paypal-core-1.7.1.jar" size="129861" download="eager" />
     <jar href="lib\pdfbox-1.0.1.jar" size="2509519" download="eager" />
     <jar href="lib\stripe-java-5.32.0.jar" size="254222" download="eager" />
+>>>>>>> d425c9b1c2bc5352c9cda506b351341a0e4a4a98
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="PiDevApp" >
     <param name="requiredFXVersion" value="8.0+"/>
