@@ -20,13 +20,19 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javax.activation.DataHandler;
+import javax.activation.DataSource;
+import javax.activation.FileDataSource;
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 /**
  *
@@ -35,6 +41,7 @@ import javax.mail.internet.MimeMessage;
 public class ReclamationsServices implements IReclamations{
     Connection con = MyDB.getInstance().getConnection();
     private Statement ste;
+    private int idMagasin;
 
     public ReclamationsServices() {
         try{
@@ -46,10 +53,12 @@ public class ReclamationsServices implements IReclamations{
     }    
 
     @Override
-    public void envoyerUneReclamation(Reclamations c, String emailUser) {
+    public void envoyerUneReclamation(Reclamations c, String emailUser, String nomMagasin) {
         int idUser = 0;
-        String req = "INSERT INTO reclamations(typeReclamation, objetReclamation, contenuReclamation, dateEnvoiReclamation, idUser) VALUES (?,?,?,CURDATE(),?)";        
-        String req2 = "SELECT id FROM users WHERE email = '" + emailUser + "'";        
+        String req = "INSERT INTO reclamations(typeReclamation, objetReclamation, contenuReclamation, dateEnvoiReclamation, idUser, idMagasin) VALUES (?,?,?,CURDATE(),?,?)";        
+        String req2 = "SELECT id FROM users WHERE email = '" + emailUser + "'"; 
+        String req3 = "SELECT idMagasin FROM magasins WHERE nomMagasin = '" + nomMagasin + "'"; 
+       
         PreparedStatement prep;
         try {
             prep = con.prepareStatement(req2);
@@ -57,11 +66,18 @@ public class ReclamationsServices implements IReclamations{
             while (rs.next()) {   
                 idUser = rs.getInt(1);
             }
+            prep = con.prepareStatement(req3);
+            ResultSet rs2 = prep.executeQuery();
+            while (rs2.next()) {   
+                idMagasin = rs2.getInt(1);
+            }
+            
         } catch (SQLException ex) {
             Logger.getLogger(ReclamationsServices.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         int us = idUser;
+        int mg = idMagasin;
         
         try {
             PreparedStatement pre = con.prepareStatement(req);
@@ -70,6 +86,7 @@ public class ReclamationsServices implements IReclamations{
             pre.setString(2, c.getObjetReclamation());
             pre.setString(3, c.getContenuReclamation());
             pre.setInt(4, us);
+            pre.setInt(5, mg);
             
             pre.executeUpdate();
             System.out.println("Votre réclamation a bien été envoyée !");
@@ -80,42 +97,26 @@ public class ReclamationsServices implements IReclamations{
     }
 
     @Override
-    public void repondreAUneReclamation(String destinataire, String message) {
+    public void repondreAUneReclamation(String destinataire, String message, int id) {
         envoyerMail(destinataire, message);
+        modifierDateReponseReclamation(id);
     }
-
+    
     @Override
-    public ObservableList<Reclamations> afficherReclamations() {
+    public ObservableList<Reclamations> afficherReclamations(String emailVendeur) {
+        ObservableList<Reclamations> listeReclamations;
         String sql = "select r.idReclamation, r.typeReclamation, r.objetReclamation, r.contenuReclamation, r.dateEnvoiReclamation, "
-                + "concat(u.nom,' ',u.prenom) as nom, u.email "
-                + "from reclamations r join users u on (r.idUser = u.id) "
-                + "order by r.dateEnvoiReclamation desc";
-        ObservableList<Reclamations> listeReclamations = FXCollections.observableArrayList();
-        
-        try {
-            PreparedStatement pre = con.prepareStatement(sql);
-            ResultSet rs = pre.executeQuery();
-            while (rs.next()) {   
-                Reclamations m = new Reclamations(
-                (rs.getInt(1)),
-                (rs.getString(2)),
-                (rs.getString(3)),
-                (rs.getString(4)),
-                (rs.getString(6)),
-                (rs.getString(7)),
-                (rs.getDate(5)));
-                listeReclamations.add(m);                
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(ReclamationsServices.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                    + "concat(u.nom,' ',u.prenom) as nom, u.email "
+                    + "from reclamations r join magasins m on (m.idMagasin = r.idMagasin) join users u on (r.idUser = u.id) "
+                    + "where ((r.idMagasin = " + idMagasin + ") and (r.dateReponseReclamation IS null)) "
+                    + "order by r.dateEnvoiReclamation desc";
+        listeReclamations = affichageReclamations(sql, emailVendeur);
         return listeReclamations;
     }
     
     @Override
     public void supprimerUneReclamation(Reclamations c) {
         String query = "delete from reclamations where idReclamation = '" + c.getIdReclamation() + "'";
-        Statement state;
         try {
             PreparedStatement pre = con.prepareStatement(query);
             pre.executeUpdate(query);
@@ -126,15 +127,25 @@ public class ReclamationsServices implements IReclamations{
         
     }
 
+    private void modifierDateReponseReclamation(int id) {
+        try {
+            String sql = "update reclamations set dateReponseReclamation = CURDATE() where idReclamation = "+ id +"";
+            PreparedStatement pre = con.prepareStatement(sql);
+            pre.executeUpdate();
+            System.out.println("Date de réponse affect@");
+        } catch (SQLException ex) {
+            Logger.getLogger(ReclamationsServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
     public void envoyerMail(String receiver, String mesg) {
         // Recipient's email ID needs to be mentioned.
           String to = receiver;
-
           // Sender's email ID needs to be mentioned
           String from = "ivan.onana2013@gmail.com";
           final String username = "ivan.onana2013@gmail.com"; // "obil2014@yahoo.fr"; change accordingly
           final String password = "@Barcelone2017"; // "Nadal@2015";change accordingly
-
           // Assuming you are sending email through relay.gmail.com
           String host = "smtp.gmail.com"; // "smtp.mail.yahoo.fr";
           String port = "587";
@@ -170,6 +181,17 @@ public class ReclamationsServices implements IReclamations{
 
                // Now set the actual message
                message.setText(mesg);
+               
+               
+               // Attach enclosure
+               Multipart multipart = new MimeMultipart();        
+               MimeBodyPart messageBodyPart = new MimeBodyPart();   
+               DataSource source = new FileDataSource("C:\\Users\\user\\Documents\\NetBeansProjects\\Enigma\\PiDevApp\\Recapitulatif_reclamation.pdf");      
+               messageBodyPart.setDataHandler(new DataHandler(source));
+               messageBodyPart.setFileName("Recapitulatif_reclamation.pdf");
+               multipart.addBodyPart(messageBodyPart);
+               message.setContent(multipart);
+
 
                // Send message
                Transport.send(message);
@@ -180,24 +202,89 @@ public class ReclamationsServices implements IReclamations{
              throw new RuntimeException(e);
             }    
     }
-    
-    public Boolean compareEmails(String emailInsere) {
-        String sql = "select email from users";
-        List<String> listeEmails = new ArrayList<> ();
+
+    public List<String> getListeMagasins() {
+        String sql = "select nomMagasin from magasins";
+        List<String> listeMagasins =  new ArrayList<>();
         
         try {
             PreparedStatement pre = con.prepareStatement(sql);
             ResultSet rs = pre.executeQuery();
-            while (rs.next()) {   
-                listeEmails.add(rs.getString("email"));                
+            while (rs.next()) { 
+                String magasin = rs.getString("nomMagasin");
+                listeMagasins.add(magasin);                
             }
         } catch (SQLException ex) {
             Logger.getLogger(ReclamationsServices.class.getName()).log(Level.SEVERE, null, ex);
         }
-        for(String emails : listeEmails){
-            return emails.equals(emailInsere);
-        }                
-        return false;
-        
+        return listeMagasins;
+    } 
+    
+    public ObservableList<Reclamations> afficherReclamationsDes3DerniersJours(String emailVendeur) {
+        ObservableList<Reclamations> listeReclamations;
+        String sql = "select r.idReclamation, r.typeReclamation, r.objetReclamation, r.contenuReclamation, r.dateEnvoiReclamation, "
+                    + "concat(u.nom,' ',u.prenom) as nom, u.email "
+                    + "from reclamations r join magasins m on (m.idMagasin = r.idMagasin) join users u on (r.idUser = u.id) "
+                    + "where ((r.idMagasin = " + idMagasin + ") and (r.dateReponseReclamation IS null) and (CURDATE() - r.dateEnvoiReclamation <= 3)) "
+                    + "order by r.dateEnvoiReclamation desc";
+        listeReclamations = affichageReclamations(sql, emailVendeur);
+        return listeReclamations;
     }
+    
+    public ObservableList<Reclamations> afficherReclamationsDeLaSemaine(String emailVendeur) {
+        ObservableList<Reclamations> listeReclamations;
+        String sql = "select r.idReclamation, r.typeReclamation, r.objetReclamation, r.contenuReclamation, r.dateEnvoiReclamation, "
+                    + "concat(u.nom,' ',u.prenom) as nom, u.email "
+                    + "from reclamations r join magasins m on (m.idMagasin = r.idMagasin) join users u on (r.idUser = u.id) "
+                    + "where ((r.idMagasin = " + idMagasin + ") and (r.dateReponseReclamation IS null) and (CURDATE() - r.dateEnvoiReclamation <= 7)) "
+                    + "order by r.dateEnvoiReclamation desc";
+        listeReclamations = affichageReclamations(sql, emailVendeur);
+        return listeReclamations;
+    }
+    
+    public ObservableList<Reclamations> afficherReclamationsDuMois(String emailVendeur) {
+        ObservableList<Reclamations> listeReclamations;
+        String sql = "select r.idReclamation, r.typeReclamation, r.objetReclamation, r.contenuReclamation, r.dateEnvoiReclamation, "
+                    + "concat(u.nom,' ',u.prenom) as nom, u.email "
+                    + "from reclamations r join magasins m on (m.idMagasin = r.idMagasin) join users u on (r.idUser = u.id) "
+                    + "where ((r.idMagasin = " + idMagasin + ") and (r.dateReponseReclamation IS null) and (CURDATE() - r.dateEnvoiReclamation <= 30)) "
+                    + "order by r.dateEnvoiReclamation desc";
+        listeReclamations = affichageReclamations(sql, emailVendeur);
+        return listeReclamations;
+    }
+    
+        
+    public ObservableList<Reclamations> affichageReclamations(String query, String emailVendeur) {
+        int idM = 0;
+        ObservableList<Reclamations> listeReclamations = FXCollections.observableArrayList();
+        try {
+            String sql = "select m.idMagasin from magasins m join users u on (u.id = m.idUser) where u.email = '"+ emailVendeur +"'";
+            PreparedStatement prep = con.prepareStatement(sql);
+            ResultSet rs2 = prep.executeQuery();
+            while (rs2.next()) { 
+                idM = rs2.getInt(1);
+            }
+            idMagasin = idM;
+
+            PreparedStatement pre = con.prepareStatement(query);
+            ResultSet rs = pre.executeQuery();
+            while (rs.next()) {  
+                Reclamations r = new Reclamations();
+                r.setIdReclamation(rs.getInt(1));
+                r.setTypeReclamation(rs.getString(2));
+                r.setObjetReclamation(rs.getString(3));
+                r.setContenuReclamation(rs.getString(4));
+                r.setNomClient(rs.getString(6));
+                r.setEmailClient(rs.getString(7));
+                r.setDateEnvoiReclamation(rs.getDate(5));
+                listeReclamations.add(r);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ReclamationsServices.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listeReclamations;
+    }
+    
+    
 }

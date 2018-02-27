@@ -197,30 +197,22 @@ public class ClientEditeInterfaceController implements Initializable {
 
     @FXML
     private void btnEditAction(ActionEvent event) throws ParseException, SQLException {
-        if ((nom.getText().length() == 0)
-                || (prenom.getText().length() == 0)
-                || (datedenaissance.getEditor().getText().length() == 0)
-                || (sexe.getValue().length() == 0)
-                || (adresse.getText().length() == 0)
-                || (ville.getText().length() == 0)
-                || (zip.getText().length() == 0)
-                || !(ValidationService.numerique_Validation(zip.getText()))
-                || (numerodetelephone.getText().length() != 8)
-                || !(ValidationService.numerique_Validation(numerodetelephone.getText()))
-                
-               
-                
-                
-               
-             
-                ) {
-            labmsg.setText("Verfier votre champs!");
-            System.out.println(eemail);
-            System.out.println(email.getText());
-            System.out.println("********************"+numerodetelephone.getText());
-        }
-        
-       
+        if (nom.getText().length() == 0)
+            { labmsg.setText("verifier votre Nom");}
+        else if(prenom.getText().length() == 0)
+            { labmsg.setText("verfier votre Prenom");}
+        else if (datedenaissance.getEditor().getText().length() == 0)
+            { labmsg.setText("verfier votre Date de naissance");}
+        else if(sexe.getValue().length() == 0)
+            { labmsg.setText("verfier votre Sexe");}
+        else if(adresse.getText().length() == 0)
+            { labmsg.setText("verfier votre Adresse");}
+        else if (ville.getText().length() == 0)
+            { labmsg.setText("verfier votre Ville");}
+        else if((zip.getText().length() == 0)|| !(ValidationService.numerique_Validation(zip.getText())))
+            { labmsg.setText("verfier votre Zip");}      
+        else if ((numerodetelephone.getText().length() != 8) || !(ValidationService.numerique_Validation(numerodetelephone.getText())))
+            { labmsg.setText("verfier votre Numero de Telephone");}
         
             else
             {ClientService cs = new ClientService();
@@ -451,16 +443,13 @@ public class ClientEditeInterfaceController implements Initializable {
 
     @FXML
     private void btnChangeIdBancaireAction(ActionEvent event) throws NoSuchAlgorithmException {
-        if (
-               
-               
-                numerodecartebancaire.getText().length()==0
-                ||ccv.getText().length()!=3
-                ||datedevalidation.getValue().toString().length()==0) 
-              {
-            labmsg.setText("Verfier votre champs!");
-            
-        } else{
+        if(!(ValidationService.numerique_Validation(numerodecartebancaire.getText()))|| (numerodecartebancaire.getText().length() != 16))
+            { labmsg.setText("verfier votre Numero de card bancaire");}
+        else if(datedevalidation.getEditor().getText().length() == 0)
+            { labmsg.setText("verfier votre Date de validation");}
+        else if(!(ValidationService.numerique_Validation(ccv.getText())) || (ccv.getText().length() == 0) ) 
+            { labmsg.setText("verfier votre CCV");}
+        else{
         AdminService as = new AdminService();
         
             

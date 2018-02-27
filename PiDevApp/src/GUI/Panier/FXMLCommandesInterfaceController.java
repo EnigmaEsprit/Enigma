@@ -132,7 +132,7 @@ public class FXMLCommandesInterfaceController implements Initializable {
     @FXML
     private Button Event;
     @FXML
-    private Button Contacts;
+    private Button Reclamation;
     
     
     @Override
@@ -414,6 +414,7 @@ public void sendEmail(){
             Stage stage = new Stage(StageStyle.DECORATED);
             stage.setTitle(title);
             stage.setScene(new Scene(homePageParent));
+              stage.setResizable(false);
             stage.show();
 
         } catch (IOException ex) {
@@ -439,6 +440,7 @@ public void sendEmail(){
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                  window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -467,6 +469,7 @@ public void sendEmail(){
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                  window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -498,7 +501,6 @@ public void sendEmail(){
     }
 
 
-    @FXML
     private void exitemenu3(MouseEvent event) {
         menu3.setOnMouseEntered(evt -> {menu3.setVisible(true);});
          menu3.setOnMouseExited(evt -> {menu3.setVisible(false);});
@@ -506,7 +508,6 @@ public void sendEmail(){
         menu3.setVisible(false);
     }
 
-    @FXML
     private void afficherSuitemenu3(MouseEvent event) {
          menu.setVisible(true);
         menu3.setVisible(true);
@@ -532,6 +533,7 @@ public void sendEmail(){
             Stage stage = new Stage(StageStyle.DECORATED);
             //stage.setTitle(name);
             stage.setScene(new Scene(homePageParent));
+            stage.setResizable(false);
             stage.show();
 
         } catch (IOException ex) {
@@ -551,7 +553,7 @@ public void sendEmail(){
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(new Scene(root));
-
+  window.setResizable(false);
             window.show();
 
            
@@ -577,6 +579,10 @@ public void sendEmail(){
     @FXML
     private void CommandesFenetre(ActionEvent event) {
          LoadWindowParent("/GUI/Panier/FXMLCommandesInterface.fxml", event);
+    }
+
+    @FXML
+    private void btnReclamation(ActionEvent event) {
     }
 
 }

@@ -94,6 +94,8 @@ public class ClientInterfaceController implements Initializable {
     private Button Maps;
     @FXML
     private Button Contacts;
+    @FXML
+    private Button Reclamation;
 
     /**
      * Initializes the controller class.
@@ -388,6 +390,16 @@ try {
         } catch (IOException ex) {
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+
+    @FXML
+    private void btnReclamation(ActionEvent event) throws IOException {
+             Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Reclamation/InterfaceEnvoiDesReclamations.fxml"));
+        Scene homePageScene = new Scene(homePageParent);
+        Stage appStage =(Stage)((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(homePageScene);
+        appStage.show();
+        appStage.setTitle("Envoi des réclamations - Souk El Medina");
     }
 
 }

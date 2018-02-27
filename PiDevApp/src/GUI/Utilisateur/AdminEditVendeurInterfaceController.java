@@ -199,25 +199,24 @@ public class AdminEditVendeurInterfaceController implements Initializable {
 
     @FXML
     private void btnEditAction(ActionEvent event) {
-         if ((nom.getText().length() == 0)
-                || (prenom.getText().length() == 0)
-                || (datedenaissance.getEditor().getText().length() == 0)
-                || (sexe.getValue().length() == 0)
-                || (adresse.getText().length() == 0)
-                || (ville.getText().length() == 0)
-                || (zip.getText().length() == 0)
-                || !(ValidationService.numerique_Validation(zip.getText()))
-                || (numerodetelephone.getText().length() != 8)
-                || !(ValidationService.numerique_Validation(numerodetelephone.getText()))
-                || !(ValidationService.email_Validation(email.getText()))
-               
-               
-                || (situationfiscal.getValue().length()==0)
-                ||(rib.getText().length()!=18)) 
-              {
-            labmsg.setText("Verfier votre champs!");
-            
-        } else{
+         if (nom.getText().length() == 0)
+            { labmsg.setText("verifier le Nom");}
+        else if(prenom.getText().length() == 0)
+            { labmsg.setText("verfier le Prenom");}
+        else if (datedenaissance.getEditor().getText().length() == 0)
+            { labmsg.setText("verfier le Date de naissance");}
+        else if(sexe.getValue().length() == 0)
+            { labmsg.setText("verfier le Sexe");}
+        else if(adresse.getText().length() == 0)
+            { labmsg.setText("verfier L'dresse");}
+        else if (ville.getText().length() == 0)
+            { labmsg.setText("verfier la Ville");}
+        else if((zip.getText().length() == 0)|| !(ValidationService.numerique_Validation(zip.getText())))
+            { labmsg.setText("verfier le Zip");}      
+        else if ((numerodetelephone.getText().length() != 8) || !(ValidationService.numerique_Validation(numerodetelephone.getText())))
+            { labmsg.setText("verfier le Numero de Telephone");}
+                
+        else{
         AdminService as = new AdminService();
         
             
@@ -433,15 +432,11 @@ public class AdminEditVendeurInterfaceController implements Initializable {
     @FXML
     private void btnChangeIdBancaireAction(ActionEvent event) {
        
-         if (
-               
-               
-                (situationfiscal.getValue().length()==0)
-                ||(rib.getText().length()!=18)) 
-              {
-            labmsg.setText("Verfier votre champs!");
-            
-        } else{
+        if(situationfiscal.getValue().length() == 0)
+            { labmsg.setText("verfier la Situation Fiscal");}
+        else if(rib.getText().length()!=18)
+            { labmsg.setText("verfier le RIB");}
+            else{
         AdminService as = new AdminService();
         
             
