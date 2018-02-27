@@ -74,6 +74,8 @@ public class ChangeEmailController implements Initializable {
     private Button Maps;
     @FXML
     private Button Contacts;
+    @FXML
+    private Button Reclamation;
 
     /**
      * Initializes the controller class.
@@ -109,6 +111,7 @@ public class ChangeEmailController implements Initializable {
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                window.setResizable(false);
                 window.show();
 
     }
@@ -152,6 +155,7 @@ public class ChangeEmailController implements Initializable {
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(new Scene(root));
+            window.setResizable(false);
             window.show();
         } catch (IOException ex) {
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
@@ -185,44 +189,14 @@ public class ChangeEmailController implements Initializable {
     }
     @FXML
     private void btnespClientAction(ActionEvent event) {
-         try {
-             Util.connectedUser=null;
-                
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
-                Parent root = (Parent) loader.load();
-                
-                Stage window;
-                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setScene(new Scene(root));
-                window.show();
-
-            } catch (IOException ex) {
-                System.out.println("catch : " + ex.getMessage());
-                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+         Util.connectedUser=null;
+         LoadWindowParent("Login.fxml", event);
     }
  
     @FXML
     private void btnespVendeurAction(ActionEvent event) {
         if(Util.connectedUserVendeur==null){
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginVendeur.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            LoadWindowParent("LoginVendeur.fxml", event);
         }
         else 
         {
@@ -235,6 +209,7 @@ public class ChangeEmailController implements Initializable {
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -247,24 +222,7 @@ public class ChangeEmailController implements Initializable {
 
     @FXML
     private void btnespAdminAction(ActionEvent event) {
-         try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginAdmin.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ChangeEmailController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("LoginAdmin.fxml", event);
     }
 
       @FXML
@@ -304,47 +262,13 @@ public class ChangeEmailController implements Initializable {
 
     @FXML
     private void btnRechercheAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/RechercheContactInterface.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
         
     }
 
     @FXML
     private void btnMapsAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/Maps.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
     }
 
         @FXML
@@ -364,6 +288,7 @@ public class ChangeEmailController implements Initializable {
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(new Scene(root));
+            window.setResizable(false);
 
             window.show();
 
@@ -371,5 +296,10 @@ public class ChangeEmailController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ChangeEmailController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+
+    @FXML
+    private void btnReclamation(ActionEvent event) {
+          LoadWindowParent("/GUI/Reclamation/EnvoiDesReclamations.fxml", event);
     }
 }

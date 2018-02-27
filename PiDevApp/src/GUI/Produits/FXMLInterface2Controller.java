@@ -103,6 +103,7 @@ public class FXMLInterface2Controller implements Initializable {
         Scene homePageScene = new Scene(homePageParent);
         Stage appStage =(Stage)((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
+        appStage.setResizable(false);
         appStage.show();
     }
     private void loadList()

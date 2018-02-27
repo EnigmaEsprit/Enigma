@@ -172,18 +172,7 @@ menu.setTranslateX(-190);
     }
     @FXML
     private void btnAnnulerAction(ActionEvent event) {
-          try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminInterface.fxml"));
-            Parent root = (Parent) loader.load();
-           
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));  window.setResizable(false);
-            window.show();
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+          LoadWindowParent("AdminInterface.fxml", event);
     }
 
     @FXML

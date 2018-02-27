@@ -126,6 +126,7 @@ public class ChangerPasswordVendeurController implements Initializable {
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(new Scene(root));
+            window.setResizable(false);
             window.show();
         } catch (IOException ex) {
             Logger.getLogger(AdminEditVendeurInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
@@ -170,24 +171,7 @@ public class ChangerPasswordVendeurController implements Initializable {
               System.out.println(Util.connectedUser);
         if (Util.connectedUser==null)
         {
-           try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            LoadWindowParent("Login.fxml", event);
         }
         else
         {
@@ -200,6 +184,7 @@ public class ChangerPasswordVendeurController implements Initializable {
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -213,47 +198,13 @@ public class ChangerPasswordVendeurController implements Initializable {
 
       @FXML
     private void btnespVendeurAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginVendeur.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+          LoadWindowParent("LoginVendeur.fxml", event);
         
     }
 
     @FXML
     private void btnespAdminAction(ActionEvent event) {
-         try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginAdmin.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("LoginAdmin.fxml", event);
     }
 
       @FXML
@@ -293,47 +244,12 @@ public class ChangerPasswordVendeurController implements Initializable {
 
     @FXML
     private void btnRechercheAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/RechercheContactInterface.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
     }
 
     @FXML
     private void btnMapsAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/Maps.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
     }
 
        @FXML
@@ -353,6 +269,7 @@ public class ChangerPasswordVendeurController implements Initializable {
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(new Scene(root));
+            window.setResizable(false);
 
             window.show();
 
