@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="container" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Reclamation.InterfaceReponseReclamationController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutY="25.0" prefHeight="655.0" prefWidth="211.0" spacing="20.0" style="-fx-border-color: #0F0F0F; -fx-background-color: #cfb176;">
+         <children>
+            <Button mnemonicParsing="false" onMouseClicked="#openPageAccueil" prefHeight="48.0" prefWidth="165.0" text="Catalogue">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="31.0" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#openClientPage" prefHeight="48.0" prefWidth="202.0" text="Espace Client">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="31.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#openVendeurPage" prefHeight="48.0" prefWidth="202.0" text="Espace Vendeur">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="31.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#openFAQPage" prefHeight="48.0" prefWidth="202.0" text="FAQ">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="80.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="TOP_CENTER" layoutX="211.0" layoutY="25.0" prefHeight="655.0" prefWidth="813.0" spacing="15.0" style="-fx-border-color: #0F0F0F; -fx-background-color: #e5dac5;">
+         <children>
+            <HBox alignment="TOP_RIGHT" maxWidth="-Infinity" prefHeight="24.0" prefWidth="810.0">
+               <children>
+                  <Label fx:id="labelIdentifiant" alignment="CENTER_RIGHT" prefHeight="32.0" prefWidth="483.0" text="Hello, utilisateur connecté !">
+                     <font>
+                        <Font name="Lao UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="56.0" prefWidth="470.0" text="Envoyer une réclamation">
+               <font>
+                  <Font size="37.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="30.0" top="20.0" />
+               </VBox.margin>
+            </Label>
+            <HBox alignment="CENTER" layoutX="31.0" layoutY="220.0" prefHeight="102.0" prefWidth="791.0" spacing="20.0">
+               <children>
+                  <Label prefHeight="34.0" prefWidth="276.0" text="Réponse adressée à : ">
+                     <font>
+                        <Font name="Calibri" size="22.0" />
+                     </font>
+                  </Label>
+                  <VBox alignment="BOTTOM_LEFT" prefHeight="102.0" prefWidth="438.0">
+                     <children>
+                        <Label fx:id="clientConcerne" prefHeight="38.0" prefWidth="411.0" text="Nom client">
+                           <font>
+                              <Font name="Calibri Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="emailClientConcerne" prefHeight="35.0" prefWidth="411.0" text="&lt;nom.client@nomclient.com&gt;">
+                           <font>
+                              <Font name="Calibri Italic" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="TOP_CENTER" layoutX="31.0" layoutY="296.0" prefHeight="170.0" prefWidth="791.0" spacing="20.0">
+               <children>
+                  <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefHeight="34.0" prefWidth="269.0" text="Votre réponse ici : ">
+                     <font>
+                        <Font name="Calibri" size="25.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="ecranReponseReclamation" maxHeight="-Infinity" prefHeight="189.0" prefWidth="434.0" promptText="Entrez le contenu de votre réponse ici.">
+                     <font>
+                        <Font name="Lucida Console" size="14.0" />
+                     </font>
+                  </TextArea>
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" layoutX="21.0" layoutY="250.0" prefHeight="23.0" prefWidth="791.0" spacing="5.0">
+               <padding>
+                  <Insets left="20.0" right="20.0" />
+               </padding>
+            </HBox>
+            <Button fx:id="btnEnvoiReponse" mnemonicParsing="false" onMouseClicked="#btnEnvoyerReponse" prefHeight="53.0" prefWidth="356.0" text="Envoyez votre réponse">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </VBox>
+      <MenuBar prefHeight="30.0" prefWidth="1024.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </children>
+</AnchorPane>

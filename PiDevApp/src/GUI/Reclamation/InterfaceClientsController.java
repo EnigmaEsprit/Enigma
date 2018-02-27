@@ -40,7 +40,7 @@ public class InterfaceClientsController implements Initializable {
 
     @FXML
     private void openPageAccueil(MouseEvent event) throws IOException {
-        Parent homePageParent = FXMLLoader.load(getClass().getResource("InterfaceAccueil.fxml"));
+        Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Reclamation/InterfaceAccueil.fxml"));
         Scene homePageScene = new Scene(homePageParent);
         Stage appStage =(Stage)((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
@@ -50,7 +50,7 @@ public class InterfaceClientsController implements Initializable {
 
     @FXML
     private void openClientPage(MouseEvent event) throws IOException {
-        Parent homePageParent = FXMLLoader.load(getClass().getResource("InterfaceClients.fxml"));
+        Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Reclamation/InterfaceClients.fxml"));
         Scene homePageScene = new Scene(homePageParent);
         Stage appStage =(Stage)((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
@@ -60,7 +60,7 @@ public class InterfaceClientsController implements Initializable {
 
     @FXML
     private void openVendeurPage(MouseEvent event) throws IOException {
-        Parent homePageParent = FXMLLoader.load(getClass().getResource("InterfaceVendeur.fxml"));
+        Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Reclamation/InterfaceVendeur.fxml"));
         Scene homePageScene = new Scene(homePageParent);
         Stage appStage =(Stage)((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
@@ -74,12 +74,12 @@ public class InterfaceClientsController implements Initializable {
 
     @FXML
     private void openPageEnvoiReclamation(MouseEvent event) throws IOException {
-        Parent homePageParent = FXMLLoader.load(getClass().getResource("InterfaceEnvoiDesReclamations.fxml"));
+        Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Reclamation/InterfaceEnvoiDesReclamations.fxml"));
         Scene homePageScene = new Scene(homePageParent);
         Stage appStage =(Stage)((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
         appStage.show();
-        appStage.setTitle("Espace Vendeur - Souk El Medina");
+        appStage.setTitle("Envoi des réclamations - Souk El Medina");
     }
 
     @FXML

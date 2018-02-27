@@ -3,23 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Panier/FXMLPanierInterface.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ChangerEmailVendeur.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Panier/FXMLPaymentCard.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/AdminEditVendeurInterface.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/changePassword.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Panier/FXMLStatistiques.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ChangeEmail.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ChangerPassowrdVendeurV.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ChangerPasswordVendeur.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ClientEditeInterface.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ClientInterfaceController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/AdminEditClientInterface.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/AjouterVendeurByAdminInterface.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Panier/FXMLInterfaceModificationQuantite.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/AdminInterface.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ClientInterface.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/Login.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/nbproject/build-impl.xml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ClientEditeInterfaceController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/Main/SplashFXMLController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Reclamation/InterfaceEnvoiDesReclamationsController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/Main/SplashFXML.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/Main/PiDevApp.java</file>
         </group>
     </open-files>
 </project-private>

@@ -13,9 +13,9 @@ import entites.Reclamation.Reclamations;
  * @author Ivan Landry ONANA
  */
 public interface IReclamations {
-    public void envoyerUneReclamation(Reclamations c, String emailUser);
+    public void envoyerUneReclamation(Reclamations c, String emailUser, String nomMag);
     public void supprimerUneReclamation(Reclamations c);
-    public void repondreAUneReclamation(String dst, String msg);
-    public List<Reclamations> afficherReclamations();    
+    public void repondreAUneReclamation(String dst, String msg, int id);
+    public List<Reclamations> afficherReclamations(String emailVendeur);    
     
 }

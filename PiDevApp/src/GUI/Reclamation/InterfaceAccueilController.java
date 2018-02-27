@@ -44,7 +44,7 @@ public class InterfaceAccueilController implements Initializable {
 
     @FXML
     private void openClientPage(MouseEvent event) throws IOException {
-        Parent homePageParent = FXMLLoader.load(getClass().getResource("InterfaceClients.fxml"));
+        Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Reclamation/InterfaceClients.fxml"));
         Scene homePageScene = new Scene(homePageParent);
         Stage appStage =(Stage)((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
@@ -54,7 +54,7 @@ public class InterfaceAccueilController implements Initializable {
 
     @FXML
     private void openVendeurPage(MouseEvent event) throws IOException {
-        Parent homePageParent = FXMLLoader.load(getClass().getResource("InterfaceVendeur.fxml"));
+        Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Reclamation/InterfaceVendeur.fxml"));
         Scene homePageScene = new Scene(homePageParent);
         Stage appStage =(Stage)((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);

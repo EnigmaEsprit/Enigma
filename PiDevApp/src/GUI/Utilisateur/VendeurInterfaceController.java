@@ -274,6 +274,12 @@ public class VendeurInterfaceController implements Initializable {
     }
 
     @FXML
-    private void btnReclamationAction(ActionEvent event) {
+    private void btnReclamationAction(ActionEvent event) throws IOException {
+            Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Reclamation/InterfaceReclamationsClients.fxml"));
+        Scene homePageScene = new Scene(homePageParent);
+        Stage appStage =(Stage)((Node) event.getSource()).getScene().getWindow();
+        appStage.setScene(homePageScene);
+        appStage.show();
+        appStage.setTitle("Envoi des réclamations - Souk El Medina");
     }
 }
