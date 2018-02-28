@@ -64,7 +64,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.Panier.CommandesServices;
 import service.Panier.LigneCommandesServices;
-import service.Produits.ProduitServices;
+import service.Produits.ProduitServices2;
 
 /**
  * FXML Controller class
@@ -95,7 +95,7 @@ public class FXMLPanierInterfaceController implements Initializable {
      * Initializes the controller class.
      */
     private ObservableList<Produit> data = FXCollections.observableArrayList();
-    ProduitServices ps = new ProduitServices();
+    ProduitServices2 ps = new ProduitServices2();
     @FXML
     private Label prixTotal;
     @FXML

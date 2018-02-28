@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -15,7 +14,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AjoutArticleController">
+<AnchorPane id="AnchorPane" fx:id="AP1" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Produits.AjoutArticleController">
    <children>
       <ImageView fitHeight="550.0" fitWidth="900.0" layoutY="-4.0" opacity="0.48" pickOnBounds="true">
          <image>
@@ -71,6 +70,11 @@
             <Font name="Bauhaus 93" size="21.0" />
          </font>
       </JFXButton>
-      <JFXComboBox fx:id="lstmagasin" layoutX="30.0" layoutY="343.0" prefHeight="25.0" prefWidth="157.0" promptText="choisir magasin" />
+      <JFXButton fx:id="saveArticle1" layoutX="38.0" layoutY="485.0" onAction="#afficherListProduit" prefHeight="47.0" prefWidth="141.0" style="-fx-background-color: #a32020;" text="list" textFill="WHITE">
+         <font>
+            <Font name="Bauhaus 93" size="21.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="TFCategorie" focusColor="WHITE" layoutX="20.0" layoutY="354.0" maxWidth="319.0" minWidth="189.0" prefHeight="33.0" prefWidth="319.0" promptText="Quantite" text="Categorie" unFocusColor="BLACK" />
    </children>
 </AnchorPane>

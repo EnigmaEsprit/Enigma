@@ -103,6 +103,7 @@ public class ChangerPassowrdVendeurVContoller implements Initializable {
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                window.setResizable(false);
                 window.show();
     }
 
@@ -134,6 +135,7 @@ public class ChangerPassowrdVendeurVContoller implements Initializable {
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                window.setResizable(false);
                 window.show();
 
         }
@@ -157,24 +159,7 @@ public class ChangerPassowrdVendeurVContoller implements Initializable {
     @FXML
     private void btnespClientAction(ActionEvent event) {
         if(Util.connectedUser==null){
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            LoadWindowParent("Login.fxml", event);
         }
         else 
         {
@@ -187,6 +172,7 @@ public class ChangerPassowrdVendeurVContoller implements Initializable {
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(new Scene(root));
+                window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -199,42 +185,13 @@ public class ChangerPassowrdVendeurVContoller implements Initializable {
 
     @FXML
     private void btnespVendeurAction(ActionEvent event) {
-         try {
-                Util.connectedUserVendeur=null;
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginVendeur.fxml"));
-                Parent root = (Parent) loader.load();
-                
-                Stage window;
-                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setScene(new Scene(root));
-                window.show();
-
-            } catch (IOException ex) {
-                System.out.println("catch : " + ex.getMessage());
-                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-            }
+        Util.connectedUserVendeur=null;
+         LoadWindowParent("LoginVendeur.fxml", event);
     }
 
     @FXML
     private void btnespAdminAction(ActionEvent event) {
-         try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginAdmin.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("LoginAdmin.fxml", event);
     }
 
     @FXML
@@ -280,6 +237,7 @@ public class ChangerPassowrdVendeurVContoller implements Initializable {
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(new Scene(root));
+            window.setResizable(false);
 
             window.show();
 
@@ -287,5 +245,10 @@ public class ChangerPassowrdVendeurVContoller implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(VendeurInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+
+    @FXML
+    private void ReclamationAction(ActionEvent event) {
+          LoadWindowParent("/GUI/Reclamation/ReclamationsClients.fxml", event);
     }
 }

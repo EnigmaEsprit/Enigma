@@ -3,17 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entities;
+package entites.Produit;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-/**
- *
- * @author wieme
- */
+
 public class produits {
  private int idProduit;
      private final IntegerProperty Prix = new SimpleIntegerProperty(0);
@@ -30,6 +27,7 @@ public class produits {
  private int idpromotion;
  private String categorieMagasin;
  private int idMagasin;
+ private double valeval;
 
     public produits() {
     }
@@ -40,6 +38,20 @@ public class produits {
         this.quantiteProduit = quantiteProduit;
      
         
+    }
+
+    public produits(int idProduit, String referenceProduit, String nomProduit, String prixProduit, String photoProduit, String quantiteProduit, int active, int idpromotion, String categorieMagasin, int idMagasin, double valeval) {
+        this.idProduit = idProduit;
+        this.referenceProduit = referenceProduit;
+        this.nomProduit = nomProduit;
+        this.prixProduit = prixProduit;
+        this.photoProduit = photoProduit;
+        this.quantiteProduit = quantiteProduit;
+        this.active = active;
+        this.idpromotion = idpromotion;
+        this.categorieMagasin = categorieMagasin;
+        this.idMagasin = idMagasin;
+        this.valeval = valeval;
     }
 
     public produits(int idProduit, String referenceProduit, String nomProduit, String prixProduit, String photoProduit, String quantiteProduit, int active, int idpromotion, String categorieMagasin, int idMagasin) {
@@ -183,6 +195,14 @@ public class produits {
 
     public Integer Prixx() {
         return Prix().get();
+    }
+
+    public double getValeval() {
+        return valeval;
+    }
+
+    public void setValeval(double valeval) {
+        this.valeval = valeval;
     }
 
 

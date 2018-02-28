@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import service.Produits.ProduitServices;
+import service.Produits.ProduitServices2;
 
 /**
  *
@@ -67,7 +67,7 @@ public class CommandesServices {
             prep.setInt(1, c.getIdTransaction());
             prep.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -99,7 +99,7 @@ public class CommandesServices {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return commandes;
     }
@@ -127,7 +127,7 @@ public class CommandesServices {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id;
     }
@@ -157,7 +157,7 @@ public class CommandesServices {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return commandes;
     }

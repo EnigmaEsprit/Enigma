@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package IServices;
+package iservice.Magasins;
 
-import Entities.magasins;
+
+import entites.Magasins.magasins;
 import java.util.List;
 
 /**

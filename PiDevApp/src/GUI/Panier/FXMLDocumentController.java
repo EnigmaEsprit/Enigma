@@ -21,7 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
-import service.Produits.ProduitServices;
+import service.Produits.ProduitServices2;
 
 /**
  *
@@ -54,7 +54,7 @@ public class FXMLDocumentController implements Initializable {
         es.ajouterEtudiant(etudiant1); */
          Produit p1 = new Produit(nom.getText(), Integer.parseInt(qte.getText()), Double.parseDouble(prix.getText()));
          
-         ProduitServices ps = new ProduitServices();
+         ProduitServices2 ps = new ProduitServices2();
         
         ps.ajouterProduit(p1);
         

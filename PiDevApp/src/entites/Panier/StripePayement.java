@@ -17,7 +17,7 @@ import com.stripe.model.Customer;
 import com.stripe.model.Token;
 import com.stripe.net.RequestOptions;
 import com.stripe.net.RequestOptions.RequestOptionsBuilder;
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.String;
+//import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.String;
 import java.util.HashMap;
 import java.util.Map;
 

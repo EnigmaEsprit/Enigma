@@ -183,18 +183,7 @@ public class AdminEditVendeurInterfaceController implements Initializable {
 
     @FXML
     private void btnAnnulerAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminInterface.fxml"));
-            Parent root = (Parent) loader.load();
-           
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
-            window.show();
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("AdminInterface.fxml", event);
     }
 
     @FXML
@@ -237,19 +226,7 @@ public class AdminEditVendeurInterfaceController implements Initializable {
             alert.showAndWait();
                 }
         
-           
-                    try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminInterface.fxml"));
-            Parent root = (Parent) loader.load();
-           
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
-            window.show();
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+              LoadWindowParent("AdminInterface.fxml", event);
                     }
 
               
@@ -262,45 +239,25 @@ public class AdminEditVendeurInterfaceController implements Initializable {
     private void btnespClientAction(ActionEvent event) {
         if (Util.Util.connectedUser==null)
         {
-           try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            LoadWindowParent("Login.fxml", event);
         }
         else
         {
-            try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ClientInterface.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+           try {
+              
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("ClientInterface.fxml"));
+                Parent root = (Parent) loader.load();
+                ClientInterfaceController ClientIn = loader.getController();
+                ClientIn.myFunction();
+                Stage window;
+                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(new Scene(root));  window.setResizable(false);
+                window.show();
 
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            } catch (IOException ex) {
+                System.out.println("catch : " + ex.getMessage());
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
         }
        
@@ -308,67 +265,30 @@ public class AdminEditVendeurInterfaceController implements Initializable {
     @FXML
     private void btnespVendeurAction(ActionEvent event) {
         if(Util.Util.connectedUserVendeur==null){
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginVendeur.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            LoadWindowParent("LoginVendeur.fxml", event);
         }
         else 
         {
-              try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("VendeurInterface.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                try {
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("VendeurInterface.fxml"));
+                Parent root = (Parent) loader.load();
+                VendeurInterfaceController ClientIn = loader.getController();
+                ClientIn.myFunction();
+                Stage window;
+                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(new Scene(root));  window.setResizable(false);
+                window.show();
 
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            } catch (IOException ex) {
+                System.out.println("catch : " + ex.getMessage());
+                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
  @FXML
     private void btnespAdminAction(ActionEvent event) {
-         try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginAdmin.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         LoadWindowParent("LoginAdmin.fxml", event);
     }
 
 
@@ -384,6 +304,7 @@ public class AdminEditVendeurInterfaceController implements Initializable {
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(new Scene(root));
+            window.setResizable(false);
             window.show();
         } catch (IOException ex) {
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
@@ -402,6 +323,7 @@ public class AdminEditVendeurInterfaceController implements Initializable {
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(new Scene(root));
+            window.setResizable(false);
             window.show();
         } catch (IOException ex) {
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
@@ -458,18 +380,7 @@ public class AdminEditVendeurInterfaceController implements Initializable {
                 }
         
            
-                    try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("AdminInterface.fxml"));
-            Parent root = (Parent) loader.load();
-           
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(new Scene(root));
-            window.show();
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                  LoadWindowParent("AdminInterface.fxml", event);
         
     }
 
@@ -521,47 +432,13 @@ public class AdminEditVendeurInterfaceController implements Initializable {
 
     @FXML
     private void btnRechercheAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/RechercheContactInterface.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
         
     }
 
     @FXML
     private void btnMapsAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/Maps.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
     }
 
     @FXML
@@ -581,6 +458,7 @@ public class AdminEditVendeurInterfaceController implements Initializable {
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(new Scene(root));
+            window.setResizable(false);
 
             window.show();
 

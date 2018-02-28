@@ -12,6 +12,7 @@ import entites.Utilisateur.Vendeur;
 import iservice.Utilisateur.IVendeur;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -207,6 +208,42 @@ try {
     }
         return insert;
     }
+       public Vendeur rechercherVendeurById(int id) {
+         Vendeur m = new Vendeur();
+        String requete = "select * from users where id LIKE '%"+id+"%'";
+        try {
+            PreparedStatement ps = con.prepareStatement(requete);
+            ResultSet resultat = ps.executeQuery();
+            if (resultat.next()) {
+                 m.setNom(resultat.getString("nom"));
+                m.setPrenom(resultat.getString("prenom"));        
+                m.setId(resultat.getInt("id"));
+
+                return m;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la recherche du compte " + ex.getMessage());
+        }   
+    return m;       }
+        public Vendeur rechercherVendeurByName(String nom) {
+        Vendeur m = new Vendeur();
+        String requete = "select * from users where nom LIKE '%"+nom+"%'";
+        try {
+            PreparedStatement ps = con.prepareStatement(requete);
+            ResultSet resultat = ps.executeQuery();
+            if (resultat.next()) {
+                 m.setNom(resultat.getString("nom"));
+                m.setPrenom(resultat.getString("prenom"));        
+                m.setId(resultat.getInt("id"));
+
+                return m;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la recherche du compte " + ex.getMessage());
+        }   
+    return null;       }
 }
 
    

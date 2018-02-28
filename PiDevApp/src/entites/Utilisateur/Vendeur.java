@@ -34,6 +34,9 @@ public class Vendeur extends Utilisateur{
         this.sutiation_fiscal = sutiation_fiscal;
         this.numero_bancaire = numero_bancaire;
     }
+
+    public Vendeur() {
+    }
       
   
     public String getSutiation_fiscal() {

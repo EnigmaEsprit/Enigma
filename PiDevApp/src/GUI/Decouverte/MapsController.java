@@ -6,6 +6,7 @@
 package GUI.Decouverte;
 
 import GUI.Utilisateur.ClientInterfaceController;
+import GUI.Utilisateur.InscriptionController;
 import GUI.Utilisateur.LoginController;
 import GUI.Utilisateur.VendeurInterfaceController;
 import Util.Util;
@@ -138,24 +139,7 @@ public class MapsController implements Initializable,MapComponentInitializedList
               System.out.println(Util.connectedUser);
         if (Util.connectedUser==null)
         {
-           try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/Login.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+            LoadWindowParent("/GUI/Utilisateur/Login.fxml", event);
         }
         else
         {
@@ -183,24 +167,7 @@ public class MapsController implements Initializable,MapComponentInitializedList
     @FXML
     private void btnespVendeurAction(ActionEvent event) {
         if(Util.connectedUserVendeur==null){
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/LoginVendeur.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            LoadWindowParent("/GUI/Utilisateur/LoginVendeur.fxml", event);
         }
         else 
         {
@@ -225,24 +192,7 @@ public class MapsController implements Initializable,MapComponentInitializedList
 
     @FXML
     private void btnespAdminAction(ActionEvent event) {
-         try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/LoginAdmin.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("/GUI/Utilisateur/LoginAdmin.fxml", event);
     }
     public void createMap(){
           map = new GoogleMap();
@@ -1187,32 +1137,24 @@ public class MapsController implements Initializable,MapComponentInitializedList
 
     @FXML
     private void btnRechercheAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/RechercheContactInterface.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));  window.setResizable(false);
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
         
     }
 
     @FXML
     private void btnMapsAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
+    }
+
+    @FXML
+    private void PanierFenetre(ActionEvent event) {
+        LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);
+    }
+    
+    private void LoadWindowParent(String loc,ActionEvent event){
         try {
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/Maps.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(loc));
             
             Parent root = (Parent) loader.load();
            
@@ -1220,18 +1162,15 @@ public class MapsController implements Initializable,MapComponentInitializedList
             Stage window;
             window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
-            window.setScene(new Scene(root));  window.setResizable(false);
-
+            window.setScene(new Scene(root));
+            window.setResizable(false);
             window.show();
 
            
         } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 
-    @FXML
-    private void PanierFenetre(ActionEvent event) {
-    }
     
 }

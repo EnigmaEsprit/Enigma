@@ -6,7 +6,9 @@
 package service.Produits;
 
 import database.MyDB;
-import entites.Produit.Produit;
+import  entites.Magasins.magasins;
+import entites.Produit.produits;
+import iservice.Produits.Iproduits;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -17,96 +19,246 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- *
- * @author jean
- */
-public class ProduitServices {
+public class produitServices implements Iproduits {
 
-    Connection conn = MyDB.getInstance().getConnection();
+    Connection connection = MyDB.getInstance().getConnection();
     private Statement ste;
 
-    public ProduitServices() {
+    public produitServices() {
 
         try {
-            ste = conn.createStatement();
+            ste = connection.createStatement();
         } catch (SQLException ex) {
 
             System.out.println(ex);
         }
     }
 
-    public void ajouterProduit(Produit p) {
+    @Override
+    public void ajouterProduits(produits p) {
         try {
-            /* Statement stm= myDB.getConnnexion().createStatement();*/
+            String req = "insert into produits (referenceProduit,nomProduit,prixProduit,photoProduit,quantiteProduit,active,categorieMagasin,idMagasin) values (?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = connection.prepareStatement(req);
 
-            String query = "INSERT INTO produits (nomProduit, prixProduit, quantiteProduit, idMagasin) VALUES (?, ?,?, ?)";
+            ps.setString(1, p.getReferenceProduit());
+            ps.setString(2, p.getNomProduit());
+            ps.setString(3, p.getPrixProduit());
+            ps.setString(4, p.getPhotoProduit());
+            ps.setString(5, p.getQuantiteProduit());
+            ps.setInt(6, p.getActive());
+            ps.setString(7, p.getCategorieMagasin());
+            ps.setInt(8, 2);
 
-            PreparedStatement pre = conn.prepareStatement(query);
-            pre.setString(1, p.getNomProduit());
-            pre.setDouble(2, p.getPrixProduit());
-            pre.setInt(3, p.getQuantiteProduit());
-            pre.setInt(4, 1);
-            // ste.executeUpdate(query);
-            pre.executeUpdate();
+            ps.executeUpdate();
+            System.out.println("ajout avec succé");
 
-            System.out.println("produit ajout ok");
         } catch (SQLException ex) {
-            System.out.println(ex);
+            Logger.getLogger(produitServices.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
-    public List<Produit> rechercherProduitParNom(String nomProduit) {
-        List<Produit> produits = new ArrayList<>();
+    public void supprimerProduit(int p) {
+        String requete = "delete from produits where idProduit='" + p + "'";
         try {
-            Statement stm = conn.createStatement();
-            ResultSet rest = stm.executeQuery("SELECT * from produits where nomProduit like 'nomProduit%' ");
-            while (rest.next()) {
-                Produit p = new Produit();
-                p.setNomProduit(rest.getString(3));
-                p.setPrixProduit(rest.getDouble(4));
-                p.setQuantiteProduit(rest.getInt(6));
-                produits.add(p);
-            }
+            PreparedStatement ps = connection.prepareStatement(requete);
+            ps.executeUpdate();
+            System.out.println("Suppression effectuée avec succès");
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la suppression " + ex.getMessage());
         }
-        return produits;
     }
 
-    public void supprimerProduits(Produit p) {
+    @Override
+    public List<produits> afficherProduis() {
+        List<produits> prosuits = new ArrayList<>();
+        String requete = " select *  FROM `produits` ";
         try {
-            PreparedStatement prep = conn.prepareStatement("delete from produits where nomProduit=?");
-            prep.setString(1, p.getNomProduit());
-            prep.executeUpdate();
-        } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Statement statement = connection.createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
 
-    }
+            while (resultat.next()) {
+                produits p = new produits();
+                p.setIdProduit(resultat.getInt("idProduit"));
+                p.setNomProduit(resultat.getString("nomProduit"));
+                p.setPrixProduit(resultat.getString("prixProduit"));
+                p.setQuantiteProduit(resultat.getString("quantiteProduit"));
+                p.setReferenceProduit(resultat.getString("referenceProduit"));
+                p.setPhotoProduit(resultat.getString("photoProduit"));
+                p.setActive(resultat.getInt("active"));
+                p.setCategorieMagasin(resultat.getString("categorieMagasin"));
+                p.setIdMagasin(resultat.getInt("idMagasin"));
 
-    public List<Produit> selectProduits() {
-        List<Produit> produits = new ArrayList<>();
-
-        try {
-            Statement stm = conn.createStatement();
-            ResultSet rest
-                    = stm.executeQuery("select * from produits");
-            while (rest.next()) {
-                Produit p = new Produit();
-                p.setIdProduit(rest.getInt(1));
-                p.setNomProduit(rest.getString(3));
-                p.setPrixProduit(rest.getDouble(4));
-                p.setQuantiteProduit(rest.getInt(6));
-                produits.add(p);
+                prosuits.add(p);
 
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des comptes" + ex.getMessage());
+
+        }
+        return prosuits;
+    }
+
+    @Override
+    public produits rechercherProduitsById(int i) {
+        produits p = new produits();
+        String requete = "select * from produits where idProduit LIKE '%" + i + "%'";
+        try {
+            PreparedStatement ps = connection.prepareStatement(requete);
+            ResultSet resultat = ps.executeQuery();
+            if (resultat.next()) {
+                p.setReferenceProduit(resultat.getString("referenceProduit"));
+                p.setNomProduit(resultat.getString("nomProduit"));
+                p.setPrixProduit(resultat.getString("prixProduit"));
+                p.setPhotoProduit(resultat.getString("photoProduit"));
+                p.setQuantiteProduit(resultat.getString("quantiteProduit"));
+                p.setActive(resultat.getInt("active"));
+                p.setCategorieMagasin(resultat.getString("categorieMagasin"));
+                p.setIdMagasin(resultat.getInt("idMagasin"));
+                p.setIdProduit(resultat.getInt("idProduit"));
+
+                return p;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la recherche du compte " + ex.getMessage());
+        }
+        return p;
+    }
+
+    @Override
+    public produits rechercherProduitsByName(String nom) {
+        produits p = new produits();
+        String requete = "select * from produits where nomProduit LIKE '%" + nom + "%'";
+        try {
+            PreparedStatement ps = connection.prepareStatement(requete);
+            ResultSet resultat = ps.executeQuery();
+            if (resultat.next()) {
+                p.setReferenceProduit(resultat.getString("referenceProduit"));
+                p.setNomProduit(resultat.getString("nomProduit"));
+                p.setPrixProduit(resultat.getString("prixProduit"));
+                p.setPhotoProduit(resultat.getString("photoProduit"));
+                p.setQuantiteProduit(resultat.getString("quantiteProduit"));
+                p.setActive(resultat.getInt("active"));
+                p.setCategorieMagasin(resultat.getString("categorieMagasin"));
+                p.setIdMagasin(resultat.getInt("idMagasin"));
+
+                return p;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la recherche du compte " + ex.getMessage());
+        }
+        return null;
+    }
+
+    public produits rechercherProduitsByMagasin(int idmagasin) {
+        produits p = new produits();
+        String requete = "select * from produits where idMagasin='" + idmagasin + "'";
+        try {
+            PreparedStatement ps = connection.prepareStatement(requete);
+            ResultSet resultat = ps.executeQuery();
+            if (resultat.next()) {
+                p.setReferenceProduit(resultat.getString("referenceProduit"));
+                p.setNomProduit(resultat.getString("nomProduit"));
+                p.setPrixProduit(resultat.getString("prixProduit"));
+                p.setPhotoProduit(resultat.getString("photoProduit"));
+                p.setQuantiteProduit(resultat.getString("quantiteProduit"));
+                p.setActive(resultat.getInt("active"));
+                p.setCategorieMagasin(resultat.getString("categorieMagasin"));
+                p.setIdMagasin(resultat.getInt("idMagasin"));
+
+                return p;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la recherche du compte " + ex.getMessage());
+        }
+        return null;
+    }
+
+    @Override
+    public void modifierProduit(produits p) {
+        String requete = "update produits set referenceProduit=? ,nomProduit=?,prixProduit=?,quantiteProduit=?,categorieMagasin=? where idProduit='" + p.getIdProduit() + "'";
+        try {
+            PreparedStatement ps = connection.prepareStatement(requete);
+            ps.setString(1, p.getReferenceProduit());
+            ps.setString(2, p.getNomProduit());
+            ps.setString(3, p.getPrixProduit());
+            ps.setString(4, p.getQuantiteProduit());
+            ps.setString(5, p.getCategorieMagasin());
+
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la mise à jour " + ex.getMessage());
+        }
+    }
+
+    @Override
+    public void supprimerProduit(produits p) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public List<produits> rechercherProduitByMagasin(int idmagasin) {
+        List<produits> produits = new ArrayList<>();
+        String requete = "select * from produits where idMagasin='" + idmagasin + "'";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            while (resultat.next()) {
+                produits p = new produits();
+
+                p.setIdProduit(resultat.getInt("idProduit"));
+                p.setNomProduit(resultat.getString("nomProduit"));
+                p.setPrixProduit(resultat.getString("prixProduit"));
+                p.setQuantiteProduit(resultat.getString("quantiteProduit"));
+                p.setReferenceProduit(resultat.getString("referenceProduit"));
+                p.setPhotoProduit(resultat.getString("photoProduit"));
+                p.setActive(resultat.getInt("active"));
+                p.setCategorieMagasin(resultat.getString("categorieMagasin"));
+                p.setIdMagasin(resultat.getInt("idMagasin"));
+
+                produits.add(p);
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la recherche du compte " + ex.getMessage());
         }
         return produits;
     }
+
+    public List<produits> rechercherProduitsByMagasins(int idmagasin) {
+        List<produits> prosuits = new ArrayList<>();
+        String requete = "select * from produits where idMagasin='" + idmagasin + "'";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            while (resultat.next()) {
+                produits p = new produits();
+                p.setIdProduit(resultat.getInt("idProduit"));
+                p.setNomProduit(resultat.getString("nomProduit"));
+                p.setPrixProduit(resultat.getString("prixProduit"));
+                p.setQuantiteProduit(resultat.getString("quantiteProduit"));
+                p.setReferenceProduit(resultat.getString("referenceProduit"));
+                p.setPhotoProduit(resultat.getString("photoProduit"));
+                p.setActive(resultat.getInt("active"));
+                p.setCategorieMagasin(resultat.getString("categorieMagasin"));
+                p.setIdMagasin(resultat.getInt("idMagasin"));
+
+                prosuits.add(p);
+
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement des comptes" + ex.getMessage());
+
+        }
+        return prosuits;
+    }
+
+
 
 }

@@ -5,7 +5,9 @@
  */
 package GUI.Decouverte;
 
+import Entities.magasins;
 import GUI.Utilisateur.ClientInterfaceController;
+import GUI.Utilisateur.InscriptionController;
 import GUI.Utilisateur.LoginController;
 import GUI.Utilisateur.VendeurInterfaceController;
 import Util.Util;
@@ -17,7 +19,10 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.TranslateTransition;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -32,6 +37,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -121,26 +127,8 @@ public class RechercheContactInterfaceController implements Initializable {
          @FXML
     private void btnespClientAction(ActionEvent event) {
               System.out.println(Util.connectedUser);
-        if (Util.connectedUser==null)
-        {
-           try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/Login.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));  window.setResizable(false);
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        if (Util.connectedUser==null){
+            LoadWindowParent("/GUI/Utilisateur/Login.fxml", event);
         }
         else
         {
@@ -152,7 +140,8 @@ public class RechercheContactInterfaceController implements Initializable {
                 ClientIn.myFunction();
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setScene(new Scene(root));  window.setResizable(false);
+                window.setScene(new Scene(root));  
+                window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -168,24 +157,10 @@ public class RechercheContactInterfaceController implements Initializable {
     @FXML
     private void btnespVendeurAction(ActionEvent event) {
         if(Util.connectedUserVendeur==null){
-        try {
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/LoginVendeur.fxml"));
-            
-            Parent root = (Parent) loader.load();
+            LoadWindowParent("/GUI/Utilisateur/LoginVendeur.fxml", event);
            
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));  window.setResizable(false);
-
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+     
         }
         else 
         {
@@ -197,7 +172,8 @@ public class RechercheContactInterfaceController implements Initializable {
                 ClientIn.myFunction();
                 Stage window;
                 window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                window.setScene(new Scene(root));  window.setResizable(false);
+                window.setScene(new Scene(root));  
+                window.setResizable(false);
                 window.show();
 
             } catch (IOException ex) {
@@ -210,24 +186,7 @@ public class RechercheContactInterfaceController implements Initializable {
 
     @FXML
     private void btnespAdminAction(ActionEvent event) {
-         try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/LoginAdmin.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-  window.setResizable(false);
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         LoadWindowParent("/GUI/Utilisateur/LoginAdmin.fxml", event);
     }
     @FXML
     private void btnChercherAction(ActionEvent event) {
@@ -280,40 +239,6 @@ public class RechercheContactInterfaceController implements Initializable {
     }
     
 }
-  @FXML
-    private void recherche(KeyEvent event) {/*
-        System.out.println("+++++++-------"+recherche.getText());
-        RechercheService rs = new RechercheService();
-        data = rs.searsh(recherche.getText());
-        if(data !=  null)
-        {
-             tablerecherche.setItems(null);
-               tablerecherche.setItems(data);
-        System.out.println("aa");
-        nom.setCellValueFactory(new PropertyValueFactory<>("nom"));
-        prenom.setCellValueFactory(new PropertyValueFactory<>("prenom"));
-        
-        mail.setCellValueFactory(new PropertyValueFactory<>("email"));
-        adresse.setCellValueFactory(new PropertyValueFactory<>("adresse"));
-        ville.setCellValueFactory(new PropertyValueFactory<>("ville"));
-        zip.setCellValueFactory(new PropertyValueFactory<>("zip"));
-        nommagazin.setCellValueFactory(new PropertyValueFactory<>("nom_magazin"));
-        ntelephone.setCellValueFactory(new PropertyValueFactory<>("nt"));
-        }
-        else
-        {
-            
-               Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Email Change");
-            alert.setHeaderText("Bienvenue");
-            alert.setContentText("introvable");
-            alert.showAndWait();
-        }
-       
-
-        
-        System.out.println("bb");
-    */}
 
   
       @FXML
@@ -354,32 +279,24 @@ public class RechercheContactInterfaceController implements Initializable {
 
     @FXML
     private void btnRechercheAction(ActionEvent event) {
-        try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/RechercheContactInterface.fxml"));
-            
-            Parent root = (Parent) loader.load();
-           
-             
-            Stage window;
-            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-            window.setScene(new Scene(root));
-  window.setResizable(false);
-            window.show();
-
-           
-        } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
         
     }
 
     @FXML
     private void btnMapsAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
+    }
+
+    @FXML
+    private void PanierFenetre(ActionEvent event) {
+        LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);
+    }
+    
+    private void LoadWindowParent(String loc,ActionEvent event){
         try {
             
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Decouverte/Maps.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(loc));
             
             Parent root = (Parent) loader.load();
            
@@ -393,12 +310,31 @@ public class RechercheContactInterfaceController implements Initializable {
 
            
         } catch (IOException ex) {
-            Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
 
-    @FXML
-    private void PanierFenetre(ActionEvent event) {
+    /* @FXML
+    private void btnChercherAction(KeyEvent event) {
+    FilteredList<Recherche> filterData;
+    RechercheService rs = new RechercheService();
+    data = FXCollections.observableArrayList(rs.searsh(recherche.getText()));
+    filterData = new FilteredList<>(data, H -> true);
+    recherche.textProperty().addListener((obsevable, oldvalue, newvalue) -> {
+    filterData.setPredicate(A -> {
+    if (newvalue == null || newvalue.isEmpty()) {
+    return true;
     }
-    
+    String typedText = newvalue.toLowerCase();
+    if (A.getNom_magazin().toLowerCase().contains(typedText)) {
+    return true;
+    }
+    return false;
+    });
+    SortedList<Recherche> sortedList = new SortedList<>(filterData);
+    sortedList.comparatorProperty().bind(tablerecherche.comparatorProperty());
+    tablerecherche.setItems(sortedList);
+    });
+    }*/
+
 }
