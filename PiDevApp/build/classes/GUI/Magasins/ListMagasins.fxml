@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ListMagasinsController">
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Magasins.ListMagasinsController">
    <children>
       <GridPane prefHeight="512.0" prefWidth="845.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="0.0">
         <columnConstraints>
@@ -80,14 +81,6 @@
                   <Insets top="-220.0" />
                </GridPane.margin>
             </TextField>
-            <TextField fx:id="tfdate" alignment="TOP_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-               <GridPane.margin>
-                  <Insets top="-150.0" />
-               </GridPane.margin>
-            </TextField>
             <TextField fx:id="tfcontact" alignment="TOP_CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <padding>
                   <Insets top="10.0" />
@@ -109,6 +102,14 @@
                   <Insets top="80.0" />
                </GridPane.margin>
             </TextField>
+            <JFXComboBox fx:id="listvendeur" prefHeight="35.0" prefWidth="213.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <GridPane.margin>
+                  <Insets top="-150.0" />
+               </GridPane.margin>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </JFXComboBox>
          </children>
       </GridPane>
    </children>

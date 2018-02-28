@@ -3,14 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entities;
+package entites.Magasins;
 
 import java.sql.Date;
 
-/**
- *
- * @author wieme
- */
+
 public class magasins {
     private int idMagasin ;
     private String nomMagasin ;
@@ -25,7 +22,6 @@ public class magasins {
 
     public magasins() {
     }
-
 
     public magasins( String nomMagasin, String photoMagasin, String descriptionMagasin, Date dateCreationMagasin, String contactMagasin, String adresseMagasin, String numeroMagasin , int idUser) {
      
@@ -59,11 +55,7 @@ public class magasins {
         this.contactMagasin = contactMagasin;
     }
 
-    public magasins(String recherche) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-  
+   
 
     public int getIdMagasin() {
         return idMagasin;

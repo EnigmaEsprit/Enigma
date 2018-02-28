@@ -10,6 +10,7 @@ import applicationpanier.FXMLInterfaceModificationQuantiteController;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.List;
 import com.itextpdf.text.ListItem;
 import com.itextpdf.text.Paragraph;
@@ -353,6 +354,11 @@ public class FXMLPanierInterfaceController implements Initializable {
            
            PdfWriter writer= PdfWriter.getInstance(document, new FileOutputStream("test.pdf"));
             document.open();
+             Image image = Image.getInstance("MILK_Logo_WEB_MEDIUM-01_495x.png");
+            document.add(new Paragraph("Exemple"));
+           
+            
+            document.add(image);
             document.add(new Paragraph("Exemple"));
             
             PdfPTable table = new PdfPTable(5);

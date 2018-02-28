@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import service.Produits.ProduitServices;
+import service.Produits.ProduitServices2;
 
 /**
  *
@@ -79,7 +79,7 @@ public class LigneCommandesServices {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lignecommandes;
      }
@@ -100,7 +100,7 @@ public class LigneCommandesServices {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return lignecommandes;
      }

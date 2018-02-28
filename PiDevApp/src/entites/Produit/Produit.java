@@ -5,6 +5,7 @@
  */
 package entites.Produit;
 
+
 import java.text.NumberFormat;
 import java.util.Objects;
 import javafx.scene.control.Button;

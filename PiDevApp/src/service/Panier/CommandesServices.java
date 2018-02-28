@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import service.Produits.ProduitServices;
+import service.Produits.ProduitServices2;
 
 /**
  *
@@ -61,15 +61,18 @@ public class CommandesServices {
 
     }
 
-    public void supprimerCommande(Commande c) {
+    public Boolean supprimerCommande(Commande c) {
+        Boolean resultat = false;
         try {
             PreparedStatement prep = conn.prepareStatement("delete from commandes where idTransaction=?");
             prep.setInt(1, c.getIdTransaction());
             prep.executeUpdate();
+            resultat=true;
+            return resultat;
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CommandesServices.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return resultat;
     }
 
     public void modifierEtat(int idCommande) throws SQLException {
@@ -99,7 +102,7 @@ public class CommandesServices {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return commandes;
     }
@@ -127,7 +130,7 @@ public class CommandesServices {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id;
     }
@@ -157,8 +160,10 @@ public class CommandesServices {
             }
 
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return commandes;
     }
+    
+   
 }

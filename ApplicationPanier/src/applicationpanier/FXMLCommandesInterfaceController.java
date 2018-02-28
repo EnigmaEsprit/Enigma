@@ -8,6 +8,8 @@ package applicationpanier;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
+import com.itextpdf.text.FontFactory;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.List;
 import com.itextpdf.text.ListItem;
 import com.itextpdf.text.Paragraph;
@@ -17,11 +19,13 @@ import com.itextpdf.text.pdf.PdfWriter;
 import entites.Commande;
 import entites.FonctionPanier;
 import entites.Produit;
+import java.awt.Font;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.PasswordAuthentication;
 import java.net.URL;
 import java.util.Date;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -40,11 +44,14 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+
+
+
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -102,18 +109,20 @@ public class FXMLCommandesInterfaceController implements Initializable {
     private Button btnGenererPdf;
     @FXML
     private HBox HBox;
+    @FXML
+    private Pane paneViewEntete;
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         listeCommandes.setMaxHeight(900);
+         paneViewEntete.prefHeightProperty().bind(AnchorPaneView.heightProperty());
+        paneViewEntete.prefWidthProperty().bind(AnchorPaneView.widthProperty());
       listeCommandes.prefHeightProperty().bind(AnchorPaneView.widthProperty());
         listeCommandes.prefWidthProperty().bind(AnchorPaneView.widthProperty());
-         PaneView.prefHeightProperty().bind(AnchorPaneView.widthProperty());
-        PaneView.prefWidthProperty().bind(AnchorPaneView.widthProperty());
-        HBox.prefHeightProperty().bind(AnchorPaneView.heightProperty());
-        HBox.prefWidthProperty().bind(AnchorPaneView.widthProperty());
+        
+      
         
         
         btnGenererPdf.setOnMouseClicked((MouseEvent e)->{
@@ -153,14 +162,46 @@ public class FXMLCommandesInterfaceController implements Initializable {
             //System.out.println(c);
            
             
-            btBloquer.setOnAction((event) -> {
+             btBloquer.setOnAction((event) -> {
                 
                
-              Alert alert = new Alert(AlertType.INFORMATION);
+             /* Alert alert = new Alert(AlertType.INFORMATION);
               alert.setTitle("Information Dialog");
               alert.setHeaderText(null);
               alert.setContentText("Commande  a ete bloquer ");
-              alert.showAndWait();
+              alert.showAndWait();*/
+              
+              for (Commande verifier : listeCommandes.getItems()) {
+                    if (verifier.getButtonBloquer() == btBloquer) {
+
+                       
+                         Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Blocage commande");
+        alert.setContentText("Attention vous êtes prêt à bloquer une commande de  "+ c.getNom()+"\nVoulez vous continuer");
+        Optional<ButtonType> reponse = alert.showAndWait();
+         //   CommandesServices cs = new CommandesServices();
+        if (reponse.get() == ButtonType.OK) {
+          
+            if (cs.supprimerCommande(c)) {
+                AlertMaker.showSimpleAlert("Confirmation ","la Commande de "+ c.getNom() + " a été bloqué");
+                data.remove(c);
+                
+                 listeCommandes.getSelectionModel().clearSelection();
+                        listeCommandes.getItems().remove(verifier);
+
+                       
+            } else {
+                AlertMaker.showSimpleAlert(" Echec","la commande de "+c.getNom() + " ne peut pas être supprime");
+            }
+        } else {
+
+            AlertMaker.showSimpleAlert(" Suppression annule", "Annulation processus de Suppression");
+        }
+
+                        break;
+                    }
+                }
+              
             });
         }
         
@@ -190,18 +231,30 @@ public class FXMLCommandesInterfaceController implements Initializable {
          Document document =new Document();
         try{
            
-           PdfWriter writer= PdfWriter.getInstance(document, new FileOutputStream("commande.pdf"));
+           PdfWriter writer= PdfWriter.getInstance(document, new FileOutputStream("pdf\\commande.pdf"));
             document.open();
-            document.add(new Paragraph("Exemple"));
+            
+            Image image = Image.getInstance("MILK_Logo_WEB_MEDIUM-01_495x.png");
+            document.add(new Paragraph("Exemple",FontFactory.getFont(FontFactory.TIMES_BOLD,18,Font.BOLD,BaseColor.RED)));
+           document.add(new Paragraph("------------------------------------------------------------------------"));
+           document.add(new Paragraph(new Date().toString()));
+            
+            document.add(image);
+           
             
             PdfPTable table = new PdfPTable(5);
+            
             table.setWidthPercentage(105);
             table.setSpacingBefore(11f);
             table.setSpacingAfter(11f);
             
             float[] colWidth={2f,2f,2f,2f,2f};
             table.setWidths(colWidth);
-           
+            PdfPCell titre = new PdfPCell(new Paragraph("Listes des commandes"));
+            titre.setColspan(5);
+            titre.setRowspan(2);
+            titre.setHorizontalAlignment(Element.ALIGN_CENTER);
+            titre.setBackgroundColor(BaseColor.GREEN);
              PdfPCell c2=new PdfPCell(new Paragraph("Prix Total"));
               PdfPCell c3=new PdfPCell(new Paragraph("Nom user"));
               PdfPCell c4=new PdfPCell(new Paragraph("etat"));
@@ -212,7 +265,7 @@ public class FXMLCommandesInterfaceController implements Initializable {
      
               c1.setBackgroundColor(BaseColor.DARK_GRAY);*/
               
-             
+             table.addCell(titre);
               table.addCell(c2);
               table.addCell(c3);
               table.addCell(c4);
@@ -220,7 +273,7 @@ public class FXMLCommandesInterfaceController implements Initializable {
               
               
               for(Commande c: cs.selectCommandes()){
-                  table.addCell(new Paragraph(""+c.getIdCommande()));
+              
               table.addCell(new Paragraph(""+c.getPrixTotal()));
               table.addCell(new Paragraph(""+c.getNom()));
               table.addCell(new Paragraph(""+c.getEtat()));
@@ -258,18 +311,18 @@ public class FXMLCommandesInterfaceController implements Initializable {
      
      public void notifications(){
          try{
-             Thread.sleep(2000);
+             Thread.sleep(1000);
          }catch(InterruptedException ex){
              Logger.getLogger(FXMLCommandesInterfaceController.class.getName()).log(Level.SEVERE,null,ex);
              
      }
          
-         Image img = new Image("Image/check.png");
+        
          
          Notifications notif = Notifications.create()
                  .title("Download Complete")
                  .text("saved to: ")
-                 .graphic(new ImageView(img))
+                 .graphic(new ImageView("Image/check.png"))
                  .hideAfter(Duration.seconds(5))
                  .position(Pos.TOP_LEFT)
                  .onAction(new EventHandler<ActionEvent>() {

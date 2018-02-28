@@ -6,8 +6,8 @@
 package service.Magasins;
 
 import database.MyDB;
-import Entities.magasins;
-import IServices.Imagasins;
+import entites.Magasins.magasins;
+import iservice.Magasins.Imagasins;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -120,6 +120,30 @@ String requete = "delete from magasins where idMagasin='"+id+"'";
         }   
           return magasins; 
     }
+    
+     public List<magasins> afficherMagasin() {
+           List<magasins> magasins = new ArrayList<>();
+        String requete = "select * from magasins ORDER BY idMagasin DESC";
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            while (resultat.next()) {
+                magasins m = new magasins();
+                
+                m.setNomMagasin(resultat.getString("nomMagasin"));
+                m.setIdMagasin(resultat.getInt("idMagasin"));
+
+                magasins.add(m);
+           
+           }
+            
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement des comptes" + ex.getMessage());
+           
+        }   
+          return magasins; 
+    }
 
      @Override   
     public magasins rechercherMagasinsById(int i) {
@@ -150,7 +174,7 @@ String requete = "delete from magasins where idMagasin='"+id+"'";
     @Override
     public magasins rechercherMagasinsByName(String nom) {
  magasins m = new magasins();
-        String requete = "select * from magasins where nomMagasin LIKE '%"+nom+"%'ORDER BY idMagasin DESC";
+        String requete = "select * from magasins where nomMagasin LIKE '%"+nom+"%'";
         try {
             PreparedStatement ps = connection.prepareStatement(requete);
             ResultSet resultat = ps.executeQuery();
@@ -223,6 +247,30 @@ String requete = "delete from magasins where idMagasin='"+id+"'";
             System.out.println("erreur lors de la mise à jour " + ex.getMessage());
         }               }
 
+      public magasins rechercherMagasinsByVendeur(int idVendeur) {
+ magasins m = new magasins();
+        String requete = "select * from magasins where idUser ='"+idVendeur+"' ";
+        try {
+            PreparedStatement ps = connection.prepareStatement(requete);
+            ResultSet resultat = ps.executeQuery();
+            if (resultat.next()) {
+                 m.setNomMagasin(resultat.getString("nomMagasin"));
+                m.setPhotoMagasin(resultat.getString("photoMagasin"));
+                m.setDescriptionMagasin(resultat.getString("descriptionMagasin"));
+                m.setDateCreationMagasin(resultat.getDate("dateCreationMagasin"));
+                m.setContactMagasin(resultat.getString("contactMagasin"));
+                m.setIdUser(resultat.getInt("idUser"));
+                m.setAdresseMagasin(resultat.getString("adresseMagasin"));
+                m.setNumeroMagasin(resultat.getString("numeroMagasin"));
+                m.setIdMagasin(resultat.getInt("idMagasin"));
+
+                return m;
+            }
+
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la recherche du compte " + ex.getMessage());
+        }   
+    return m;       }
    
     
 }

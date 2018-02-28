@@ -34,7 +34,7 @@ import javafx.scene.image.ImageView;
 
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import service.Produits.ProduitServices;
+import service.Produits.ProduitServices2;
 
 /**
  * FXML Controller class
@@ -66,7 +66,7 @@ public class FXMLInterface2Controller implements Initializable {
      * Initializes the controller class.
      */
     private ObservableList<Produit> data = FXCollections.observableArrayList();
-    ProduitServices ps = new ProduitServices();
+    ProduitServices2 ps = new ProduitServices2();
     @FXML
     private TableColumn<?, ?> suppressionColumn;
     @FXML
