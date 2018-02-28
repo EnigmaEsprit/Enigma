@@ -28,6 +28,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import services.CommandesServices;
 import services.LigneCommandesServices;
+import services.ProduitServices;
 
 /**
  * FXML Controller class
@@ -85,8 +86,8 @@ public class FXMLPaymentCardController implements Initializable {
       
         //String mail = email.getText();
           //email.setEditable(false);
-        Long numero= Long.parseLong(numeroCarte.getText());
-        int ccv = Integer.parseInt(ccvTextField.getText());
+//        Long numero= Long.parseLong(numeroCarte.getText());
+//        int ccv = Integer.parseInt(ccvTextField.getText());
         int mois = Integer.parseInt(MoisValidite.getText());
         int annee = Integer.parseInt(AnneeValidite.getText());
         
@@ -131,7 +132,7 @@ public class FXMLPaymentCardController implements Initializable {
         int idTransaction = Integer.parseInt(generate(5));
         System.out.println("*****************");
         Commande cmd = new Commande();
-        cmd.setIdUser(3);
+        cmd.setIdUser(14);
         cmd.setIdTransaction(idTransaction);
         cmd.setEtat(0);
         cmd.setPrixTotal(FonctionPanier.MontantGlobal());
@@ -145,6 +146,7 @@ public class FXMLPaymentCardController implements Initializable {
         System.out.println(idCmd);
         
          cmdService.modifierEtat(idCmd);
+         ProduitServices ps = new ProduitServices();
 
         for (Produit p : FonctionPanier.getListeProduit()) {
             int i = 0;
@@ -155,6 +157,14 @@ public class FXMLPaymentCardController implements Initializable {
             lcmd.setQuantite(p.getQuantiteProduitClient());
             System.out.println(i++);
 
+            
+            
+            
+            ps.modifierProduit(p);
+           
+            
+            
+            
             lcmd.setPrixUnitaire(p.getPrixProduit());
             lcmd.setPrixTotal(p.prixTotal());
             System.out.println(i++);

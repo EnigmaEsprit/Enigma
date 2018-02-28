@@ -111,7 +111,7 @@ public class FXMLInterface2Controller implements Initializable {
         Button btSupp = new Button("Add to Cart");
             i++;
            
-            image = new ImageView("Image/" + p.getIdProduit() + ".jpg");
+            image = new ImageView("/Image/"+ p.getIdProduit() + ".jpg");
             image.setFitHeight(90.0);
             image.setFitWidth(75.0);
             data.add(new Produit(p.getIdProduit(),p.getNomProduit(), p.getQuantiteProduit(), p.getPrixProduit(), image, btSupp));

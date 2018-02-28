@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ApplicationPanier.jar" size="914334" download="eager" />
+    <jar href="ApplicationPanier.jar" size="503908" download="eager" />
     <jar href="lib\commons-logging-1.2.jar" size="61829" download="eager" />
     <jar href="lib\controlsfx-8.40.14.jar" size="1215643" download="eager" />
     <jar href="lib\fontbox-1.0.1.jar" size="1484430" download="eager" />
