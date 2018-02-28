@@ -46,6 +46,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.Panier.CommandesServices;
 import service.Panier.LigneCommandesServices;
+import service.Produits.ProduitServices2;
 
 /**
  * FXML Controller class
@@ -219,6 +220,8 @@ public class FXMLPaymentCardController implements Initializable {
         
          cmdService.modifierEtat(idCmd);
 
+       ProduitServices2 ps = new ProduitServices2();
+
         for (Produit p : FonctionPanier.getListeProduit()) {
             int i = 0;
             System.out.println(i++);
@@ -228,6 +231,12 @@ public class FXMLPaymentCardController implements Initializable {
             lcmd.setQuantite(p.getQuantiteProduitClient());
             System.out.println(i++);
 
+            
+            
+            
+            ps.modifierProduit(p);
+            
+            
             lcmd.setPrixUnitaire(p.getPrixProduit());
             lcmd.setPrixTotal(p.prixTotal());
             System.out.println(i++);

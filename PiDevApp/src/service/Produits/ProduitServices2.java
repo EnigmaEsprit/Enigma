@@ -108,5 +108,20 @@ public class ProduitServices2 {
         }
         return produits;
     }
+    
+     public void modifierProduit(Produit p) {
+        String requete = "update produits set quantiteProduit=? where idProduit='" + p.getIdProduit() + "'";
+        try {
+            PreparedStatement ps = conn.prepareStatement(requete);
+            
+            ps.setInt(1, p.getQuantiteProduit()-p.getQuantiteProduitClient());
+           
+
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la mise à jour " + ex.getMessage());
+        }
+    }
 
 }

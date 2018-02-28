@@ -61,15 +61,18 @@ public class CommandesServices {
 
     }
 
-    public void supprimerCommande(Commande c) {
+    public Boolean supprimerCommande(Commande c) {
+        Boolean resultat = false;
         try {
             PreparedStatement prep = conn.prepareStatement("delete from commandes where idTransaction=?");
             prep.setInt(1, c.getIdTransaction());
             prep.executeUpdate();
+            resultat=true;
+            return resultat;
         } catch (SQLException ex) {
-            Logger.getLogger(ProduitServices2.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CommandesServices.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return resultat;
     }
 
     public void modifierEtat(int idCommande) throws SQLException {
@@ -161,4 +164,6 @@ public class CommandesServices {
         }
         return commandes;
     }
+    
+   
 }

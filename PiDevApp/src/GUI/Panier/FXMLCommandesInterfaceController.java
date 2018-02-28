@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.net.PasswordAuthentication;
 import java.net.URL;
 import java.util.Date;
+import java.util.Optional;
 import java.util.Properties;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -49,6 +50,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -203,11 +205,43 @@ public class FXMLCommandesInterfaceController implements Initializable {
             btBloquer.setOnAction((event) -> {
                 
                
-              Alert alert = new Alert(AlertType.INFORMATION);
+             /* Alert alert = new Alert(AlertType.INFORMATION);
               alert.setTitle("Information Dialog");
               alert.setHeaderText(null);
               alert.setContentText("Commande  a ete bloquer ");
-              alert.showAndWait();
+              alert.showAndWait();*/
+              
+              for (Commande verifier : listeCommandes.getItems()) {
+                    if (verifier.getButtonBloquer() == btBloquer) {
+
+                       
+                         Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Blocage commande");
+        alert.setContentText("Attention vous êtes prêt à bloquer une commande de  "+ c.getNom()+"\nVoulez vous continuer");
+        Optional<ButtonType> reponse = alert.showAndWait();
+            CommandesServices cs = new CommandesServices();
+        if (reponse.get() == ButtonType.OK) {
+          
+            if ( cs.supprimerCommande(c)) {
+                AlertMaker.showSimpleAlert("Confirmation ","la Commande de "+ c.getNom() + " a été bloqué");
+                data.remove(c);
+                
+                 listeCommandes.getSelectionModel().clearSelection();
+                        listeCommandes.getItems().remove(verifier);
+
+                       
+            } else {
+                AlertMaker.showSimpleAlert(" Echec","la commande de "+c.getNom() + " ne peut pas être supprime");
+            }
+        } else {
+
+            AlertMaker.showSimpleAlert(" Suppression annule", "Annulation processus de Suppression");
+        }
+
+                        break;
+                    }
+                }
+              
             });
         }
         
