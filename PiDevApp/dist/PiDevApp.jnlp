@@ -9,6 +9,7 @@
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <jar href="PiDevApp.jar" size="16997352" download="eager" />
     <jar href="lib\GMapsFX-2.0.9.jar" size="166541" download="eager" />
     <jar href="lib\TrayTester.jar" size="52070" download="eager" />
@@ -30,6 +31,8 @@
     <jar href="lib\pdfbox-1.0.1.jar" size="2509519" download="eager" />
     <jar href="lib\stripe-java-5.32.0.jar" size="254222" download="eager" />
 =======
+=======
+>>>>>>> 0790c3177808e550b2e22389adb0637de268b7a3
     <jar href="PiDevApp.jar" size="16958182" download="eager" />
     <jar href="lib/GMapsFX-2.0.9.jar" size="166541" download="eager" />
     <jar href="lib/activation.jar" size="124332" download="eager" />
@@ -47,6 +50,9 @@
     <jar href="lib/paypal-core-1.7.1.jar" size="129861" download="eager" />
     <jar href="lib/pdfbox-1.0.1.jar" size="2509519" download="eager" />
     <jar href="lib/stripe-java-5.32.0.jar" size="254222" download="eager" />
+<<<<<<< HEAD
+>>>>>>> 0790c3177808e550b2e22389adb0637de268b7a3
+=======
 >>>>>>> 0790c3177808e550b2e22389adb0637de268b7a3
   </resources>
   <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="PiDevApp" >
