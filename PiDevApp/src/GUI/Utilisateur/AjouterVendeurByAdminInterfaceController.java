@@ -321,5 +321,10 @@ public class AjouterVendeurByAdminInterfaceController implements Initializable {
         } 
     }
 
+    @FXML
+    private void btnBoutiqueAction(ActionEvent event) {
+          LoadWindowParent("/GUI/Magasins/AjouterMagasin.fxml", event);
+    }
+
     
 }

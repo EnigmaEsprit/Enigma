@@ -215,7 +215,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button layoutX="2.0" layoutY="134.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
+            <Button layoutX="2.0" layoutY="134.0" mnemonicParsing="false" onAction="#btnBoutiqueAction" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
                <font>
                   <Font size="18.0" />
                </font>

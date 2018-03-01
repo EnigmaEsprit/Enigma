@@ -251,4 +251,9 @@ public class ChangerPassowrdVendeurVContoller implements Initializable {
     private void ReclamationAction(ActionEvent event) {
           LoadWindowParent("/GUI/Reclamation/ReclamationsClients.fxml", event);
     }
+
+    @FXML
+    private void btnCataloguesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Produits/AjoutArticle.fxml", event);
+    }
 }

@@ -121,8 +121,6 @@ public class FXMLPanierInterfaceController implements Initializable {
     
     
     public static Boolean UtilisateurConnectePourPayer=true;
-    @FXML
-
     private ImageView profil;
     Image images;
 
@@ -151,6 +149,8 @@ public class FXMLPanierInterfaceController implements Initializable {
     private Pane menu31;
     @FXML
     private Pane menu21;
+    @FXML
+    private Pane menu;
 
     
     
@@ -179,11 +179,11 @@ public class FXMLPanierInterfaceController implements Initializable {
         {
             
         }
-<<<<<<< HEAD
-        else if(Util.connectedUser.getImg()=="")
-=======
+
+   
+
         else if(Util.connectedUser.getImg()==null)
->>>>>>> 5e121b665ef6365443b5b4567b16a52e450e4056
+
                 {
                     
                 profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/user.jpg"));

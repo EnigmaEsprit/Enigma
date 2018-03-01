@@ -207,7 +207,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button layoutX="2.0" layoutY="39.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
+            <Button layoutX="2.0" layoutY="39.0" mnemonicParsing="false" onAction="#btnCatalogeusAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>

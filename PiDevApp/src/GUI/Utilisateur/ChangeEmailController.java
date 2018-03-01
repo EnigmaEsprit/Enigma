@@ -317,4 +317,14 @@ public class ChangeEmailController implements Initializable {
     private void btnReclamation(ActionEvent event) {
           LoadWindowParent("/GUI/Reclamation/EnvoiDesReclamations.fxml", event);
     }
+
+    @FXML
+    private void btnCataloquesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
 }

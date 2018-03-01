@@ -466,4 +466,9 @@ public class AdminEditVendeurInterfaceController implements Initializable {
             Logger.getLogger(AdminEditClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+
+    @FXML
+    private void btnBoutiqueAction(ActionEvent event) {
+          LoadWindowParent("/GUI/Magasins/AjouterMagasin.fxml", event);
+    }
 }

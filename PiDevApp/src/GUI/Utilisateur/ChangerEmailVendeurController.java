@@ -285,4 +285,10 @@ public class ChangerEmailVendeurController implements Initializable {
             Logger.getLogger(ChangerEmailVendeurController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+
+    @FXML
+    private void btnboutiqueAction(ActionEvent event) {
+                 LoadWindowParent("/GUI/Magasins/AjouterMagasin.fxml", event);
+
+    }
 }

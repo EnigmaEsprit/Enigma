@@ -73,6 +73,8 @@ public class LoginVendeurController implements Initializable {
     private Button Maps;
     @FXML
     private Button Contacts;
+    @FXML
+    private Pane login;
 
     /**
      * Initializes the controller class.
@@ -280,5 +282,15 @@ public class LoginVendeurController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(LoginVendeurController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+
+    @FXML
+    private void btnCataloguesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
     }
 }
