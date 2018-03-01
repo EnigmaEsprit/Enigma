@@ -89,13 +89,13 @@ public class DetailProduitController  implements Initializable {
     {
         System.out.println("---------------------------------------------");
         idProduit= AfficheListProduitsController.recupid;
-<<<<<<< HEAD
-          ProduitServices ps= new ProduitServices();
-=======
+
+         
+
         
         System.out.println("id : "+AfficheListProduitsController.recupid);
-          produitServices ps= new produitServices();
->>>>>>> 9528d53b6df132dcdafc39bd7109f8806e119712
+          ProduitServices ps= new ProduitServices();
+
          magasinsServices ms= new magasinsServices();
          System.out.println(ps.rechercherProduitsById(idProduit));
       produit=new produits( ps.rechercherProduitsById(idProduit));

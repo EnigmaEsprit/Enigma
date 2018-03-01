@@ -78,14 +78,8 @@ public class AfficheListProduitsController implements Initializable {
     public static int recupid;
     @FXML
     private JFXTextField rechercheProduit;
-    
    
-<<<<<<< HEAD
-     ProduitServices a = new ProduitServices();
-       ObservableList<produits> data=FXCollections.observableArrayList();
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-=======
+
     @FXML
     private Pane menu;
     @FXML
@@ -110,21 +104,21 @@ public class AfficheListProduitsController implements Initializable {
     private Button Contacts;
     @FXML
     private Pane paneimage2;
->>>>>>> 9528d53b6df132dcdafc39bd7109f8806e119712
+
     
     int k = 0;
     
-     produitServices listeproduitsServices = new produitServices();
+     ProduitServices listeproduitsServices = new ProduitServices();
     ObservableList<produits> data = FXCollections.observableArrayList();
 
-<<<<<<< HEAD
+
         ProduitServices evt = new ProduitServices();
 
           Image[] images;
-=======
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
->>>>>>> 9528d53b6df132dcdafc39bd7109f8806e119712
+
         
         menu.setTranslateX(-190);
         TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), menu);
@@ -145,7 +139,7 @@ public class AfficheListProduitsController implements Initializable {
         
        
         
-       // produitServices evt = new produitServices();
+       // ProduitServices evt = new ProduitServices();
         
         Image[] images;
         
@@ -366,16 +360,13 @@ System.out.println("bikie bikiek bikie bkiek ");
         }
         
     }
-<<<<<<< HEAD
- @FXML
-    void rechercherMagasin(KeyEvent event) {
-   ProduitServices evt = new ProduitServices();
-=======
->>>>>>> 9528d53b6df132dcdafc39bd7109f8806e119712
 
-    @FXML
+ @FXML
     void rechercherMagasin(KeyEvent event) throws SQLException {
-        produitServices evt = new produitServices();
+   ProduitServices evt = new ProduitServices();
+
+
+  
         
         Image[] images;
         

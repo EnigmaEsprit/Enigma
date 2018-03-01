@@ -1,15 +1,15 @@
     package GUI.Magasins;
 
-<<<<<<< HEAD
-    import static  GUI.Produits.MasterPageController.respansev;
-    import entites.Produit.Upload;
-=======
+
    // import static  GUI.Produits.MasterPageController.respansev;
-    import Util.Upload;
+    import entites.Produit.Upload;
+
+   // import static  GUI.Produits.MasterPageController.respansev;
+import entites.Produit.Upload;
 import GUI.Utilisateur.ClientInterfaceController;
 import GUI.Utilisateur.VendeurInterfaceController;
 import Util.Util;
->>>>>>> 9528d53b6df132dcdafc39bd7109f8806e119712
+
     import entites.Utilisateur.Utilisateur;
     import entites.Magasins.magasins;
     

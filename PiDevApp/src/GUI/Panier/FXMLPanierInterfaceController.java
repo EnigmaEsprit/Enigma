@@ -65,7 +65,8 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.Panier.CommandesServices;
 import service.Panier.LigneCommandesServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
+
 
 /**
  * FXML Controller class
@@ -96,7 +97,7 @@ public class FXMLPanierInterfaceController implements Initializable {
      * Initializes the controller class.
      */
     private ObservableList<produits> data = FXCollections.observableArrayList();
-    produitServices ps = new produitServices();
+    ProduitServices ps = new ProduitServices();
     @FXML
     private Label prixTotal;
     @FXML
@@ -142,12 +143,12 @@ public class FXMLPanierInterfaceController implements Initializable {
     
     public static Boolean UtilisateurConnectePourPayer=true;
     @FXML
-<<<<<<< HEAD
+
     private ImageView profil;
     Image images;
-=======
+
     private Button Reclamation;
->>>>>>> 9528d53b6df132dcdafc39bd7109f8806e119712
+
     
     
 
@@ -175,13 +176,14 @@ public class FXMLPanierInterfaceController implements Initializable {
         }
          if(Util.connectedUser.getImg()=="")
                 {
-                    images= new Image("http://localhost/uimg/user.jpg");
-                profil.setImage(image);
+                    
+                profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/user.jpg"));
                 }
                 else
                 {
-                images= new Image("http://localhost/uimg/"+Util.connectedUser.getImg());
-                profil.setImage(image);
+                    profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/"+Util.connectedUser.getImg()));
+               
+             
                 }
     menu2.setVisible(false);
     menu3.setVisible(false);

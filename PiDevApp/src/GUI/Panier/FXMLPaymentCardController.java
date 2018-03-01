@@ -47,7 +47,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.Panier.CommandesServices;
 import service.Panier.LigneCommandesServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 
 /**
  * FXML Controller class
@@ -225,7 +225,7 @@ public class FXMLPaymentCardController implements Initializable {
         
          cmdService.modifierEtat(idCmd);
 
-       produitServices ps = new produitServices();
+       ProduitServices ps = new ProduitServices();
 
         for (produits p : FonctionPanier.getListeProduit()) {
             int i = 0;

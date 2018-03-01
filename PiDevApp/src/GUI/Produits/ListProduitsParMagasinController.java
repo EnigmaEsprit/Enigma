@@ -305,13 +305,11 @@ VBox vv = new VBox();
 
     }
  @FXML
-<<<<<<< HEAD
-    void rechercherMagasin(KeyEvent event) {
-   ProduitServices evt = new ProduitServices();
-=======
+
+  
     void rechercherMagasin(KeyEvent event) throws SQLException {
-   produitServices evt = new produitServices();
->>>>>>> 9528d53b6df132dcdafc39bd7109f8806e119712
+   ProduitServices evt = new ProduitServices();
+
 
           Image[] images;
         

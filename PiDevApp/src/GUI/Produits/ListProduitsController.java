@@ -65,13 +65,13 @@ public class ListProduitsController implements Initializable {
    produits p;
    //UtilisateurService us;
    Utilisateur u;
-<<<<<<< HEAD
+
     ProduitServices ps=new ProduitServices();
-    List<produits> produits;
-=======
-    produitServices ps=new produitServices();
+
+
+ 
     List<produits> produits = new ArrayList<>();
->>>>>>> 9528d53b6df132dcdafc39bd7109f8806e119712
+
 
     private ObservableList<produits> data = FXCollections.observableArrayList();
     

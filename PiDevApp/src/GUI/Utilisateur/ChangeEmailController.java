@@ -26,6 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
@@ -79,6 +80,7 @@ public class ChangeEmailController implements Initializable {
     private Button Reclamation;
     @FXML
     private ImageView profil;
+    Image image;
 
     /**
      * Initializes the controller class.
@@ -100,6 +102,16 @@ public class ChangeEmailController implements Initializable {
         menuTranslation.setRate(-1);
         menuTranslation.play();
     });
+        if(Util.connectedUser.getImg()=="")
+                {
+                    image= new Image("http://localhost/uimg/user.jpg");
+                profil.setImage(image);
+                }
+                else
+                {
+                image= new Image("http://localhost/uimg/"+Util.connectedUser.getImg());
+                profil.setImage(image);
+                }
      menu2.setVisible(false);
      menu3.setVisible(false);
     }    
