@@ -257,14 +257,10 @@ VBox vv = new VBox();
                                                 @Override
                                                 public void handle(ActionEvent event) {
                                                                       recupid=Integer.valueOf(affProduit.getAccessibleText());      ;
-                                                               try {
-                                    
-                                        Pane newLoadedPaneExp = FXMLLoader.load(getClass().getResource("/GUI/Magasins/ListProduitParMagasin.fxml"));
-                                        pass.getChildren().clear();
-                                        pass.getChildren().add(newLoadedPaneExp);
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(AfficheMagasinsController.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
+                                                                      //Pane newLoadedPaneExp = FXMLLoader.load(getClass().getResource("/GUI/Magasins/ListProduitParMagasin.fxml"));
+                                                                      LoadWindowParent("/GUI/Magasins/ListProduitParMagasin.fxml", event);
+                                                                      //pass.getChildren().clear();
+                                                                      // pass.getChildren().add(newLoadedPaneExp);
                              
                                                 }
                                             });
@@ -419,14 +415,7 @@ VBox vv = new VBox();
                                                 @Override
                                                 public void handle(ActionEvent event) {
                                                                       recupid=Integer.valueOf(affProduit.getAccessibleText());      ;
-                                                               try {
-                                    
-                                        Pane newLoadedPaneExp = FXMLLoader.load(getClass().getResource("/GUI/Magasins/ListProduitParMagasin.fxml"));
-                                        pass.getChildren().clear();
-                                        pass.getChildren().add(newLoadedPaneExp);
-                                    } catch (IOException ex) {
-                                        Logger.getLogger(AfficheMagasinsController.class.getName()).log(Level.SEVERE, null, ex);
-                                    }
+                                                                      LoadWindowParent("/GUI/Magasins/ListProduitParMagasin.fxml", event);
                              
                                                 }
                                             });

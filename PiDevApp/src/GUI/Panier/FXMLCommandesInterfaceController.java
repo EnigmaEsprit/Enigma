@@ -620,13 +620,16 @@ public void sendEmail(){
          LoadWindowParent("/GUI/Panier/FXMLCommandesInterface.fxml", event);
     }
 
+   
+
     @FXML
-    private void btnReclamation(ActionEvent event) {
-        LoadWindowParent("/GUI/Reclamation/ReclamationsClients.fxml", event);
+    private void catalogueadmin(ActionEvent event) {
+        LoadWindowParent("/GUI/Produits/AjoutArticle.fxml", event);
     }
-     @FXML
-    private void btncataloguesAction(ActionEvent event) {
-         LoadWindowParent("/GUI/Magasins/AjoutArticle.fxml", event);
+
+    @FXML
+    private void btnReclamationAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Reclamation/ReclamationsClients.fxml", event);
     }
 
 }

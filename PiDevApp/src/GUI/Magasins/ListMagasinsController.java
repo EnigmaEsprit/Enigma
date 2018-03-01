@@ -379,7 +379,6 @@ public class ListMagasinsController implements Initializable {
         LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
     }
 
-    @FXML
     private void PanierFenetre(ActionEvent event) {
         
        LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);

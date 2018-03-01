@@ -459,6 +459,16 @@ CommentairesServices cs = new CommentairesServices();
     @FXML
     private void btnEventAction(ActionEvent event) {
     }
+
+    @FXML
+    private void fenetrecatalogue(ActionEvent event) {
+        LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void fenetreboutique(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
    
 
    

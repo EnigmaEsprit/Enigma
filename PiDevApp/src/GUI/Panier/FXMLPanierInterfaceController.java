@@ -121,36 +121,38 @@ public class FXMLPanierInterfaceController implements Initializable {
     
     
     public static Boolean UtilisateurConnectePourPayer=true;
-    @FXML
-
     private ImageView profil;
     Image images;
 
+    @FXML
     private Button Reclamation;
     
-    @FXML
-    private Button Maps1;
-    @FXML
-    private Button recherche1;
-    
-    @FXML
-    private Button espClient11;
-    @FXML
-    private Button espVendeur11;
-    @FXML
-    private Button espAdmin11;
-    @FXML
-    private Button Log1;
-    @FXML
-    private Button Event1;
-    @FXML
-    private Button Contacts1;
-    @FXML
     private Pane menu1;
-    @FXML
     private Pane menu31;
-    @FXML
+    
     private Pane menu21;
+    @FXML
+    private Pane menu;
+    @FXML
+    private Pane menu3;
+    @FXML
+    private Button Maps;
+    @FXML
+    private Button recherche;
+    @FXML
+    private Pane menu2;
+    @FXML
+    private Button espClient1;
+    @FXML
+    private Button espVendeur1;
+    @FXML
+    private Button espAdmin1;
+    @FXML
+    private Button Log;
+    @FXML
+    private Button Event;
+    @FXML
+    private Button Contacts;
 
     
     
@@ -179,11 +181,11 @@ public class FXMLPanierInterfaceController implements Initializable {
         {
             
         }
-<<<<<<< HEAD
-        else if(Util.connectedUser.getImg()=="")
-=======
+
+      
+
         else if(Util.connectedUser.getImg()==null)
->>>>>>> 5e121b665ef6365443b5b4567b16a52e450e4056
+
                 {
                     
                 profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/user.jpg"));
@@ -649,14 +651,21 @@ public class FXMLPanierInterfaceController implements Initializable {
     }
 
   
+    
+    
+
     @FXML
-    private void btncataloguesAction(ActionEvent event) {
-         LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
+    private void cataloguesFenetre(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
     }
 
     @FXML
-    private void btnBoutiquesAction(ActionEvent event) {
-        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    private void BoutiquesFenetre(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
+
+    @FXML
+    private void btnReclamation(ActionEvent event) {
     }
 
 }

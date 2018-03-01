@@ -683,7 +683,7 @@ System.out.println("bikie bikiek bikie bkiek ");
 
     @FXML
     private void BoutiquesFenetre(ActionEvent event) {
-        LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
     }
     
 }

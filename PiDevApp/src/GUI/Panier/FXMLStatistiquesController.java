@@ -315,18 +315,24 @@ public class FXMLStatistiquesController implements Initializable {
          LoadWindowParent("/GUI/Panier/FXMLCommandesInterface.fxml", event);
     }
 
-     @FXML
     private void btnReclamation(ActionEvent event) {
          LoadWindowParent("/GUI/Reclamation/EnvoiDesReclamations", event);
     }
-    @FXML
     private void btncataloguesAction(ActionEvent event) {
          LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
     }
 
-    @FXML
     private void btnBoutiquesAction(ActionEvent event) {
         LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
+
+    @FXML
+    private void catalogueadmin(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnReclamationAction(ActionEvent event) {
+            LoadWindowParent("/GUI/Reclamation/ReclamationsClients.fxml", event);
     }
 
 

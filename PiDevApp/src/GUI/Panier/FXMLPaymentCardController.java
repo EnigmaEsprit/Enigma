@@ -440,16 +440,18 @@ public class FXMLPaymentCardController implements Initializable {
     }
      @FXML
     private void btnReclamation(ActionEvent event) {
-         LoadWindowParent("/GUI/Reclamation/EnvoiDesReclamations", event);
+         LoadWindowParent("/GUI/Reclamation/EnvoiDesReclamations.fxml", event);
     }
+
+
     @FXML
-    private void btncataloguesAction(ActionEvent event) {
-         LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
+    private void fenetreCatalogue(ActionEvent event) {
+        LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
     }
 
     @FXML
-    private void btnBoutiquesAction(ActionEvent event) {
-        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    private void fenetreboutique(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
     }
 
 }

@@ -103,12 +103,7 @@ public class AjoutArticleController implements Initializable {
     private JFXTextField TFCategorie;
     @FXML
     private Pane menu;
-    @FXML
     private Pane menu3;
-    @FXML
-    private Button Maps;
-    @FXML
-    private Button recherche;
     @FXML
     private Pane menu2;
     @FXML
@@ -122,7 +117,7 @@ public class AjoutArticleController implements Initializable {
     @FXML
     private Button Event;
     @FXML
-    private Button Contacts;
+    private Button Reclamation;
     
     public AjoutArticleController()
     {
@@ -336,7 +331,6 @@ public class AjoutArticleController implements Initializable {
     }
 
 
-    @FXML
     private void exitemenu3(MouseEvent event) {
         menu3.setOnMouseEntered(evt -> {menu3.setVisible(true);});
          menu3.setOnMouseExited(evt -> {menu3.setVisible(false);});
@@ -344,24 +338,20 @@ public class AjoutArticleController implements Initializable {
         menu3.setVisible(false);
     }
 
-    @FXML
     private void afficherSuitemenu3(MouseEvent event) {
          menu.setVisible(true);
         menu3.setVisible(true);
  
     }
 
-    @FXML
     private void btnRechercheAction(ActionEvent event) {
         LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
     }
 
-    @FXML
     private void btnMapsAction(ActionEvent event) {
         LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
     }
 
-    @FXML
     private void PanierFenetre(ActionEvent event) {
         
        LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);
@@ -405,6 +395,26 @@ public class AjoutArticleController implements Initializable {
     }
     @FXML
     private void btnEventAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void catalogueadmin(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void statswindow(ActionEvent event) {
+        LoadWindowParent("/GUI/Panier/FXMLStatistiques.fxml", event);
+    }
+
+    @FXML
+    private void CommandesFenetre(ActionEvent event) {
+        LoadWindowParent("/GUI/Panier/FXMLCommandesInterface.fxml", event);
+    }
+
+    @FXML
+    private void btnReclamationAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Reclamation/ReclamationsClients.fxml", event);
     }
  }
     
