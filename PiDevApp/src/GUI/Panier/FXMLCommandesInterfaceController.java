@@ -271,14 +271,19 @@ public class FXMLCommandesInterfaceController implements Initializable {
          Document document =new Document();
         try{
            
-           PdfWriter writer= PdfWriter.getInstance(document, new FileOutputStream("pdf\\commande.pdf"));
+           PdfWriter writer= PdfWriter.getInstance(document, new FileOutputStream("src\\pdf\\commande.pdf"));
             document.open();
             
-            Image image = Image.getInstance("MILK_Logo_WEB_MEDIUM-01_495x.png");
+            Image image = Image.getInstance("src\\Images\\LOGO_SOUK_Noir2.png");
             document.add(new Paragraph("Exemple",FontFactory.getFont(FontFactory.TIMES_BOLD,18,Font.BOLD,BaseColor.RED)));
            document.add(new Paragraph("------------------------------------------------------------------------"));
            document.add(new Paragraph(new Date().toString()));
             
+          
+            
+           
+            
+          
             document.add(image);
            
             

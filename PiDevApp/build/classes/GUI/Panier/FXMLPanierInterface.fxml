@@ -104,9 +104,8 @@
                </children></Pane>
          </children>
       </Pane>
-<<<<<<< HEAD
-      <Pane fx:id="menu" layoutX="63.0" layoutY="60.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
-=======
+
+      
       <Pane layoutX="127.0" layoutY="20.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="61.0" fitWidth="138.0" layoutX="559.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
@@ -120,7 +119,7 @@
          </opaqueInsets>
       </Pane>
       <Pane fx:id="menu" layoutX="73.0" layoutY="70.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
->>>>>>> 9528d53b6df132dcdafc39bd7109f8806e119712
+
          <children>
             <Pane fx:id="menu3" layoutX="197.0" layoutY="449.0" prefHeight="155.0" prefWidth="209.0">
                <children>
