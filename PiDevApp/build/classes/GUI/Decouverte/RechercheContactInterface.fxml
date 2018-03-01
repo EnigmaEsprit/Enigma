@@ -47,18 +47,6 @@
             </TableView>
          </children>
       </Pane>
-      <Pane layoutX="117.0" layoutY="10.0" prefHeight="65.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fitHeight="65.0" fitWidth="138.0" layoutX="601.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Images/LOGO_SOUK_Blan.png" />
-               </image>
-            </ImageView>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </Pane>
       <Pane fx:id="menu" layoutX="63.0" layoutY="60.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
             <Pane fx:id="menu3" layoutX="197.0" layoutY="423.0" prefHeight="155.0" prefWidth="209.0">
@@ -119,12 +107,12 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button layoutX="2.0" layoutY="40.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
+            <Button layoutX="2.0" layoutY="40.0" mnemonicParsing="false" onAction="#btncataloguesAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="2.0" layoutY="115.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
+            <Button layoutX="2.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnBoutiquesAction" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
                <font>
                   <Font size="18.0" />
                </font>
@@ -190,6 +178,19 @@
                </image>
             </ImageView>
          </children>
+      </Pane>
+      <Pane layoutX="157.0" layoutY="50.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fx:id="profil" fitHeight="53.0" fitWidth="48.0" layoutX="1250.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="61.0" fitWidth="138.0" layoutX="559.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/LOGO_SOUK_Blan.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </Pane>
    </children>
 </AnchorPane>

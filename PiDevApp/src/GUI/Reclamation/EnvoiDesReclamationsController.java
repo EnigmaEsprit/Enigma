@@ -137,6 +137,10 @@ public class EnvoiDesReclamationsController implements Initializable {
             String output = typeReclamation.getSelectionModel().getSelectedItem();
             String nomMagasin = magasinSelection.getSelectionModel().getSelectedItem();
             Reclamations reclamationClient = new Reclamations();
+         
+            reclamationClient.setTypeReclamation(output);
+            reclamationClient.setObjetReclamation(champObjetReclamation.getText());
+            reclamationClient.setContenuReclamation(champContenuReclamation.getText());
             if(!(magasinSelection.getValue() != null)
                     || !(champObjetReclamation.getText().trim().length() > 0 )
                     || !(typeReclamation.getValue() != null)
@@ -325,5 +329,15 @@ public class EnvoiDesReclamationsController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+      
+    @FXML
+    private void btncataloguesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
     }
 }

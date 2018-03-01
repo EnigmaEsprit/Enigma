@@ -118,12 +118,29 @@
             <Insets />
          </opaqueInsets>
       </Pane>
+<<<<<<< HEAD
       <Pane fx:id="menu" layoutX="73.0" layoutY="70.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
 
+=======
+      <Pane layoutX="157.0" layoutY="50.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+>>>>>>> 5e121b665ef6365443b5b4567b16a52e450e4056
          <children>
-            <Pane fx:id="menu3" layoutX="197.0" layoutY="449.0" prefHeight="155.0" prefWidth="209.0">
+            <ImageView fx:id="profil" fitHeight="53.0" fitWidth="48.0" layoutX="1250.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="61.0" fitWidth="138.0" layoutX="559.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/LOGO_SOUK_Blan.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Pane fx:id="menu1" layoutX="73.0" layoutY="70.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
+         <children>
+            <Pane fx:id="menu31" layoutX="197.0" layoutY="423.0" prefHeight="155.0" prefWidth="209.0">
                <children>
-                  <Button fx:id="Maps" layoutX="1.0" layoutY="78.0" mnemonicParsing="false" onAction="#btnMapsAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BA55D3;" text="Maps">
+                  <Button fx:id="Maps1" layoutX="1.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnMapsAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BA55D3;" text="Maps">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -133,38 +150,38 @@
                         <Image url="@../../Images/placeholder.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="recherche" layoutX="2.0" layoutY="7.0" mnemonicParsing="false" onAction="#btnRechercheAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #AFEEEE;" text="   Search Contact">
+                  <Button fx:id="recherche1" layoutX="2.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnRechercheAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #AFEEEE;" text="   Search Contact">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="8.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Images/hiring.png" />
                      </image>
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="menu2" layoutX="197.0" layoutY="221.0" prefHeight="224.0" prefWidth="200.0">
+            <Pane fx:id="menu21" layoutX="197.0" layoutY="260.0" prefHeight="224.0" prefWidth="200.0">
                <children>
-                  <Button fx:id="espClient1" layoutX="3.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnespClientAction" onMouseEntered="#afficherSuite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #F4A460;" text="LogOut">
+                  <Button fx:id="espClient11" layoutX="3.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnespClientAction" onMouseEntered="#afficherSuite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #F4A460;" text="Espace Client">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="espVendeur1" layoutX="2.0" layoutY="87.0" mnemonicParsing="false" onAction="#btnespVendeurAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FFF5EE;" text="Espace Vendeur">
+                  <Button fx:id="espVendeur11" layoutX="2.0" layoutY="87.0" mnemonicParsing="false" onAction="#btnespVendeurAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FFF5EE;" text="Espace Vendeur">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="espAdmin1" layoutX="2.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnespAdminAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #5F9EA0;" text="Espace Admin">
+                  <Button fx:id="espAdmin11" layoutX="2.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnespAdminAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #5F9EA0;" text="Espace Admin">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Button>
-                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="8.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="5.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../Images/logout.png" />
+                        <Image url="@../../Images/man.png" />
                      </image>
                   </ImageView>
                   <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="2.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
@@ -179,100 +196,77 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button layoutX="2.0" layoutY="18.0" mnemonicParsing="false" onAction="#cataloguesFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
+            <Button layoutX="2.0" layoutY="40.0" mnemonicParsing="false" onAction="#btncataloguesAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="2.0" layoutY="90.0" mnemonicParsing="false" onAction="#BoutiquesFenetre" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
+            <Button layoutX="2.0" layoutY="115.0" mnemonicParsing="false" onAction="#btnBoutiquesAction" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="2.0" layoutY="164.0" mnemonicParsing="false" onAction="#PanierFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #2E8B57;" text="Panier">
+            <Button layoutX="2.0" layoutY="195.0" mnemonicParsing="false" onAction="#PanierFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #2E8B57;" text="Panier">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="2.0" layoutY="238.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #708090;" text="Promotion">
+            <Button layoutX="2.0" layoutY="273.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #708090;" text="Promotion">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Log" layoutX="3.0" layoutY="385.0" mnemonicParsing="false" onMouseEntered="#afficherSuite" onMouseExited="#exite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #8FBC8F;" text="LogIN">
+            <Button fx:id="Log1" layoutX="3.0" layoutY="424.0" mnemonicParsing="false" onMouseEntered="#afficherSuite" onMouseExited="#exite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #8FBC8F;" text="LogIN">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Event" layoutX="2.0" layoutY="311.0" mnemonicParsing="false" onAction="#btnEventAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #E9967A;" text="Evenements">
+            <Button fx:id="Event1" layoutX="2.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnEventAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #E9967A;" text="Evenements">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Reclamation" layoutX="1.0" layoutY="458.0" mnemonicParsing="false" onAction="#btnReclamation" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BC8F8F;" text="Reclamations">
+            <Button fx:id="Contacts1" layoutX="2.0" layoutY="500.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Contacts">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="1.0" layoutY="469.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Images/exclamation.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="Contacts" layoutX="2.0" layoutY="526.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Contacts">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="14.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="14.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/store%20(1).png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="13.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="13.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/basket.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="247.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/online-shop.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="12.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="12.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/pantone.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="396.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/login.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="323.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/event.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="538.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/contacts.png" />
                </image>
             </ImageView>
          </children>
-      </Pane>
-      <Pane layoutX="157.0" layoutY="50.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <ImageView fx:id="profil" fitHeight="53.0" fitWidth="48.0" layoutX="1250.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fitHeight="61.0" fitWidth="138.0" layoutX="559.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Images/LOGO_SOUK_Blan.png" />
-               </image>
-            </ImageView>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
       </Pane>
    </children>
 </AnchorPane>

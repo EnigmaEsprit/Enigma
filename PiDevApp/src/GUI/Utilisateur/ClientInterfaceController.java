@@ -142,7 +142,7 @@ public class ClientInterfaceController implements Initializable {
                 numerodecardbancaire.setText(Util.connectedUser.getNbc());
                 datedevalidation.setText(Util.connectedUser.getDate_validation());
                 nt.setText(Util.connectedUser.getNt());
-                if(Util.connectedUser.getImg()=="")
+                if(Util.connectedUser.getImg()==null)
                 {
                     image= new Image("http://localhost/uimg/user.jpg");
                 profil.setImage(image);

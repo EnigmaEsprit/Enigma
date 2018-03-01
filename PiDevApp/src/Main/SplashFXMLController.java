@@ -28,7 +28,7 @@ public class SplashFXMLController implements Initializable {
         @Override
         public void run(){
             try {
-                Thread.sleep(0);
+                Thread.sleep(4000);
                 Platform.runLater(new Runnable() {
                     @Override
                     public void run() {

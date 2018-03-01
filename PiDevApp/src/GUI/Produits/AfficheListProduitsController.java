@@ -115,6 +115,8 @@ public class AfficheListProduitsController implements Initializable {
         ProduitServices evt = new ProduitServices();
 
           Image[] images;
+    @FXML
+    private ImageView profil;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -134,6 +136,21 @@ public class AfficheListProduitsController implements Initializable {
             menuTranslation.setRate(-1);
             menuTranslation.play();
         });
+         if(Util.connectedUser== null)
+        {
+            
+        }
+         else if(Util.connectedUser.getImg()==null)
+                {
+                    
+                profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/user.jpg"));
+                }
+                else
+                {
+                    profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/"+Util.connectedUser.getImg()));
+               
+             
+                }
         menu2.setVisible(false);
         menu3.setVisible(false);
         

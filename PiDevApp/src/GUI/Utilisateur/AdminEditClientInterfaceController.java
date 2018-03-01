@@ -330,7 +330,6 @@ menu.setTranslateX(-190);
         LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
     }
 
-    @FXML
     private void PanierFenetre(ActionEvent event) {
         
         LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml", event);

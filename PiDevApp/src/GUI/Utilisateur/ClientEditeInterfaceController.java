@@ -195,7 +195,7 @@ public class ClientEditeInterfaceController implements Initializable {
               datedevalidation.setValue(LocalDate.of(yearV, mounthV, mounthV));
                 numerodetelephone.setText(Util.connectedUser.getNt());
                 eemail = email.getText();
-                    if(Util.connectedUser.getImg()=="")
+                    if(Util.connectedUser.getImg()==null)
                 {
                     image= new Image("http://localhost/uimg/user.jpg");
                 profil.setImage(image);

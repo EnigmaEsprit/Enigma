@@ -39,6 +39,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -102,6 +103,10 @@ public class FXMLPaymentCardController implements Initializable {
     private Button Event;
     @FXML
     private Button Contacts;
+    @FXML
+    private Button Reclamation;
+    @FXML
+    private ImageView profil;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -120,6 +125,21 @@ public class FXMLPaymentCardController implements Initializable {
         menuTranslation.setRate(-1);
         menuTranslation.play();
     });
+     if(Util.connectedUser== null)
+        {
+            
+        }
+         if(Util.connectedUser.getImg()==null)
+                {
+                    
+                profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/user.jpg"));
+                }
+                else
+                {
+                    profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/"+Util.connectedUser.getImg()));
+               
+             
+                }
     menu2.setVisible(false);
     menu3.setVisible(false);
          format = NumberFormat.getCurrencyInstance(Locale.FRANCE);
@@ -420,6 +440,16 @@ public class FXMLPaymentCardController implements Initializable {
     }
      @FXML
     private void btnReclamation(ActionEvent event) {
+         LoadWindowParent("/GUI/Reclamation/EnvoiDesReclamations", event);
+    }
+    @FXML
+    private void btncataloguesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
     }
 
 }

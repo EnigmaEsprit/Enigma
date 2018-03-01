@@ -48,9 +48,7 @@
                                     </TableColumn>
                                 </columns>
                               </TableView>
-                              <Button fx:id="modifier" layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnModifierClientAction" prefHeight="33.0" prefWidth="113.0" text="Modifier" />
-                              <Button fx:id="supprimer" layoutX="139.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnSupprimerClientAction" prefHeight="33.0" prefWidth="113.0" text="Supprimer" />
-                              <Button fx:id="loder_D" layoutX="265.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnAfficherAction" prefHeight="33.0" prefWidth="113.0" text="Loder Details" />
+                              <Button fx:id="supprimer" layoutX="17.0" layoutY="13.0" mnemonicParsing="false" onAction="#btnSupprimerClientAction" prefHeight="33.0" prefWidth="113.0" text="Supprimer" />
                            </children>
                         </AnchorPane>
                   </content>
@@ -81,7 +79,6 @@
                               </TableView>
                               <Button fx:id="modifier1" layoutX="139.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnModifierVendeurAction" prefHeight="33.0" prefWidth="113.0" text="Modifier" />
                               <Button fx:id="supprimer1" layoutX="262.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnSupprimerVendeurAction" prefHeight="33.0" prefWidth="113.0" text="Supprimer" />
-                              <Button fx:id="loder_D1" layoutX="382.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAfficherVendeurAction" prefHeight="33.0" prefWidth="113.0" text="Loder Details" />
                               <Button fx:id="ajouter" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#btnAjouterVendeurAction" prefHeight="33.0" prefWidth="113.0" text="Ajouter" />
                            </children></AnchorPane>
                   </content>
@@ -109,7 +106,7 @@
       </Pane>
       <Pane fx:id="menu" layoutX="73.0" layoutY="70.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <Pane fx:id="menu3" layoutX="197.0" layoutY="424.0" prefHeight="155.0" prefWidth="209.0">
+            <Pane fx:id="menu3" layoutX="197.0" layoutY="362.0" prefHeight="155.0" prefWidth="209.0">
                <children>
                   <Button fx:id="Maps" layoutX="1.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnMapsAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BA55D3;" text="Maps">
                      <font>
@@ -133,7 +130,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Pane fx:id="menu2" layoutX="197.0" layoutY="261.0" prefHeight="224.0" prefWidth="200.0">
+            <Pane fx:id="menu2" layoutX="197.0" layoutY="199.0" prefHeight="224.0" prefWidth="200.0">
                <children>
                   <Button fx:id="espClient1" layoutX="3.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnespClientAction" onMouseEntered="#afficherSuite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #F4A460;" text="Espace Client">
                      <font>
@@ -167,72 +164,52 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button layoutX="2.0" layoutY="41.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
+            <Button layoutX="2.0" layoutY="134.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="2.0" layoutY="116.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
+            <Button layoutX="2.0" layoutY="212.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #708090;" text="Promotion">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="2.0" layoutY="196.0" mnemonicParsing="false" onAction="#PanierFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #2E8B57;" text="Panier">
+            <Button fx:id="Log" layoutX="3.0" layoutY="363.0" mnemonicParsing="false" onMouseEntered="#afficherSuite" onMouseExited="#exite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #8FBC8F;" text="LogIN">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button layoutX="2.0" layoutY="274.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #708090;" text="Promotion">
+            <Button fx:id="Event" layoutX="2.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnEventAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #E9967A;" text="Evenements">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Log" layoutX="3.0" layoutY="425.0" mnemonicParsing="false" onMouseEntered="#afficherSuite" onMouseExited="#exite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #8FBC8F;" text="LogIN">
+            <Button fx:id="Contacts" layoutX="2.0" layoutY="439.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Contacts">
                <font>
                   <Font size="18.0" />
                </font>
             </Button>
-            <Button fx:id="Event" layoutX="2.0" layoutY="348.0" mnemonicParsing="false" onAction="#btnEventAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #E9967A;" text="Evenements">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <Button fx:id="Contacts" layoutX="2.0" layoutY="501.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Contacts">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Button>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="14.0" layoutY="129.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="14.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/store%20(1).png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="13.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Images/basket.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="286.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/online-shop.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="12.0" layoutY="53.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../Images/pantone.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="374.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/login.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="359.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="297.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/event.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="513.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="451.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/contacts.png" />
                </image>
