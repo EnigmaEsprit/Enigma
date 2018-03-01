@@ -279,4 +279,9 @@ public class VendeurInterfaceController implements Initializable {
     private void btnReclamationAction(ActionEvent event) throws IOException {
             LoadWindowParent("/GUI/Reclamation/ReclamationsClients.fxml", event);
     }
+
+    @FXML
+    private void btnCatalogeusAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Produits/AjoutArticle.fxml", event);
+    }
 }

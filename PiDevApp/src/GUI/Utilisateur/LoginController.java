@@ -80,6 +80,8 @@ public class LoginController implements Initializable {
     private Button Maps;
     @FXML
     private Button Contacts;
+    @FXML
+    private Pane login;
 
     /**
      * Initializes the controller class.
@@ -302,6 +304,16 @@ public class LoginController implements Initializable {
     private void PanierFenetre(ActionEvent event) {
         LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);
     }
-    
 
+    @FXML
+    private void btnCataloquesAction(ActionEvent event) {
+          LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
+    
+  
 }

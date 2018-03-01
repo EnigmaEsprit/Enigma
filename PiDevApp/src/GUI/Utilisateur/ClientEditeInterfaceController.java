@@ -488,4 +488,14 @@ public class ClientEditeInterfaceController implements Initializable {
           LoadWindowParent("/GUI/Reclamation/EnvoiDesReclamations.fxml", event);
     }
 
+    @FXML
+    private void btnCatalogueAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutisueAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
+
 }

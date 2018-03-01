@@ -479,6 +479,11 @@ public class AdminInterfaceController implements Initializable {
             Logger.getLogger(AdminInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+
+    @FXML
+    private void btnBoutiqueAction(ActionEvent event) {
+          LoadWindowParent("/GUI/Magasins/AjouterMagasin.fxml", event);
+    }
     }
     
 

@@ -390,4 +390,14 @@ public class InscriptionController implements Initializable {
             
     }
 
+    @FXML
+    private void btnCataloguesAction(ActionEvent event) {
+          LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+              LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
+
 }

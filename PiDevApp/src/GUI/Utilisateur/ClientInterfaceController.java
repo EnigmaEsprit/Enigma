@@ -332,4 +332,14 @@ public class ClientInterfaceController implements Initializable {
            LoadWindowParent("/GUI/Reclamation/EnvoiDesReclamations.fxml", event);
     }
 
+    @FXML
+    private void btnCataloguesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutique(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
+
 }

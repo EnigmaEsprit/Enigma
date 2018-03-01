@@ -71,6 +71,8 @@ public class LoginAdminController implements Initializable {
     private Button Maps;
     @FXML
     private Button Contacts;
+    @FXML
+    private Pane login;
 
     /**
      * Initializes the controller class.
@@ -245,5 +247,15 @@ public class LoginAdminController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(LoginAdminController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+
+    @FXML
+    private void btnCatlogeusAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
     }
 }

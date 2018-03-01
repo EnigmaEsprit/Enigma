@@ -152,7 +152,13 @@ public class FXMLPanierInterfaceController implements Initializable {
     @FXML
     private Button Event;
     @FXML
+<<<<<<< HEAD
     private Button Contacts;
+=======
+    private Pane menu21;
+    @FXML
+    private Pane menu;
+>>>>>>> 37f9e1037a659195b72e69ff2fe5eda8d6691097
 
     
     
@@ -182,7 +188,11 @@ public class FXMLPanierInterfaceController implements Initializable {
             
         }
 
+<<<<<<< HEAD
       
+=======
+   
+>>>>>>> 37f9e1037a659195b72e69ff2fe5eda8d6691097
 
         else if(Util.connectedUser.getImg()==null)
 

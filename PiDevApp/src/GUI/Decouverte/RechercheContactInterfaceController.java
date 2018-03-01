@@ -356,11 +356,11 @@ public class RechercheContactInterfaceController implements Initializable {
     }*/
    @FXML
     private void btncataloguesAction(ActionEvent event) {
-         LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
+     LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
     }
 
     @FXML
     private void btnBoutiquesAction(ActionEvent event) {
-        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+      LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
 }
 }

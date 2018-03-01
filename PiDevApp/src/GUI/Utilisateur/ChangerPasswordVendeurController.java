@@ -278,5 +278,10 @@ public class ChangerPasswordVendeurController implements Initializable {
         } 
     }
 
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AjouterMagasin.fxml", event);
+    }
+
 
 }

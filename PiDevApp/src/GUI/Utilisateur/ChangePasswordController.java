@@ -287,4 +287,14 @@ public class ChangePasswordController implements Initializable {
     private void btnReclamation(ActionEvent event) {
           LoadWindowParent("/GUI/Reclamation/EnvoiDesReclamations.fxml", event);
     }
+
+    @FXML
+    private void btnCataloguesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutiquesAvtion(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
 }

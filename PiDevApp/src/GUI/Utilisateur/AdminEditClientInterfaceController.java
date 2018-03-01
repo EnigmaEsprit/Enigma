@@ -373,4 +373,9 @@ menu.setTranslateX(-190);
     @FXML
     private void btnEventAction(ActionEvent event) {
     }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+          LoadWindowParent("/GUI/Magasins/AjouterMagasin.fxml", event);
+    }
    }
