@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.effect.*?>
@@ -10,63 +11,94 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" fx:id="container" focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.InterfaceReclamationsClientsController">
+<AnchorPane id="AnchorPane" fx:id="container" focusTraversable="true" prefHeight="680.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.InterfaceReclamationsClientsController">
    <children>
-      <VBox alignment="TOP_CENTER" layoutY="25.0" prefHeight="655.0" prefWidth="211.0" spacing="20.0" style="-fx-border-color: #0F0F0F; -fx-background-color: #cfb176;">
-         <children>
-            <Button mnemonicParsing="false" onMouseClicked="#openPageAccueil" prefHeight="48.0" prefWidth="165.0" text="Catalogue">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Button>
-            <Button layoutX="31.0" layoutY="99.0" mnemonicParsing="false" onMouseClicked="#openClientPage" prefHeight="48.0" prefWidth="202.0" text="Espace Client">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Button>
-            <Button layoutX="31.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#openVendeurPage" prefHeight="48.0" prefWidth="202.0" text="Espace Vendeur">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Button>
-            <Button layoutX="31.0" layoutY="303.0" mnemonicParsing="false" onMouseClicked="#openFAQPage" prefHeight="48.0" prefWidth="202.0" text="FAQ">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Button>
-         </children>
-         <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="80.0" />
-         </padding>
-      </VBox>
       <VBox alignment="TOP_CENTER" layoutX="211.0" layoutY="25.0" prefHeight="655.0" prefWidth="1069.0" spacing="15.0" style="-fx-border-color: #0F0F0F; -fx-background-color: #e5dac5;">
          <children>
+            <HBox alignment="TOP_RIGHT" maxWidth="-Infinity" prefHeight="17.0" prefWidth="1030.0">
+               <children>
+                  <Label fx:id="labelIdentifiant" alignment="CENTER_RIGHT" prefHeight="27.0" prefWidth="455.0" text="Hello, utilisateur connecté !">
+                     <font>
+                        <Font name="Lao UI Bold" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
             <Label text="Consulter les réclamations clients">
                <font>
                   <Font size="26.0" />
                </font>
             </Label>
-            <TableView fx:id="tableReclamations" editable="true" maxWidth="-Infinity" prefHeight="466.0" prefWidth="1046.0">
+            <HBox alignment="CENTER_LEFT" layoutX="140.0" layoutY="31.0" maxWidth="-Infinity" prefHeight="48.0" prefWidth="1023.0">
+               <children>
+                  <TextField fx:id="rechercheReclamation" prefHeight="29.0" prefWidth="295.0" promptText="rechercher une réclamation par nom d'expéditeur" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <TableView fx:id="tableReclamations" editable="true" maxWidth="-Infinity" prefHeight="276.0" prefWidth="1027.0">
                <columns>
                   <TableColumn fx:id="colIdReclamation" prefWidth="68.0" text="N°Réclamation" />
                   <TableColumn fx:id="colObjetReclamation" minWidth="0.0" prefWidth="190.0" text="Objet Reclamation" />
                   <TableColumn fx:id="colTypeReclamation" prefWidth="217.0" text="Type" />
                   <TableColumn fx:id="colDate" minWidth="0.0" prefWidth="143.0" text="Date Envoi" />
                   <TableColumn fx:id="colNomlUser" prefWidth="179.0" text="Nom de l'expéditeur" />
-                  <TableColumn fx:id="colEmail" maxWidth="369.0" prefWidth="226.0" sortable="false" text="Email" />
+                  <TableColumn fx:id="colEmail" maxWidth="5369.0" prefWidth="226.0" sortable="false" text="Email" />
                </columns>
             </TableView>
-            <HBox prefHeight="160.0" prefWidth="771.0" spacing="5.0">
+            <HBox maxWidth="-Infinity" prefHeight="113.0" prefWidth="1025.0" spacing="5.0">
                <children>
-                  <TextArea fx:id="ecranAffichageReclamation" editable="false" maxWidth="-Infinity" prefHeight="75.0" prefWidth="492.0" promptText="Cliquer sur une réclamation pour faire apparaitre  son contenu." />
+                  <Separator layoutX="315.0" layoutY="10.0" orientation="VERTICAL" prefHeight="200.0" />
+                  <VBox prefHeight="90.0" prefWidth="494.0" spacing="3.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="225.0" text="Afficher les réclamations :">
+                           <font>
+                              <Font name="Arial Italic" size="17.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="reclamationsDes3jours" prefHeight="17.0" prefWidth="265.0" text="Des 3 derniers jours" underline="true">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="reclamationsDeLaSemaine" layoutX="10.0" layoutY="30.0" prefHeight="17.0" prefWidth="265.0" text="De la semaine dernière" underline="true">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="reclamationsDuMois" layoutX="10.0" layoutY="47.0" prefHeight="17.0" prefWidth="265.0" text="Du mois dernier" underline="true">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </Label>
+                        <Label fx:id="reclamationsAll" layoutX="10.0" layoutY="64.0" prefHeight="17.0" prefWidth="265.0" text="Afficher toutes les réclamations" underline="true">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="40.0" />
+                           </VBox.margin>
+                        </Label>
+                     </children>
+                  </VBox>
                   <Separator orientation="VERTICAL" prefHeight="200.0" />
-                  <TextArea fx:id="ecranReponseReclamation" layoutX="10.0" layoutY="10.0" maxWidth="-Infinity" prefHeight="75.0" prefWidth="524.0" promptText="Entrez la réponse à envoyer ici." />
+                  <TextArea fx:id="ecranAffichageReclamation" editable="false" maxWidth="-Infinity" prefHeight="104.0" prefWidth="903.0" promptText="Cliquer sur une réclamation pour faire apparaitre  son contenu." />
                </children>
             </HBox>
             <HBox alignment="CENTER_RIGHT" focusTraversable="true" prefHeight="45.0" prefWidth="771.0" spacing="20.0">
                <children>
-                  <Button fx:id="btnReponseReclamation" alignment="CENTER" minHeight="-Infinity" mnemonicParsing="false" onMouseClicked="#repondreReclamation" prefHeight="35.0" prefWidth="213.0" text="Répondre à une réclamation" />
-                  <Button fx:id="btnSuppressionReclamation" alignment="CENTER" mnemonicParsing="false" onMouseClicked="#supprimerReclamation" prefHeight="34.0" prefWidth="199.0" text="Supprimer une réclamation" />
+                  <Button fx:id="btnReponseReclamation" alignment="CENTER" minHeight="-Infinity" mnemonicParsing="false" onAction="#repondreReclamation" prefHeight="35.0" prefWidth="213.0" text="Répondre à une réclamation" />
+                  <Button fx:id="btnSuppressionReclamation" alignment="CENTER" mnemonicParsing="false" onAction="#supprimerReclamation" prefHeight="34.0" prefWidth="199.0" text="Supprimer une réclamation" />
                </children>
                <padding>
                   <Insets bottom="20.0" left="20.0" top="20.0" />
@@ -74,7 +106,7 @@
             </HBox>
          </children>
          <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </padding>
       </VBox>
       <MenuBar prefHeight="30.0" prefWidth="1280.0">
@@ -96,5 +128,27 @@
             </Menu>
          </menus>
       </MenuBar>
+      <VBox alignment="TOP_CENTER" layoutY="30.0" prefHeight="655.0" prefWidth="211.0" spacing="50.0" style="-fx-border-color: #0F0F0F; -fx-background-color: #cfb176;">
+         <children>
+            <Button mnemonicParsing="false" onAction="#openPageAccueil" prefHeight="48.0" prefWidth="165.0" text="Catalogue">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="31.0" layoutY="99.0" mnemonicParsing="false" onAction="#openClientPage" prefHeight="48.0" prefWidth="202.0" text="Espace Client">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+            <Button layoutX="31.0" layoutY="235.0" mnemonicParsing="false" onAction="#openVendeurPage" prefHeight="48.0" prefWidth="202.0" text="Espace Vendeur">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="120.0" />
+         </padding>
+      </VBox>
    </children>
 </AnchorPane>
