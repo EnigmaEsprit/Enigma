@@ -435,7 +435,7 @@ public class FXMLPanierInterfaceController implements Initializable {
            
            PdfWriter writer= PdfWriter.getInstance(document, new FileOutputStream("test.pdf"));
             document.open();
-             Image image = Image.getInstance("MILK_Logo_WEB_MEDIUM-01_495x.png");
+             Image image = Image.getInstance("src\\Images\\LOGO_SOUK_Noir.png");
             document.add(new Paragraph("Exemple"));
            
             

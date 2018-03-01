@@ -9,6 +9,9 @@
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
 <<<<<<< HEAD
+    <jar href="PiDevApp.jar" size="16488694" download="eager" />
+=======
+<<<<<<< HEAD
     <jar href="PiDevApp.jar" size="16499235" download="eager" />
     <jar href="lib/GMapsFX-2.0.9.jar" size="166541" download="eager" />
     <jar href="lib/TrayTester.jar" size="52070" download="eager" />
@@ -31,6 +34,7 @@
     <jar href="lib/stripe-java-5.32.0.jar" size="254222" download="eager" />
 =======
     <jar href="PiDevApp.jar" size="16488700" download="eager" />
+>>>>>>> a8980396a2f8b92f72739795e6c03ba43d20fcd5
     <jar href="lib\GMapsFX-2.0.9.jar" size="166541" download="eager" />
     <jar href="lib\TrayTester.jar" size="52070" download="eager" />
     <jar href="lib\activation.jar" size="124332" download="eager" />
