@@ -5,7 +5,7 @@
  */
 package GUI.Decouverte;
 
-import Entities.magasins;
+import entites.Magasins.magasins;
 import GUI.Utilisateur.ClientInterfaceController;
 import GUI.Utilisateur.InscriptionController;
 import GUI.Utilisateur.LoginController;

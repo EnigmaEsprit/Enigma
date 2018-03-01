@@ -3,6 +3,7 @@ package GUI.Produits;
 import GUI.Utilisateur.ClientInterfaceController;
 import GUI.Utilisateur.VendeurInterfaceController;
 import Util.Util;
+import com.jfoenix.controls.JFXButton;
 import entites.Utilisateur.Utilisateur;
 import entites.Magasins.magasins;
 import entites.Produit.produits;
@@ -26,6 +27,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
@@ -35,6 +40,15 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.Utilisateur.VendeurService;
+import service.Commentaires.CommentairesServices;
+import entites.Commentaires.Commentaires;
+import entites.Panier.FonctionPanier;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.control.Alert;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import org.controlsfx.control.action.Action;
 
 public class DetailProduitController  implements Initializable {
 
@@ -84,7 +98,31 @@ public class DetailProduitController  implements Initializable {
     private Button Event;
     @FXML
     private Button Contacts;
-    
+    @FXML
+    private TextField champCommentaire;
+    @FXML
+    private TableView<Commentaires> tableCommentaires;
+    @FXML
+    private TableColumn<?, ?> userprofil;
+    @FXML
+    private TableColumn<?, ?> userComments;
+    @FXML
+    private TableColumn<?, ?> dateCell;
+    @FXML
+    private TableColumn<?, ?> editCell;
+    @FXML
+    private TableColumn<?, ?> deleteCell;
+    @FXML
+    private ImageView photoUser;
+    private int temoin;
+     private int idCommentaireAModifier;
+
+
+CommentairesServices cs = new CommentairesServices();
+    private ObservableList<Commentaires> listeDesCommentaires = FXCollections.observableArrayList();
+    @FXML
+    private JFXButton ajoutPanier;
+
     public void DetailProduitController() throws SQLException
     {
         System.out.println("---------------------------------------------");
@@ -138,6 +176,45 @@ public class DetailProduitController  implements Initializable {
             Logger.getLogger(DetailProduitController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
+          temoin = 0;
+     
+       // produitCommente = InterfaceAccueilController.produitSelectionne;
+       // Image imageProduit = new Image(produitCommente.getUrlPhoto());
+       // imageProduitSelectionne.setImage(imageProduit);
+       
+    
+        
+       // Image avatar = new Image(cs.getPhotoUser(clientCte.getEmail()));
+       //
+       //
+       //
+       //user connecté
+        //photoUser.setImage(avatar);
+       // photoUser.setFitHeight(25.0);
+       // photoUser.setFitWidth(25.0);
+        chargerCommentaires();       
+       
+        champCommentaire.setOnKeyPressed((KeyEvent ke) -> {
+                if (ke.getCode() == KeyCode.ENTER){
+                    if (temoin == 1){            
+                        Commentaires c = new Commentaires(idCommentaireAModifier, champCommentaire.getText());
+                        cs.modifierCommentaires(c);
+                        temoin = 0;
+                    }
+                    else{
+                        Commentaires c = new Commentaires(champCommentaire.getText());
+                        
+                        cs.ajouterCommentaires(c,33, produit.getIdProduit());
+                        
+                       
+                    }
+                     champCommentaire.setText("");
+                    refresh();
+                }
+        });
+        
+       
+        
         
         System.out.println(produit.getReferenceProduit());
         System.out.println(produit.getNomProduit());
@@ -154,8 +231,82 @@ public class DetailProduitController  implements Initializable {
      
           i= new Image("http://localhost/uimg/"+pic);      
           imageproduit.setImage(i);
+          
+          
+          ajoutPanier.setOnAction((event)->{
+              
+                   System.out.println(produit.getQuantiteProduit());
+                System.out.println(produit.getQuantiteProduitClient());
+                produit.setQuantiteProduitClient(1);
+                System.out.println(produit.getQuantiteProduitClient());
+                // nombreProduitsDansPanier.setText("= "+FonctionPanier.compterArticles());
+              FonctionPanier.ajouterArticle(produit);
+                 //nombreProduitsDansPanier.setText("= "+FonctionPanier.compterArticles());
+                System.out.println("bikie bikiek bikie bkiek ");
+                    System.out.println("id: "+produit.getNomProduit());
+                    System.out.println("quantite: "+produit.getQuantiteProduit());
+                    
+              Alert alert = new Alert(Alert.AlertType.INFORMATION);
+              alert.setTitle("Information Dialog");
+              alert.setHeaderText(null);
+              alert.setContentText("produit "+produit.getNomProduit()+" a ete ajoute");
+              alert.showAndWait();
+              System.out.println(produit);
+          });
       
     }
+    
+    
+    
+     private void chargerCommentaires() {
+        userprofil.setCellValueFactory(new PropertyValueFactory<>("imageUser"));
+        userComments.setCellValueFactory(new PropertyValueFactory<>("contenuCommentaire"));
+        dateCell.setCellValueFactory(new PropertyValueFactory<>("dateAjoutCommentaire"));
+        editCell.setCellValueFactory(new PropertyValueFactory<>("bouton"));
+        deleteCell.setCellValueFactory(new PropertyValueFactory<>("bouton2"));
+        ImageView photoUsers;
+
+        for (Commentaires c : cs.afficherCommentaires(produit.getIdProduit())) {
+            Button btEdit = new Button("    Modifier    ");
+            Button btDelete = new Button(" Supprimer ");
+           
+            photoUsers = new ImageView(c.getUrlUserPhoto());
+            photoUsers.setFitHeight(30.0);
+            photoUsers.setFitWidth(30.0);
+            listeDesCommentaires.add(new Commentaires(c.getIdCommentaire(), c.getContenuCommentaire(), c.getDateAjoutCommentaire(), photoUsers, btEdit, btDelete));
+            btEdit.setOnAction((event) -> {
+                champCommentaire.setText(c.getContenuCommentaire());
+                temoin = 1;
+                idCommentaireAModifier = c.getIdCommentaire();
+            });
+            btDelete.setOnAction((event) -> {
+                cs.supprimerCommentaires(c);
+                refresh();
+            });                   
+        }
+        tableCommentaires.setItems(listeDesCommentaires);
+        
+    }
+    
+    
+    private void refresh(){
+        listeDesCommentaires.clear();
+        listeDesCommentaires.removeAll(listeDesCommentaires);
+        chargerCommentaires();
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 
     @FXML
     private void btnespClientAction(ActionEvent event) {
