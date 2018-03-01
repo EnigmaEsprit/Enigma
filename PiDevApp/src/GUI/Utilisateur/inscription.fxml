@@ -33,15 +33,17 @@
                      </font>
                   </Label>
                   <DatePicker fx:id="datedevalidation" layoutX="279.0" layoutY="469.0" prefHeight="26.0" prefWidth="200.0" promptText="Saisir date de validation de carte" stylesheets="@style.css/" />
-                  <Line endX="100.0" layoutX="204.0" layoutY="410.0" startX="-100.0" />
-                  <Line endX="100.0" layoutX="380.0" layoutY="410.0" startX="-100.0" />
-                  <Line endX="100.0" layoutX="576.0" layoutY="410.0" startX="-100.0" />
-                  <Line endX="100.0" layoutX="763.0" layoutY="410.0" startX="-100.0" />
                   <Label fx:id="labmsg" layoutX="333.0" layoutY="33.0" prefHeight="18.0" prefWidth="330.0" textFill="#da1212">
                      <font>
                         <Font name="System Italic" size="14.0" />
                      </font>
                   </Label>
+                  <Line endX="100.0" layoutX="360.0" layoutY="424.0" startX="-100.0" />
+                  <Line endX="100.0" layoutX="549.0" layoutY="424.0" startX="-100.0" />
+                  <Line endX="100.0" layoutX="727.0" layoutY="424.0" startX="-100.0" />
+                  <Line endX="100.0" layoutX="790.0" layoutY="424.0" startX="-100.0" />
+                  <TextField fx:id="path" layoutX="596.0" layoutY="391.0" />
+                  <Button layoutX="764.0" layoutY="391.0" mnemonicParsing="false" onAction="#imageUpload" prefHeight="25.0" prefWidth="119.0" text="Upload" />
                </children>
             </Pane>
             <Button fx:id="Inscrit" layoutX="1024.0" layoutY="518.0" mnemonicParsing="false" onAction="#btnInscritAction" prefHeight="30.0" prefWidth="92.0" stylesheets="@style.css" text="Inscrit">
@@ -49,22 +51,22 @@
                   <Font name="System Italic" size="14.0" />
                </font>
             </Button>
-            <Label layoutX="271.0" layoutY="454.0" text="Numero de carte bancaire:">
+            <Label layoutX="271.0" layoutY="454.0" text="Numero de carte bancaire*:">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="270.0" layoutY="494.0" text="Date de validation:">
+            <Label layoutX="270.0" layoutY="494.0" text="Date de validation*:">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <Label layoutX="701.0" layoutY="494.0" text="CCV:">
+            <Label layoutX="701.0" layoutY="500.0" text="CCV*:">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="ccv" layoutX="740.0" layoutY="493.0" prefHeight="26.0" prefWidth="129.0" promptText="a 3 chiffre" stylesheets="@style.css/" />
+            <PasswordField fx:id="ccv" layoutX="740.0" layoutY="499.0" prefHeight="26.0" prefWidth="129.0" promptText="a 3 chiffre" stylesheets="@style.css/" />
             <Button fx:id="annuler" layoutX="925.0" layoutY="518.0" mnemonicParsing="false" onAction="#btnAnnulerAction" prefHeight="33.0" prefWidth="92.0" stylesheets="@style.css" text="Annuler" />
             <Label layoutX="271.0" layoutY="104.0" text="Nom*:">
                <font>
@@ -77,8 +79,8 @@
                </font>
             </Label>
             <TextField fx:id="prenom" layoutX="845.0" layoutY="106.0" prefHeight="26.0" prefWidth="232.0" promptText="Exp: Oussama" stylesheets="@style.css" />
-            <TextField fx:id="email" layoutX="425.0" layoutY="284.0" prefHeight="26.0" prefWidth="650.0" promptText="Saisir  @ mail de vendeur (exp:oussama.boumaiza@souqmedina.tn)" stylesheets="@style.css" />
-            <PasswordField fx:id="cpassword" layoutX="892.0" layoutY="383.0" prefHeight="26.0" prefWidth="178.0" promptText="Comfirmer mot de passe de vendeur" stylesheets="@style.css" />
+            <TextField fx:id="email" layoutX="425.0" layoutY="284.0" prefHeight="26.0" prefWidth="650.0" promptText="Saisir votre @ Mail (Exp: oussama.boumaiza@esprit.tn)" stylesheets="@style.css" />
+            <PasswordField fx:id="cpassword" layoutX="892.0" layoutY="383.0" prefHeight="26.0" prefWidth="178.0" promptText="Comffirmer votre Password" stylesheets="@style.css" />
             <Label layoutX="736.0" layoutY="385.0" text="Comfirmer Password*:">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
@@ -108,7 +110,7 @@
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="adresse" layoutX="417.0" layoutY="184.0" prefHeight="26.0" prefWidth="232.0" promptText="Saisir adresse de Vendeur" stylesheets="@style.css" />
+            <TextField fx:id="adresse" layoutX="417.0" layoutY="184.0" prefHeight="26.0" prefWidth="232.0" promptText="Saisir votre Adresse" stylesheets="@style.css" />
             <TextField fx:id="ville" layoutX="846.0" layoutY="185.0" prefHeight="26.0" prefWidth="232.0" promptText="Exp: Nabeul" />
             <Label layoutX="269.0" layoutY="225.0" text="ZIP*:">
                <font>
@@ -126,7 +128,7 @@
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="numerodetelephone" layoutX="925.0" layoutY="223.0" prefHeight="26.0" prefWidth="152.0" promptText="N° telephone de vendaur (8 chiffre(exp: 21547896))" stylesheets="@style.css" />
+            <TextField fx:id="numerodetelephone" layoutX="925.0" layoutY="223.0" prefHeight="26.0" prefWidth="152.0" promptText="Votre N° de telephone" stylesheets="@style.css" />
             <Label layoutX="273.0" layoutY="290.0" text="E-mail*:">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
@@ -137,13 +139,19 @@
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <TextField fx:id="cemail" layoutX="423.0" layoutY="333.0" prefHeight="26.0" prefWidth="650.0" promptText="Coffirmer @ mail de vendeur (exp: oussama.boumaiza@souqmedina.tn)" stylesheets="@style.css" />
+            <TextField fx:id="cemail" layoutX="423.0" layoutY="333.0" prefHeight="26.0" prefWidth="650.0" promptText="Comffirmer votre @Mail" stylesheets="@style.css" />
             <Label layoutX="276.0" layoutY="385.0" text="Pssword*:">
                <font>
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <PasswordField fx:id="password" layoutX="424.0" layoutY="384.0" prefHeight="26.0" prefWidth="232.0" promptText="Saisir  mot de passe de vendeur" stylesheets="@style.css" />
+            <PasswordField fx:id="password" layoutX="424.0" layoutY="384.0" prefHeight="26.0" prefWidth="232.0" promptText="Saisir votre Password" stylesheets="@style.css" />
+            <Line endX="100.0" layoutX="358.0" layoutY="454.0" startX="-100.0" />
+            <Label layoutX="736.0" layoutY="421.0" text="Image:">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
          </children></Pane>
       <MeshView layoutX="29.0" layoutY="204.0" />
       <Label fx:id="im" layoutX="128.0" layoutY="36.0" />

@@ -18,7 +18,7 @@ import com.jfoenix.controls.JFXTextField;
 import entites.Produit.produits;
 import entites.Utilisateur.Vendeur;
 import service.Magasins.magasinsServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -72,7 +72,7 @@ public class ListProduitsParMagasinController implements Initializable {
     private JFXTextField rechercheProduit;
 
    
-     produitServices a = new produitServices();
+     ProduitServices a = new ProduitServices();
        ObservableList<produits> data;
     @FXML
     private Pane paneimage2;
@@ -125,7 +125,7 @@ public class ListProduitsParMagasinController implements Initializable {
         menu3.setVisible(false);
     
 
-        produitServices evt = new produitServices();
+        ProduitServices evt = new ProduitServices();
 
           Image[] images;
         
@@ -305,8 +305,11 @@ VBox vv = new VBox();
 
     }
  @FXML
+
+  
     void rechercherMagasin(KeyEvent event) throws SQLException {
-   produitServices evt = new produitServices();
+   ProduitServices evt = new ProduitServices();
+
 
           Image[] images;
         

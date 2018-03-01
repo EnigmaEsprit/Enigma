@@ -5,16 +5,20 @@
  */
 package GUI.Produits;
 
+
 //import static  GUI.Produits.MasterPageController.respansev;
-import Util.Upload;
+import entites.Produit.Upload;
+
+
 import GUI.Magasins.ListMagasinsController;
 import GUI.Utilisateur.ClientInterfaceController;
 import GUI.Utilisateur.VendeurInterfaceController;
 import Util.Util;
+
 import entites.Magasins.magasins;
 import entites.Produit.produits;
 import service.Magasins.magasinsServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
@@ -147,7 +151,7 @@ public class AjoutArticleController implements Initializable {
 
     @FXML
     private void AjouterArticle(ActionEvent event) {
-          produitServices ps= new produitServices();
+          ProduitServices ps= new ProduitServices();
         
 
         if (validateFields()){

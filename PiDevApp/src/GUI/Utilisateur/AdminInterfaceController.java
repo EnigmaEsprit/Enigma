@@ -29,6 +29,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -257,9 +258,22 @@ public class AdminInterfaceController implements Initializable {
          }
          else
          {
-             AdminService as =new AdminService();
+              Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Voulez vous supprimer cet article?");
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                 AdminService as =new AdminService();
+                  
+        
              as.SupprimerClient(c);
              refrachTable();
+              
+            }
+        });
+            
          } 
     }
 

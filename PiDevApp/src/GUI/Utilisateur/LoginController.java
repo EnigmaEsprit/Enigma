@@ -119,6 +119,7 @@ public class LoginController implements Initializable {
             try {
                 ClientService cs = new ClientService();
                 Util.connectedUser=cs.rechercheParMail(name.getText());
+                System.out.println(Util.connectedUser.getImg());
                 System.out.println(Util.connectedUser);
              
                 if(FXMLPanierInterfaceController.UtilisateurConnectePourPayer == true){

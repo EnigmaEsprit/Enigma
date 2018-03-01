@@ -19,12 +19,12 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class produitServices implements Iproduits {
+public class ProduitServices implements Iproduits {
 
     Connection connection = MyDB.getInstance().getConnection();
     private Statement ste;
 
-    public produitServices() {
+    public ProduitServices() {
 
         try {
             ste = connection.createStatement();
@@ -53,7 +53,7 @@ public class produitServices implements Iproduits {
             System.out.println("ajout produit ok");
 
         } catch (SQLException ex) {
-            Logger.getLogger(produitServices.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ProduitServices.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

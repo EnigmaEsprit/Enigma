@@ -6,6 +6,7 @@
 package GUI.Utilisateur;
 
 import Util.Util;
+import entites.Produit.Upload;
 import entites.Utilisateur.Client;
 import entites.Utilisateur.authentification;
 import java.io.File;
@@ -39,11 +40,14 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javax.swing.JFileChooser;
 import service.Utilisateur.ClientService;
 import service.Utilisateur.SendEmail;
 import service.Utilisateur.ServiceAuthentification;
@@ -118,6 +122,12 @@ public class InscriptionController implements Initializable {
     private Button Maps;
     @FXML
     private Button Contacts;
+  private File file;
+    private Image image;
+    String pic;
+    @FXML
+    private TextField path;
+   
 
     /**
      * Initializes the controller class.
@@ -147,12 +157,20 @@ public class InscriptionController implements Initializable {
     @FXML
     private void btnInscritAction(ActionEvent event) throws ParseException {
         int var;
+        Date d = new Date();
+        System.out.println(d);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date1 = sdf.parse(datedevalidation.getValue().toString());
+        
+        Date date2 = sdf.parse(datedenaissance.getValue().toString());
+        System.out.println(date1);
+        System.out.println(date1.compareTo(d));
         SendEmail IES = new SendEmail();
         if (nom.getText().length() == 0)
             { labmsg.setText("verifier votre Nom");}
         else if(prenom.getText().length() == 0)
             { labmsg.setText("verfier votre Prenom");}
-        else if (datedenaissance.getValue().toString().length() == 0)
+        else if (datedenaissance.getValue().toString().length() == 0||date2.compareTo(d)== 1)
             { labmsg.setText("verfier votre Date de naissance");}
         else if(sexe.getValue().length() == 0)
             { labmsg.setText("verfier votre Sexe");}
@@ -170,15 +188,17 @@ public class InscriptionController implements Initializable {
             { labmsg.setText("verfier votre Password");}
         else if(!(ValidationService.numerique_Validation(numerodecartebancaire.getText()))|| (numerodecartebancaire.getText().length() != 16))
             { labmsg.setText("verfier votre Numero de card bancaire");}
-        else if(datedevalidation.getEditor().getText().length() == 0)
+        else if(datedevalidation.getEditor().getText().length() == 0 || date1.compareTo(d)== -1)
             { labmsg.setText("verfier votre Date de validation");}
         else if(!(ValidationService.numerique_Validation(ccv.getText())) || (ccv.getText().length() == 0) ) 
             { labmsg.setText("verfier votre CCV");}
             
-         else {
+        else  {
+                
                 String dn = datedenaissance.getValue().toString();
                        String dv = datedevalidation.getValue().toString();
-                Client c = new Client(nom.getText(), prenom.getText(), dn, sexe.getValue(), adresse.getText(), ville.getText(), Integer.valueOf(zip.getText()), numerodetelephone.getText(), email.getText(), password.getText(), numerodecartebancaire.getText(), dv, ccv.getText());
+                       System.out.println(pic);
+                Client c = new Client(nom.getText(), prenom.getText(), dn, sexe.getValue(), adresse.getText(), ville.getText(), Integer.valueOf(zip.getText()), numerodetelephone.getText(), email.getText(), password.getText(),pic,numerodecartebancaire.getText(), dv, ccv.getText());
                  ClientService cs = new ClientService();
                  if (cs.recherche(email.getText()) == true) {
                  labmsg.setText("Verfier votre email deja utiliser!");
@@ -194,6 +214,7 @@ public class InscriptionController implements Initializable {
                 Optional<String> result = dialog.showAndWait();
                        if (result.isPresent() && result.get().equals(rand)){
                            System.out.println("/////////////"+c);
+                           System.out.println(c.getImg());
                          cs.ajouterClient(c);
                        
                         labmsg.setText("Bienvenue!");
@@ -352,4 +373,21 @@ public class InscriptionController implements Initializable {
             Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+
+    @FXML
+    private void imageUpload(ActionEvent event) throws IOException {
+        FileChooser fileChooser = new FileChooser();
+            file= fileChooser.showOpenDialog(null);
+             FileChooser.ExtensionFilter extFilterJPG = new FileChooser.ExtensionFilter("JPG files (*.jpg)", "*.JPG");
+            FileChooser.ExtensionFilter extFilterPNG = new FileChooser.ExtensionFilter("PNG files (*.png)", "*.PNG");
+            fileChooser.getExtensionFilters().addAll(extFilterJPG, extFilterPNG);
+
+            path.setText("File:"+file);
+            //pic=(file.toURI().toString());
+            pic=new Upload().upload(file,"uimg");
+            System.out.println(pic);
+            image= new Image("http://localhost/uimg/"+pic);
+            
+    }
+
 }

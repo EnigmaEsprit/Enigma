@@ -1,15 +1,20 @@
     package GUI.Magasins;
 
+
    // import static  GUI.Produits.MasterPageController.respansev;
-    import Util.Upload;
+    import entites.Produit.Upload;
+
+   // import static  GUI.Produits.MasterPageController.respansev;
+import entites.Produit.Upload;
 import GUI.Utilisateur.ClientInterfaceController;
 import GUI.Utilisateur.VendeurInterfaceController;
 import Util.Util;
+
     import entites.Utilisateur.Utilisateur;
     import entites.Magasins.magasins;
     
 import service.Magasins.magasinsServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
     import com.jfoenix.controls.JFXButton;
     import com.jfoenix.controls.JFXComboBox;
     import com.jfoenix.controls.JFXTextField;

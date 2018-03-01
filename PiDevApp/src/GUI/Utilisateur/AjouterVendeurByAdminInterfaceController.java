@@ -164,7 +164,7 @@ public class AjouterVendeurByAdminInterfaceController implements Initializable {
         else{
        String dn = datedenaissance.getValue().toString();
          
-            Vendeur v = new Vendeur(nom.getText(), prenom.getText(), dn, sexe.getValue(), adresse.getText(), ville.getText(), Integer.valueOf(zip.getText()), numerodetelephone.getText(), email.getText(), password.getText(), situationfiscal.getValue(), rib.getText());
+            Vendeur v = new Vendeur(nom.getText(), prenom.getText(), dn, sexe.getValue(), adresse.getText(), ville.getText(), Integer.valueOf(zip.getText()), numerodetelephone.getText(), email.getText(), password.getText(),null, situationfiscal.getValue(), rib.getText());
            System.out.println("-------------------------"+v);
             VendeurService vs = new VendeurService();
            

@@ -22,8 +22,8 @@ public class Utilisateur {
     private String nt;
     private String email;
     private String mdp;
-    // private String img;
- public Utilisateur(int id,String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw/*,String img*/) {
+    private String img;
+ public Utilisateur(int id,String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw,String img) {
         this.id=id;
         this.nom = nom;
         this.prenom = prenom;
@@ -35,9 +35,10 @@ public class Utilisateur {
         this.nt =nt;
         this.email = email;
         this.mdp = pw;
-        // this.img=img;
+        this.img=img;
     }
-    public Utilisateur(String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw/*,String img*/) {
+  public Utilisateur(String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw) {
+       
         this.nom = nom;
         this.prenom = prenom;
         this.date_naissance = dn;
@@ -48,7 +49,20 @@ public class Utilisateur {
         this.nt =nt;
         this.email = email;
         this.mdp = pw;
-        // this.img=img;
+      
+    }
+    public Utilisateur(String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw,String img) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.date_naissance = dn;
+        this.sexe = sexe;
+        this.adresse = ad;
+        this.ville = vl;
+        this.zip = zip;
+        this.nt =nt;
+        this.email = email;
+        this.mdp = pw;
+         this.img=img;
     }
 
     public Utilisateur(String nom, String prenom, String date_naissance, String sexe, String adresse, String ville, int zip, String nt) {
@@ -153,12 +167,12 @@ public class Utilisateur {
         this.mdp = mdp;
     }
 
-    /* public String getImg() {
+     public String getImg() {
         return img;
     }
 
     public void setImg(String img) {
         this.img = img;
     }
-     */
+     
 }

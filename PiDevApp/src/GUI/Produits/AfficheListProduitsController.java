@@ -20,7 +20,7 @@ import entites.Produit.produits;
 import entites.Utilisateur.Vendeur;
 
 import service.Magasins.magasinsServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -78,8 +78,8 @@ public class AfficheListProduitsController implements Initializable {
     public static int recupid;
     @FXML
     private JFXTextField rechercheProduit;
-    
    
+
     @FXML
     private Pane menu;
     @FXML
@@ -104,14 +104,21 @@ public class AfficheListProduitsController implements Initializable {
     private Button Contacts;
     @FXML
     private Pane paneimage2;
+
     
     int k = 0;
     
-     produitServices listeproduitsServices = new produitServices();
+     ProduitServices listeproduitsServices = new ProduitServices();
     ObservableList<produits> data = FXCollections.observableArrayList();
+
+
+        ProduitServices evt = new ProduitServices();
+
+          Image[] images;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
         
         menu.setTranslateX(-190);
         TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), menu);
@@ -132,7 +139,7 @@ public class AfficheListProduitsController implements Initializable {
         
        
         
-       // produitServices evt = new produitServices();
+       // ProduitServices evt = new ProduitServices();
         
         Image[] images;
         
@@ -354,9 +361,12 @@ System.out.println("bikie bikiek bikie bkiek ");
         
     }
 
-    @FXML
+ @FXML
     void rechercherMagasin(KeyEvent event) throws SQLException {
-        produitServices evt = new produitServices();
+   ProduitServices evt = new ProduitServices();
+
+
+  
         
         Image[] images;
         

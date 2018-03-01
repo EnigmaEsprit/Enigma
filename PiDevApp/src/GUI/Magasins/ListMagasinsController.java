@@ -11,7 +11,7 @@ import Util.Util;
 import entites.Utilisateur.Utilisateur;
 import entites.Magasins.magasins;
 import service.Magasins.magasinsServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import entites.Utilisateur.Vendeur;
@@ -214,7 +214,7 @@ public class ListMagasinsController implements Initializable {
 
           tableM.getItems().clear();
           tableM.getItems().addAll(ms.afficherMagasinc());
-          tableM.refresh();
+      //    tableM.refresh();
            tfnom.setText("");
             tfdescription.setText("");
             tfcontact.setText("");
@@ -242,7 +242,7 @@ public class ListMagasinsController implements Initializable {
         }
          tableM.getItems().clear();
           tableM.getItems().addAll(ms.afficherMagasinc());
-            tableM.refresh();
+            //tableM.refresh();
              tfnom.setText("");
             tfdescription.setText("");
             tfcontact.setText("");

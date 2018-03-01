@@ -10,7 +10,7 @@ import entites.Utilisateur.Vendeur;
 import java.io.IOException;
 
 import service.Magasins.magasinsServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -89,9 +89,13 @@ public class DetailProduitController  implements Initializable {
     {
         System.out.println("---------------------------------------------");
         idProduit= AfficheListProduitsController.recupid;
+
+         
+
         
         System.out.println("id : "+AfficheListProduitsController.recupid);
-          produitServices ps= new produitServices();
+          ProduitServices ps= new ProduitServices();
+
          magasinsServices ms= new magasinsServices();
          System.out.println(ps.rechercherProduitsById(idProduit));
       produit=new produits( ps.rechercherProduitsById(idProduit));
