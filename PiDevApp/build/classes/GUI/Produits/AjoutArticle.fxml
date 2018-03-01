@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,72 +10,194 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="AP1" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Produits.AjoutArticleController">
-   <children>
-      <ImageView fitHeight="550.0" fitWidth="900.0" layoutY="-4.0" opacity="0.48" pickOnBounds="true">
-         <image>
-            <Image url="@../images/back.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="30.0" layoutY="53.0" prefHeight="26.0" prefWidth="245.0" text="Ajout article">
-         <font>
-            <Font size="39.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="imharticle" fitHeight="196.0" fitWidth="319.0" layoutX="467.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/default.png" />
-         </image>
-      </ImageView>
-      <VBox layoutX="707.0" layoutY="343.0" prefHeight="71.0" prefWidth="79.0" spacing="10.0" stylesheets="@../../../../JavaFXSpringBootApp-master/src/main/resources/styles/Styles.css">
+<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Produits.AjoutArticleController">
+   <stylesheets>
+        <URL value="@/Images/style.css" />
+    </stylesheets>
+    <children>
+      <Pane layoutX="261.0" layoutY="75.0" prefHeight="585.0" prefWidth="1340.0" style="-fx-background-color: #c49e564b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <HBox prefHeight="112.0" prefWidth="510.0">
+            <Pane layoutX="193.0" layoutY="30.0" prefHeight="578.0" prefWidth="948.0" style="-fx-background-color: #c59f54c9;">
                <children>
-                  <Label fx:id="AcrticleId">
-                     <HBox.margin>
-                        <Insets left="25.0" />
-                     </HBox.margin>
+                  <ImageView fitHeight="550.0" fitWidth="900.0" opacity="0.48" pickOnBounds="true" />
+                  <Label alignment="TOP_CENTER" layoutX="266.0" layoutY="18.0" prefHeight="56.0" prefWidth="365.0" text="Ajout article" textAlignment="CENTER">
+                     <font>
+                        <Font size="39.0" />
+                     </font>
                   </Label>
-               </children>
-               <VBox.margin>
-                  <Insets left="25.0" />
-               </VBox.margin>
-            </HBox>
-            <Button id="BtnReset" fx:id="upload" mnemonicParsing="false" onAction="#UpladImage" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: white;" text="Upload">
-               <effect>
-                  <DropShadow blurType="ONE_PASS_BOX" color="#1965d0" />
-               </effect>
-            </Button>
-            <HBox prefHeight="29.0" prefWidth="280.0" spacing="10.0">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </HBox>
+                  <ImageView fx:id="imharticle" fitHeight="196.0" fitWidth="319.0" layoutX="591.0" layoutY="123.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="AcrticleId" layoutX="773.0" layoutY="335.0" prefHeight="18.0" prefWidth="75.0" />
+                  <Button id="BtnReset" fx:id="upload" layoutX="773.0" layoutY="366.0" mnemonicParsing="false" onAction="#UpladImage" prefHeight="30.0" prefWidth="75.0" style="-fx-background-color: white;" text="Upload">
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX" color="#1965d0" />
+                     </effect>
+                  </Button>
+                  <Text layoutX="598.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Upload image" />
+                  <JFXTextField fx:id="TFRef" focusColor="WHITE" layoutX="166.0" layoutY="242.0" maxWidth="328.0" minWidth="192.0" prefHeight="33.0" prefWidth="328.0" promptText="Reference produit" unFocusColor="BLACK" />
+                  <JFXTextField fx:id="TFPrix" focusColor="WHITE" layoutX="165.0" layoutY="302.0" maxWidth="328.0" minWidth="192.0" prefHeight="33.0" prefWidth="328.0" promptText="Prix produit" unFocusColor="#140000" />
+                  <JFXTextField fx:id="TFQuantite" focusColor="WHITE" layoutX="170.0" layoutY="366.0" maxWidth="319.0" minWidth="189.0" prefHeight="33.0" prefWidth="319.0" promptText="Quantite" unFocusColor="BLACK" />
+                  <JFXTextField fx:id="TFNom" layoutX="169.0" layoutY="170.0" maxWidth="319.0" minWidth="319.0" prefHeight="33.0" prefWidth="319.0" promptText="Nom Produit" unFocusColor="BLACK" />
+                  <JFXButton fx:id="saveArticle" layoutX="713.0" layoutY="510.0" onAction="#AjouterArticle" prefHeight="47.0" prefWidth="141.0" stylesheets="@paymentCard.css" text="Ajouter" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXTextField fx:id="TFCategorie" focusColor="WHITE" layoutX="169.0" layoutY="428.0" maxWidth="319.0" minWidth="189.0" prefHeight="33.0" prefWidth="319.0" promptText="Quantite" text="Categorie" unFocusColor="BLACK" />
+                  <JFXButton fx:id="saveArticle1" layoutX="258.0" layoutY="510.0" onAction="#afficherListProduit" prefHeight="47.0" prefWidth="141.0" stylesheets="@paymentCard.css" text="List" textFill="WHITE">
+                     <font>
+                        <Font size="21.0" />
+                     </font>
+                  </JFXButton>
+               </children></Pane>
          </children>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </VBox>
-      <Text layoutX="486.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="*Upload image" />
-      <JFXTextField fx:id="TFRef" focusColor="WHITE" layoutX="24.0" layoutY="186.0" maxWidth="328.0" minWidth="192.0" prefHeight="33.0" prefWidth="328.0" promptText="Reference produit" unFocusColor="BLACK" />
-      <JFXTextField fx:id="TFPrix" focusColor="WHITE" layoutX="23.0" layoutY="238.0" maxWidth="328.0" minWidth="192.0" prefHeight="33.0" prefWidth="328.0" promptText="Prix produit" unFocusColor="#140000" />
-      <JFXTextField fx:id="TFQuantite" focusColor="WHITE" layoutX="26.0" layoutY="291.0" maxWidth="319.0" minWidth="189.0" prefHeight="33.0" prefWidth="319.0" promptText="Quantite" unFocusColor="BLACK" />
-      <JFXTextField fx:id="TFNom" layoutX="30.0" layoutY="145.0" maxWidth="319.0" minWidth="319.0" prefHeight="33.0" prefWidth="319.0" promptText="Nom Produit" unFocusColor="BLACK" />
-      <JFXButton fx:id="saveArticle" layoutX="698.0" layoutY="478.0" onAction="#AjouterArticle" prefHeight="47.0" prefWidth="141.0" style="-fx-background-color: #a32020;" text="Ajouter" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="21.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="saveArticle1" layoutX="38.0" layoutY="485.0" onAction="#afficherListProduit" prefHeight="47.0" prefWidth="141.0" style="-fx-background-color: #a32020;" text="list" textFill="WHITE">
-         <font>
-            <Font name="Bauhaus 93" size="21.0" />
-         </font>
-      </JFXButton>
-      <JFXTextField fx:id="TFCategorie" focusColor="WHITE" layoutX="20.0" layoutY="354.0" maxWidth="319.0" minWidth="189.0" prefHeight="33.0" prefWidth="319.0" promptText="Quantite" text="Categorie" unFocusColor="BLACK" />
+      </Pane>
+      <Pane layoutX="127.0" layoutY="20.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="61.0" fitWidth="138.0" layoutX="559.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/LOGO_SOUK_Blan.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Pane fx:id="menu" layoutX="63.0" layoutY="60.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
+         <children>
+            <Pane fx:id="menu3" layoutX="197.0" layoutY="423.0" prefHeight="155.0" prefWidth="209.0">
+               <children>
+                  <Button fx:id="Maps" layoutX="1.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnMapsAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BA55D3;" text="Maps">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="10.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/placeholder.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="recherche" layoutX="2.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnRechercheAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #AFEEEE;" text="   Search Contact">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/hiring.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="menu2" layoutX="197.0" layoutY="260.0" prefHeight="224.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="espClient1" layoutX="3.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnespClientAction" onMouseEntered="#afficherSuite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #F4A460;" text="Espace Client">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="espVendeur1" layoutX="2.0" layoutY="87.0" mnemonicParsing="false" onAction="#btnespVendeurAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FFF5EE;" text="Espace Vendeur">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="espAdmin1" layoutX="2.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnespAdminAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #5F9EA0;" text="Espace Admin">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="5.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/man.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="2.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/boss.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/boss%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button layoutX="2.0" layoutY="40.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="115.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="195.0" mnemonicParsing="false" onAction="#PanierFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #2E8B57;" text="Panier">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="273.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #708090;" text="Promotion">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Log" layoutX="3.0" layoutY="424.0" mnemonicParsing="false" onMouseEntered="#afficherSuite" onMouseExited="#exite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #8FBC8F;" text="LogIN">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Event" layoutX="2.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnEventAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #E9967A;" text="Evenements">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Contacts" layoutX="2.0" layoutY="500.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Contacts">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="14.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/store%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="13.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/basket.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/online-shop.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="12.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/pantone.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/login.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/event.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/contacts.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

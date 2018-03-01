@@ -48,7 +48,7 @@ public class LigneCommandesServices {
             pre.setDouble(3,l.getPrixTotal());
             pre.setInt(2, l.getIdProduit());
             pre.setInt(4, l.getQuantite());
-            pre.setInt(5, 1);
+            pre.setInt(5, l.getIdMagasin());
             pre.setDouble(6, l.getPrixUnitaire());
             // ste.executeUpdate(query);
             pre.executeUpdate();

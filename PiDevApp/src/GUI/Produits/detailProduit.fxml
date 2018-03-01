@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -9,192 +11,349 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AP1" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Produits.DetailProduitController">
-   <children>
-      <AnchorPane prefHeight="499.0" prefWidth="950.0" />
-      <ImageView fitHeight="500.0" fitWidth="950.0" layoutY="-1.0" opacity="0.41" pickOnBounds="true">
-         <image>
-            <Image url="@../images/background.jpg" />
-         </image>
-      </ImageView>
-      <GridPane layoutX="268.0" layoutY="13.0" prefHeight="154.0" prefWidth="290.0">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
+<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Produits.DetailProduitController">
+   <stylesheets>
+        <URL value="@/Images/style.css" />
+    </stylesheets>
+    <children>
+      <Pane layoutX="261.0" layoutY="75.0" prefHeight="585.0" prefWidth="1340.0" style="-fx-background-color: #c49e564b;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <ImageView fx:id="imageproduit" fitHeight="151.0" fitWidth="288.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane layoutX="193.0" layoutY="30.0" prefHeight="540.0" prefWidth="948.0" style="-fx-background-color: #c59f54c9;">
+               <children>
+                  <GridPane layoutX="488.0" layoutY="8.0" prefHeight="188.0" prefWidth="290.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <ImageView fx:id="imageproduit" fitHeight="151.0" fitWidth="288.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </GridPane>
+                  <GridPane layoutX="14.0" layoutY="193.0" prefHeight="275.0" prefWidth="775.0">
+                     <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="493.0" minWidth="10.0" prefWidth="399.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.0" minWidth="10.0" prefWidth="380.0" />
+                     </columnConstraints>
+                     <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                     </rowConstraints>
+                     <children>
+                        <HBox prefHeight="73.0" prefWidth="403.0">
+                           <children>
+                              <Label text="Nom produit :" textFill="#72582d">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="nomproduit" text="dddd">
+                                 <HBox.margin>
+                                    <Insets left="70.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Reference produit:" textFill="#72582d">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="reference" text="ffff">
+                                 <HBox.margin>
+                                    <Insets left="28.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="34.0" prefWidth="400.0" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Prix produit :" textFill="#72582d">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="prix" text="fffff">
+                                 <HBox.margin>
+                                    <Insets left="78.0" top="5.0" />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets top="5.0" />
+                                 </padding>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                           <GridPane.margin>
+                              <Insets />
+                           </GridPane.margin>
+                           <children>
+                              <Label prefHeight="31.0" prefWidth="113.0" text="Quantité :" textFill="#72582d">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="20.0" top="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <Label fx:id="quantite" prefHeight="47.0" prefWidth="343.0" text="sssss">
+                                 <HBox.margin>
+                                    <Insets left="93.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
+                           <children>
+                              <Label text="Nom magasin:" textFill="#72582d">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="nommagasin" text="aaaa">
+                                 <HBox.margin>
+                                    <Insets left="70.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="63.0" prefWidth="329.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                           <children>
+                              <Label text="Categorie magasin:" textFill="#72582d">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="categorie" text="sssss">
+                                 <HBox.margin>
+                                    <Insets left="25.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                           <children>
+                              <Label text="Nom vendeur:" textFill="#72582d">
+                                 <font>
+                                    <Font name="System Bold" size="21.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="nomvendeur" text="jsjsjs">
+                                 <HBox.margin>
+                                    <Insets left="75.0" top="5.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <JFXButton prefHeight="44.0" prefWidth="171.0" stylesheets="@paymentCard.css" text="Ajout Panier" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                           <GridPane.margin>
+                              <Insets left="200.0" top="10.0" />
+                           </GridPane.margin>
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../Images/basket.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                     </children>
+                  </GridPane>
+               </children></Pane>
          </children>
-      </GridPane>
-      <GridPane layoutX="21.0" layoutY="182.0" prefHeight="275.0" prefWidth="775.0">
-         <columnConstraints>
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="493.0" minWidth="10.0" prefWidth="399.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.0" minWidth="10.0" prefWidth="380.0" />
-         </columnConstraints>
-         <rowConstraints>
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-         </rowConstraints>
+      </Pane>
+      <Pane layoutX="127.0" layoutY="20.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox prefHeight="73.0" prefWidth="403.0">
+            <ImageView fitHeight="61.0" fitWidth="138.0" layoutX="559.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/LOGO_SOUK_Blan.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Pane fx:id="menu" layoutX="63.0" layoutY="60.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
+         <children>
+            <Pane fx:id="menu3" layoutX="197.0" layoutY="423.0" prefHeight="155.0" prefWidth="209.0">
                <children>
-                  <Label text="Nom produit :" textFill="#72582d">
+                  <Button fx:id="Maps" layoutX="1.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnMapsAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BA55D3;" text="Maps">
                      <font>
-                        <Font name="System Bold" size="21.0" />
+                        <Font size="18.0" />
                      </font>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="nomproduit" text="dddd">
-                     <HBox.margin>
-                        <Insets left="70.0" />
-                     </HBox.margin>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="10.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/placeholder.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="recherche" layoutX="2.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnRechercheAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #AFEEEE;" text="   Search Contact">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font size="18.0" />
                      </font>
-                     <padding>
-                        <Insets top="5.0" />
-                     </padding>
-                  </Label>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/hiring.png" />
+                     </image>
+                  </ImageView>
                </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+            </Pane>
+            <Pane fx:id="menu2" layoutX="197.0" layoutY="260.0" prefHeight="224.0" prefWidth="200.0">
                <children>
-                  <Label text="Reference produit:" textFill="#72582d">
+                  <Button fx:id="espClient1" layoutX="3.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnespClientAction" onMouseEntered="#afficherSuite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #F4A460;" text="Espace Client">
                      <font>
-                        <Font name="System Bold" size="21.0" />
+                        <Font size="18.0" />
                      </font>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="reference" text="ffff">
-                     <HBox.margin>
-                        <Insets left="28.0" />
-                     </HBox.margin>
+                  </Button>
+                  <Button fx:id="espVendeur1" layoutX="2.0" layoutY="87.0" mnemonicParsing="false" onAction="#btnespVendeurAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FFF5EE;" text="Espace Vendeur">
                      <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font size="18.0" />
                      </font>
-                     <padding>
-                        <Insets top="5.0" />
-                     </padding>
-                  </Label>
+                  </Button>
+                  <Button fx:id="espAdmin1" layoutX="2.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnespAdminAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #5F9EA0;" text="Espace Admin">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="5.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/man.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="2.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/boss.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/boss%20(1).png" />
+                     </image>
+                  </ImageView>
                </children>
-            </HBox>
-            <HBox prefHeight="34.0" prefWidth="400.0" GridPane.rowIndex="2">
-               <children>
-                  <Label text="Prix produit :" textFill="#72582d">
-                     <font>
-                        <Font name="System Bold" size="21.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="prix" text="fffff">
-                     <HBox.margin>
-                        <Insets left="78.0" top="5.0" />
-                     </HBox.margin>
-                     <padding>
-                        <Insets top="5.0" />
-                     </padding>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="3">
-               <GridPane.margin>
-                  <Insets />
-               </GridPane.margin>
-               <children>
-                  <Label prefHeight="31.0" prefWidth="113.0" text="Quantité :" textFill="#72582d">
-                     <font>
-                        <Font name="System Bold" size="21.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="20.0" top="10.0" />
-                     </HBox.margin>
-                  </Label>
-                  <Label fx:id="quantite" prefHeight="47.0" prefWidth="343.0" text="sssss">
-                     <HBox.margin>
-                        <Insets left="93.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1">
-               <children>
-                  <Label text="Nom magasin:" textFill="#72582d">
-                     <font>
-                        <Font name="System Bold" size="21.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="nommagasin" text="aaaa">
-                     <HBox.margin>
-                        <Insets left="70.0" top="5.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="63.0" prefWidth="329.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <children>
-                  <Label text="Categorie magasin:" textFill="#72582d">
-                     <font>
-                        <Font name="System Bold" size="21.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="categorie" text="sssss">
-                     <HBox.margin>
-                        <Insets left="25.0" top="5.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children>
-            </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
-               <children>
-                  <Label text="Nom vendeur:" textFill="#72582d">
-                     <font>
-                        <Font name="System Bold" size="21.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="nomvendeur" text="jsjsjs">
-                     <HBox.margin>
-                        <Insets left="75.0" top="5.0" />
-                     </HBox.margin>
-                     <font>
-                        <Font name="System Bold" size="18.0" />
-                     </font>
-                  </Label>
-               </children></HBox>
-            <Button mnemonicParsing="false" style="-fx-background-color: #c49e56;" text="Ajouter panier" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            </Pane>
+            <Button layoutX="2.0" layoutY="40.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
                <font>
-                  <Font size="16.0" />
+                  <Font size="18.0" />
                </font>
-               <GridPane.margin>
-                  <Insets left="200.0" />
-               </GridPane.margin>
             </Button>
+            <Button layoutX="2.0" layoutY="115.0" mnemonicParsing="false" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="195.0" mnemonicParsing="false" onAction="#PanierFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #2E8B57;" text="Panier">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="273.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #708090;" text="Promotion">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Log" layoutX="3.0" layoutY="424.0" mnemonicParsing="false" onMouseEntered="#afficherSuite" onMouseExited="#exite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #8FBC8F;" text="LogIN">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Event" layoutX="2.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnEventAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #E9967A;" text="Evenements">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Contacts" layoutX="2.0" layoutY="500.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Contacts">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="14.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/store%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="13.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/basket.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/online-shop.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="12.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/pantone.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/login.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/event.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/contacts.png" />
+               </image>
+            </ImageView>
          </children>
-      </GridPane>
+      </Pane>
    </children>
 </AnchorPane>

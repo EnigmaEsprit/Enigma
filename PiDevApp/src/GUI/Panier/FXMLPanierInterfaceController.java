@@ -25,7 +25,8 @@ import com.jfoenix.controls.JFXAlert;
 import entites.Panier.Commande;
 import entites.Panier.FonctionPanier;
 import entites.Panier.LigneCommande;
-import entites.Produit.Produit;
+
+import entites.Produit.produits;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
@@ -64,7 +65,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.Panier.CommandesServices;
 import service.Panier.LigneCommandesServices;
-import service.Produits.ProduitServices2;
+import service.Produits.produitServices;
 
 /**
  * FXML Controller class
@@ -74,19 +75,19 @@ import service.Produits.ProduitServices2;
 public class FXMLPanierInterfaceController implements Initializable {
 
     @FXML
-    private TableView<Produit> listeProduit;
+    private TableView<produits> listeProduit;
     @FXML
-    private TableColumn<Produit, String> imageColumn;
+    private TableColumn<produits, String> imageColumn;
     @FXML
-    private TableColumn<Produit, String> libelleColumn;
+    private TableColumn<produits, String> libelleColumn;
     @FXML
-    private TableColumn<Produit, String> quantiteColumn;
+    private TableColumn<produits, String> quantiteColumn;
     @FXML
-    private TableColumn<Produit, String> prixColumn;
+    private TableColumn<produits, String> prixColumn;
     @FXML
-    private TableColumn<Produit, String> prixTotalColumn;
+    private TableColumn<produits, String> prixTotalColumn;
     @FXML
-    private TableColumn<Produit, String> suppressionColumn;
+    private TableColumn<produits, String> suppressionColumn;
 
     /**
      * Initializes the controller class.
@@ -94,8 +95,8 @@ public class FXMLPanierInterfaceController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    private ObservableList<Produit> data = FXCollections.observableArrayList();
-    ProduitServices2 ps = new ProduitServices2();
+    private ObservableList<produits> data = FXCollections.observableArrayList();
+    produitServices ps = new produitServices();
     @FXML
     private Label prixTotal;
     @FXML
@@ -140,6 +141,8 @@ public class FXMLPanierInterfaceController implements Initializable {
     private Button Contacts;
     
     public static Boolean UtilisateurConnectePourPayer=true;
+    @FXML
+    private Button Reclamation;
     
     
 
@@ -175,7 +178,7 @@ public class FXMLPanierInterfaceController implements Initializable {
 
     @FXML
     private void pageProduitFonction(ActionEvent event) throws IOException {
-        Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Produits/FXMLInterface2.fxml"));
+        Parent homePageParent = FXMLLoader.load(getClass().getResource("/GUI/Produits/AfficheListProduits.fxml"));
         Scene homePageScene = new Scene(homePageParent);
         Stage appStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         appStage.setScene(homePageScene);
@@ -209,7 +212,7 @@ public class FXMLPanierInterfaceController implements Initializable {
     @FXML
     private void optionSuppression(ActionEvent event) {
 
-        Produit selectPourSuppression = listeProduit.getSelectionModel().getSelectedItem();
+        produits selectPourSuppression = listeProduit.getSelectionModel().getSelectedItem();
         if (selectPourSuppression == null) {
             AlertMaker.showErrorMessage("Aucun produit selectionne", "s'il vous plait selectionner un produit pour la suppression");
             System.out.println("erorrrrrrrrrrrrrrrrrr");
@@ -247,7 +250,7 @@ public class FXMLPanierInterfaceController implements Initializable {
 
         System.out.println(FonctionPanier.getListeProduit());
 
-        for (Produit p : FonctionPanier.getListeProduit()) {
+        for (produits p : FonctionPanier.getListeProduit()) {
 
             Button btSupp = new Button("Supprimer");
             //TextField quantiteTextField = new TextField();
@@ -255,15 +258,18 @@ public class FXMLPanierInterfaceController implements Initializable {
 
             i++;
 
-              image = new ImageView("/Images/Image/"+p.getIdProduit()+".jpg");
+            /*  image = new ImageView("/Images/Image/"+p.getIdProduit()+".jpg");
             image.setFitHeight(90.0);
-            image.setFitWidth(75.0);
+            image.setFitWidth(75.0);*/
             //quantiteTextField.setText("" + p.getQuantiteProduit());
-            data.add(new Produit(p.getIdProduit(), p.getNomProduit(), p.getQuantiteProduitClient(), p.getPrixProduit(), image, btSupp, p.getPrixTotal()));
+            
+            data.add(new produits(p.getIdProduit(), p.getNomProduit(), p.getQuantiteProduitClient(), p.getPrixProduit(), p.getImageProduit(), btSupp, p.getPrixTotal()));
+            
             System.out.println(p);
+                System.out.println(p.getQuantiteProduit());
 
             btSupp.setOnAction(event -> {
-                for (Produit verifier : listeProduit.getItems()) {
+                for (produits verifier : listeProduit.getItems()) {
                     if (verifier.getBouton() == btSupp) {
 
                        
@@ -304,7 +310,10 @@ public class FXMLPanierInterfaceController implements Initializable {
 
     @FXML
     private void optionModifierQuantiteProduit(ActionEvent event) {
-        Produit selectPourModification = listeProduit.getSelectionModel().getSelectedItem();
+        
+        produits selectPourModification = listeProduit.getSelectionModel().getSelectedItem();
+        System.out.println(selectPourModification);
+        System.out.println(selectPourModification.getQuantiteProduit());
         if (selectPourModification == null) {
             AlertMaker.showErrorMessage("Aucun produit selectionne", "s'il vous plait selectionner un produit pour la suppression");
             return;
@@ -319,8 +328,10 @@ public class FXMLPanierInterfaceController implements Initializable {
             FXMLInterfaceModificationQuantiteController controller = (FXMLInterfaceModificationQuantiteController) loader.getController();
 
             controller.inflateUI(selectPourModification);
+            
+            System.out.println(selectPourModification+"++++++++++++++++++++++++++++++++++++++++++++++++");
             //////recupere l'id produit et la qte totale
-            System.out.println(selectPourModification.getQuantiteProduit());
+            System.out.println("----------------------------------------------**********"+selectPourModification.getQuantiteProduit());
             System.out.println("ooooooooooooooooooooooooooooooo");
             FXMLInterfaceModificationQuantiteController.idProduitstatic = selectPourModification.getIdProduit();
            // FXMLInterfaceModificationQuantiteController.quantiteProduitTotal= selectPourModification.getQuantiteProduit();
@@ -385,13 +396,11 @@ public class FXMLPanierInterfaceController implements Initializable {
 
   
 
-    @FXML
     private void statitisques(ActionEvent event) {
 
         LoadWindowParent("FXMLStatistiques.fxml",event);
     }
 
-    @FXML
     private void ConsulterCommandes(ActionEvent event) {
         LoadWindowParent("FXMLCommandesInterface.fxml",event);
     }
@@ -436,7 +445,7 @@ public class FXMLPanierInterfaceController implements Initializable {
               table.addCell(c5);
               
               
-              for(Produit p: FonctionPanier.getListeProduit()){
+              for(produits p: FonctionPanier.getListeProduit()){
                   table.addCell(new Paragraph(""));
               table.addCell(new Paragraph(""+p.getNomProduit()));
               table.addCell(new Paragraph(""+p.getQuantiteProduitClient()));
@@ -616,6 +625,19 @@ public class FXMLPanierInterfaceController implements Initializable {
 
     @FXML
     private void btnEventAction(ActionEvent event) {
+    }
+
+   @FXML
+    private void cataloguesFenetre(ActionEvent event) {
+        LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void BoutiquesFenetre(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
+    }
+    @FXML
+    private void btnReclamation(ActionEvent event) {
     }
 
 }

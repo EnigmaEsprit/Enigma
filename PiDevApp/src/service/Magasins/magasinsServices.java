@@ -147,10 +147,12 @@ String requete = "delete from magasins where idMagasin='"+id+"'";
 
      @Override   
     public magasins rechercherMagasinsById(int i) {
+        
             magasins m = new magasins();
-        String requete = "select * from magasins where idMagasin='"+i+"' ORDER BY idMagasin DESC";
+        String requete = "select * from magasins where idMagasin= ? ORDER BY idMagasin DESC";
         try {
             PreparedStatement ps = connection.prepareStatement(requete);
+            ps.setInt(1, i);
             ResultSet resultat = ps.executeQuery();
             if (resultat.next()) {
                  m.setNomMagasin(resultat.getString("nomMagasin"));
@@ -169,7 +171,7 @@ String requete = "delete from magasins where idMagasin='"+id+"'";
         } catch (SQLException ex) {
             System.out.println("erreur lors de la recherche du compte " + ex.getMessage());
         }   
-    return null;    }
+    return m;    }
 
     @Override
     public magasins rechercherMagasinsByName(String nom) {
