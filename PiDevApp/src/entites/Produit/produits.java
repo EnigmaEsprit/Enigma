@@ -5,42 +5,71 @@
  */
 package entites.Produit;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import java.util.Objects;
+import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
+
+
 
 
 public class produits {
  private int idProduit;
-     private final IntegerProperty Prix = new SimpleIntegerProperty(0);
-     private final StringProperty Nom = new SimpleStringProperty();
-     private final IntegerProperty Ref = new SimpleIntegerProperty(0);
-     private final IntegerProperty Quantite = new SimpleIntegerProperty(0);
+     
 
  private String referenceProduit;
  private String nomProduit;
- private String prixProduit;
+ private Double prixProduit;
  private String photoProduit;
- private String quantiteProduit;
+ private int quantiteProduit;
  private int active;
  private int idpromotion;
  private String categorieMagasin;
  private int idMagasin;
  private double valeval;
+  private Button bouton;
+ 
+  private double prixTotal;
+   private ImageView imageProduit;
+ 
+ private int quantiteProduitClient;
 
     public produits() {
     }
-     public produits( String nomProduit, String prixProduit,  String quantiteProduit, String referenceProduit ) {
+
+    public produits(String nomProduit, Double prixProduit, int quantiteProduit,String referenceProduit) {
         this.referenceProduit = referenceProduit;
         this.nomProduit = nomProduit;
         this.prixProduit = prixProduit;
         this.quantiteProduit = quantiteProduit;
-     
-        
     }
 
-    public produits(int idProduit, String referenceProduit, String nomProduit, String prixProduit, String photoProduit, String quantiteProduit, int active, int idpromotion, String categorieMagasin, int idMagasin, double valeval) {
+     public produits(int idProduit, String nomProduit, int quantiteProduit, double prixProduit, ImageView imageProduit, Button bouton) {
+        this.idProduit = idProduit;
+        this.nomProduit = nomProduit;
+        this.quantiteProduit = quantiteProduit;
+        this.prixProduit = prixProduit;
+        this.imageProduit = imageProduit;
+        this.bouton = bouton;
+    }
+    public  produits(produits p){
+        
+        this.idProduit = p.getIdProduit();
+        this.referenceProduit = p.getReferenceProduit();
+        this.nomProduit = p.getNomProduit();
+        this.prixProduit = p.getPrixProduit();
+        this.photoProduit = p.getPhotoProduit();
+        this.quantiteProduit = p.getQuantiteProduit();
+        this.active = active;
+        this.idpromotion = p.getIdpromotion();
+        this.categorieMagasin = p.getCategorieMagasin();
+        this.idMagasin = p.getIdMagasin();
+        this.valeval = p.getValeval();  
+        this.bouton = p.getBouton();
+    }
+    
+    
+    
+    public produits(int idProduit, String referenceProduit, String nomProduit, Double prixProduit, String photoProduit, int quantiteProduit, int active, int idpromotion, String categorieMagasin, int idMagasin, double valeval) {
         this.idProduit = idProduit;
         this.referenceProduit = referenceProduit;
         this.nomProduit = nomProduit;
@@ -54,7 +83,7 @@ public class produits {
         this.valeval = valeval;
     }
 
-    public produits(int idProduit, String referenceProduit, String nomProduit, String prixProduit, String photoProduit, String quantiteProduit, int active, int idpromotion, String categorieMagasin, int idMagasin) {
+    public produits(int idProduit, String referenceProduit, String nomProduit, Double prixProduit, String photoProduit, int quantiteProduit, int active, int idpromotion, String categorieMagasin, int idMagasin) {
         this.idProduit = idProduit;
         this.referenceProduit = referenceProduit;
         this.nomProduit = nomProduit;
@@ -67,41 +96,88 @@ public class produits {
         this.idMagasin = idMagasin;
     }
 
-    public produits(  String referenceProduit, String nomProduit ,String prixProduit , String  photoProduit , String quantiteProduit, int active, String categorieMagasin, int idMagasin) {
+    public produits(String referenceProduit, String nomProduit, Double prixProduit, String photoProduit, int quantiteProduit, int active, String categorieMagasin, int idMagasin) {
         this.referenceProduit = referenceProduit;
         this.nomProduit = nomProduit;
         this.prixProduit = prixProduit;
         this.photoProduit = photoProduit;
         this.quantiteProduit = quantiteProduit;
         this.active = active;
+        
         this.categorieMagasin = categorieMagasin;
         this.idMagasin = idMagasin;
     }
-
-    public produits(int idProduit, String referenceProduit, String nomProduit, String prixProduit, String photoProduit, String quantiteProduit, int idpromotion, int idMagasin) {
-        this.idProduit = idProduit;
-        this.referenceProduit = referenceProduit;
-        this.nomProduit = nomProduit;
-        this.prixProduit = prixProduit;
-        this.photoProduit = photoProduit;
-        this.quantiteProduit = quantiteProduit;
-        this.idpromotion = idpromotion;
-        this.idMagasin = idMagasin;
-    }
-     public produits(int idProduit, String referenceProduit ,String nomProduit, String prixProduit , String photoProduit, String quantiteProduit,String categorieMagasin,  int idMagasin) {
-        this.idProduit = idProduit;
-        this.referenceProduit = referenceProduit;
-        this.nomProduit = nomProduit;
-        this.prixProduit = prixProduit;
-        this.photoProduit = photoProduit;
-        this.categorieMagasin=categorieMagasin;
-        this.quantiteProduit = quantiteProduit;
-        this.idMagasin = idMagasin;
-    }
-
-     
     
+ public produits(int idProduit, String nomProduit, int quantiteProduit, double prixProduit, ImageView imageProduit, Button bouton, double prixTotal) {
+        this.idProduit = idProduit;
+        this.nomProduit = nomProduit;
+        this.quantiteProduit = quantiteProduit;
+        this.prixProduit = prixProduit;
+        this.imageProduit = imageProduit;
+        this.bouton = bouton;
+        this.prixTotal = prixTotal;
+    }
+    public produits(int idProduit, String referenceProduit, String nomProduit, Double prixProduit, String photoProduit, int quantiteProduit, int idpromotion, int idMagasin) {
+        this.idProduit = idProduit;
+        this.referenceProduit = referenceProduit;
+        this.nomProduit = nomProduit;
+        this.prixProduit = prixProduit;
+        this.photoProduit = photoProduit;
+        this.quantiteProduit = quantiteProduit;
+        this.idpromotion = idpromotion;
+        this.idMagasin = idMagasin;
+    }
 
+    public produits(int idProduit, String referenceProduit, String nomProduit, Double prixProduit, String photoProduit, int quantiteProduit, String categorieMagasin, int idMagasin) {
+        this.idProduit = idProduit;
+        this.referenceProduit = referenceProduit;
+        this.nomProduit = nomProduit;
+        this.prixProduit = prixProduit;
+        this.photoProduit = photoProduit;
+        this.quantiteProduit = quantiteProduit;
+        this.categorieMagasin = categorieMagasin;
+        this.idMagasin = idMagasin;
+    }
+
+   
+    public ImageView getImageProduit() {
+        return imageProduit;
+    }
+
+    public void setImageProduit(ImageView imageProduit) {
+        this.imageProduit = imageProduit;
+    }
+
+  
+
+    public produits(int idProduit, String nomProduit, int quantiteProduit, Double prixProduit) {
+        this.idProduit = idProduit;
+        this.nomProduit = nomProduit;
+        this.prixProduit = prixProduit;
+        this.quantiteProduit = quantiteProduit;
+    }
+
+    public void setPrixTotal(double prixTotal) {
+        this.prixTotal = prixTotal;
+    }
+    
+     public double getPrixTotal() {
+       return getPrixProduit()*getQuantiteProduit();
+    }
+    
+  public double prixTotal(){
+        return getPrixProduit()*getQuantiteProduit();
+    }
+    
+    public Button getBouton() {
+        return bouton;
+    }
+
+    public void setBouton(Button bouton) {
+        this.bouton = bouton;
+    }
+
+    
     public int getIdProduit() {
         return idProduit;
     }
@@ -126,11 +202,11 @@ public class produits {
         this.nomProduit = nomProduit;
     }
 
-    public String getPrixProduit() {
+    public Double getPrixProduit() {
         return prixProduit;
     }
 
-    public void setPrixProduit(String prixProduit) {
+    public void setPrixProduit(Double prixProduit) {
         this.prixProduit = prixProduit;
     }
 
@@ -142,11 +218,11 @@ public class produits {
         this.photoProduit = photoProduit;
     }
 
-    public String getQuantiteProduit() {
+    public int getQuantiteProduit() {
         return quantiteProduit;
     }
 
-    public void setQuantiteProduit(String quantiteProduit) {
+    public void setQuantiteProduit(int quantiteProduit) {
         this.quantiteProduit = quantiteProduit;
     }
 
@@ -182,21 +258,6 @@ public class produits {
         this.idMagasin = idMagasin;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + this.idProduit;
-        return hash;
-    }
-
-    public IntegerProperty Prix() {
-        return Prix;
-    }
-
-    public Integer Prixx() {
-        return Prix().get();
-    }
-
     public double getValeval() {
         return valeval;
     }
@@ -205,42 +266,19 @@ public class produits {
         this.valeval = valeval;
     }
 
-
-    public StringProperty Nom() {
-        return Nom;
+    public int getQuantiteProduitClient() {
+        return quantiteProduitClient;
     }
 
+    public void setQuantiteProduitClient(int quantiteProduitClient) {
+        this.quantiteProduitClient = quantiteProduitClient;
+    }
+   
 
-      public produits Nommm(String value) {
-        Nom().set(value);
-        return this;
-    }
-           public produits Prixxx(int value) {
-        Prix().set(value);
-        return this;
-    }
-      
-      
-    public String Nomm() {
-        return Nom().get();
-    }
-
-    public IntegerProperty Ref() {
-        return Ref;
-    }
-
-    public int Reff() {
-        return Ref().get();
-    }
-
+  
+ 
+     
     
-    public IntegerProperty Quantite() {
-        return Quantite;
-    }
-
-    public int Quantitee() {
-        return Quantite().get();
-    }
 
 
     @Override
@@ -261,12 +299,22 @@ public class produits {
         return true;
     }
 
-    public produits(int idProduit, String referenceProduit, String nomProduit, String prixProduit, String quantiteProduit) {
+   
+
+    public produits(int idProduit, String referenceProduit, String nomProduit, Double prixProduit, int quantiteProduit) {
         this.idProduit = idProduit;
         this.referenceProduit = referenceProduit;
         this.nomProduit = nomProduit;
         this.prixProduit = prixProduit;
         this.quantiteProduit = quantiteProduit;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 97 * hash + this.idProduit;
+        hash = 97 * hash + Objects.hashCode(this.nomProduit);
+        return hash;
     }
  
     

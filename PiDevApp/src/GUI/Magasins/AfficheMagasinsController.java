@@ -6,6 +6,9 @@
 package GUI.Magasins;
 
 import GUI.Produits.FTTS;
+import GUI.Utilisateur.ClientInterfaceController;
+import GUI.Utilisateur.VendeurInterfaceController;
+import Util.Util;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 
@@ -17,6 +20,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.TranslateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -28,6 +32,9 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.ToggleGroup;
@@ -39,10 +46,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import service.Magasins.magasinsServices;
 
 
 public class AfficheMagasinsController implements Initializable {
+    
+   
 
     ToggleGroup group = new ToggleGroup();
     Label l = new Label();
@@ -53,7 +65,6 @@ public class AfficheMagasinsController implements Initializable {
     @FXML
     private ScrollPane scrollPaneMagasin;
 
-  @FXML
     private AnchorPane pass;
   
     public static int recupid;
@@ -66,11 +77,50 @@ public class AfficheMagasinsController implements Initializable {
        ObservableList<magasins> data= FXCollections.observableArrayList();
         // magasinsServices evt = new magasinsServices();
 Image[] images;
+    @FXML
+    private Pane paneimage2;
+    @FXML
+    private Pane menu;
+    @FXML
+    private Pane menu3;
+    @FXML
+    private Button Maps;
+    @FXML
+    private Button recherche;
+    @FXML
+    private Pane menu2;
+    @FXML
+    private Button espClient1;
+    @FXML
+    private Button espVendeur1;
+    @FXML
+    private Button espAdmin1;
+    @FXML
+    private Button Log;
+    @FXML
+    private Button Event;
+    @FXML
+    private Button Contacts;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
 
-      
+        menu.setTranslateX(-190);
+    TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), menu);
+
+    menuTranslation.setFromX(-190);
+    menuTranslation.setToX(0);
+
+    menu.setOnMouseEntered(evt -> {
+        menuTranslation.setRate(1);
+        menuTranslation.play();
+    });
+    menu.setOnMouseExited(evt -> {
+        menuTranslation.setRate(-1);
+        menuTranslation.play();
+    });
+    menu2.setVisible(false);
+    menu3.setVisible(false);
           
         
             AnchorPane p = new AnchorPane();
@@ -412,6 +462,7 @@ VBox vv = new VBox();
             }
     }
   
+    @FXML
     private void Speak(ActionEvent event) {
       
        String recherche = rechercheMag.getText();
@@ -421,5 +472,167 @@ VBox vv = new VBox();
         freeTTS.speak();
     }
 //  
+
+     @FXML
+    private void btnespClientAction(ActionEvent event) {
+              System.out.println(Util.connectedUser);
+        if (Util.connectedUser==null)
+        {
+            LoadWindowParent("/GUI/Utilisateur/Login.fxml", event);
+        }
+        else
+        {
+           try {
+              
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/ClientInterface.fxml"));
+                Parent root = (Parent) loader.load();
+                ClientInterfaceController ClientIn = loader.getController();
+                ClientIn.myFunction();
+                Stage window;
+                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(new Scene(root));
+                  window.setResizable(false);
+                window.show();
+
+            } catch (IOException ex) {
+                System.out.println("catch : " + ex.getMessage());
+                Logger.getLogger(AfficheMagasinsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        }
+
+       
+    
+    @FXML
+    private void btnespVendeurAction(ActionEvent event) {
+        if(Util.connectedUserVendeur==null){
+            LoadWindowParent("/GUI/Utilisateur/LoginVendeur.fxml", event);
+        }
+        else 
+        {
+              try {
+                
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/GUI/Utilisateur/VendeurInterface.fxml"));
+                Parent root = (Parent) loader.load();
+                VendeurInterfaceController ClientIn = loader.getController();
+                ClientIn.myFunction();
+                Stage window;
+                window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(new Scene(root));
+                  window.setResizable(false);
+                window.show();
+
+            } catch (IOException ex) {
+                System.out.println("catch : " + ex.getMessage());
+                Logger.getLogger(AfficheMagasinsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+    }
+    }
+ @FXML
+    private void btnespAdminAction(ActionEvent event) {
+            
+             LoadWindowParent("/GUI/Utilisateur/LoginAdmin.fxml", event);
+    }
+
+    @FXML
+    private void afficherSuite(MouseEvent event) {
+        menu.setVisible(true);
+        menu2.setVisible(true);
+ 
+    }
+
+    @FXML
+    private void exite(MouseEvent event) {
+         menu2.setOnMouseEntered(evt -> {menu2.setVisible(true);});
+         menu2.setOnMouseExited(evt -> {menu2.setVisible(false);});
+       
+        menu2.setVisible(false);
+    }
+
+
+    @FXML
+    private void exitemenu3(MouseEvent event) {
+        menu3.setOnMouseEntered(evt -> {menu3.setVisible(true);});
+         menu3.setOnMouseExited(evt -> {menu3.setVisible(false);});
+       
+        menu3.setVisible(false);
+    }
+
+    @FXML
+    private void afficherSuitemenu3(MouseEvent event) {
+         menu.setVisible(true);
+        menu3.setVisible(true);
+ 
+    }
+
+    @FXML
+    private void btnRechercheAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Decouverte/RechercheContactInterface.fxml", event);
+    }
+
+    @FXML
+    private void btnMapsAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
+    }
+
+    @FXML
+    private void PanierFenetre(ActionEvent event) {
+        
+       LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);
+    }
+
+    private void LoadWindow(String loc){
+         try {
+            Parent homePageParent = FXMLLoader.load(getClass().getResource(loc));
+            Stage stage = new Stage(StageStyle.DECORATED);
+            //stage.setTitle(name);
+            stage.setScene(new Scene(homePageParent));
+            stage.setResizable(false);
+            stage.show();
+
+        } catch (IOException ex) {
+            Logger.getLogger(AfficheMagasinsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void LoadWindowParent(String loc,ActionEvent event){
+        try {
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(loc));
+            
+            Parent root = (Parent) loader.load();
+           
+             
+            Stage window;
+            window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(new Scene(root));
+            
+            window.setResizable(false);
+
+            window.show();
+
+           
+        } catch (IOException ex) {
+            Logger.getLogger(AfficheMagasinsController.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+    }
+
+    @FXML
+    private void btnEventAction(ActionEvent event) {
+    }
+
+    @FXML
+    private void cataloguesFenetre(ActionEvent event) {
+        LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void BoutiquesFenetre(ActionEvent event) {
+        // LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
+    }
+    
      
 }

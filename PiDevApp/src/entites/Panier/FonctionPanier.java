@@ -5,7 +5,7 @@
  */
 package entites.Panier;
 
-import entites.Produit.Produit;
+import entites.Produit.produits;
 import iservice.Panier.IPanier;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,14 +16,14 @@ import java.util.List;
  */
 public class FonctionPanier implements IPanier{
     
-    private static  List<Produit>  panier=new ArrayList<>();
+    private static  List<produits>  panier=new ArrayList<>();
 
     public FonctionPanier() {
       // panier = new ArrayList<>();
     }
     
     
-    public static List<Produit> getListeProduit(){
+    public static List<produits> getListeProduit(){
         
         return  panier;
     }
@@ -41,7 +41,7 @@ public class FonctionPanier implements IPanier{
     }
     
    // @Override
-    public  static void  ajouterArticle(Produit p){
+    public  static void  ajouterArticle(produits p){
     
      if(!panier.isEmpty()){
          
@@ -77,7 +77,7 @@ public class FonctionPanier implements IPanier{
     
     
    // @Override
-    public static Boolean modifierQTeArticle(Produit p,int qteProduit){
+    public static Boolean modifierQTeArticle(produits p,int qteProduit){
     
         Boolean result=false;
         if(!panier.isEmpty()){
@@ -125,7 +125,7 @@ public class FonctionPanier implements IPanier{
     }
     
     //@Override
-    public static Boolean supprimerArticle(Produit p){
+    public static Boolean supprimerArticle(produits p){
     
         boolean result = false ;
         if(!panier.isEmpty()){
@@ -186,7 +186,7 @@ public class FonctionPanier implements IPanier{
     }
 
     //@Override
-    public static boolean ProduitExiste(Produit p) {
+    public static boolean ProduitExiste(produits p) {
     return panier.contains(p);
     }
     

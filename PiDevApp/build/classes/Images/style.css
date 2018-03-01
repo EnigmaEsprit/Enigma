@@ -12,6 +12,11 @@
 
     
 }
+#scrollPaneProduit{
+    -fx-background-image: url("artisanat3.jpg");
+
+    
+}
 #login{
     
  -fx-border-radius:7;

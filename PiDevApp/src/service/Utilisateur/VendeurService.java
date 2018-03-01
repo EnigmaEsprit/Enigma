@@ -208,12 +208,18 @@ try {
     }
         return insert;
     }
-       public Vendeur rechercherVendeurById(int id) {
+       public Vendeur rechercherVendeurById(int id) throws SQLException {
+           
+           
          Vendeur m = new Vendeur();
-        String requete = "select * from users where id LIKE '%"+id+"%'";
+       
         try {
-            PreparedStatement ps = con.prepareStatement(requete);
-            ResultSet resultat = ps.executeQuery();
+             PreparedStatement statement = con.prepareStatement( "select * from users where id =?");
+        
+        statement.setInt(1, id);    
+            
+           
+            ResultSet resultat = statement.executeQuery();
             if (resultat.next()) {
                  m.setNom(resultat.getString("nom"));
                 m.setPrenom(resultat.getString("prenom"));        
@@ -225,7 +231,10 @@ try {
         } catch (SQLException ex) {
             System.out.println("erreur lors de la recherche du compte " + ex.getMessage());
         }   
-    return m;       }
+    return m;       
+       
+       
+       }
         public Vendeur rechercherVendeurByName(String nom) {
         Vendeur m = new Vendeur();
         String requete = "select * from users where nom LIKE '%"+nom+"%'";

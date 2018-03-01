@@ -7,7 +7,8 @@ package GUI.Panier;
 
 import com.jfoenix.controls.JFXTextField;
 import entites.Panier.FonctionPanier;
-import entites.Produit.Produit;
+
+import entites.Produit.produits;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -76,7 +77,7 @@ public class FXMLInterfaceModificationQuantiteController implements Initializabl
         Double prix = Double.parseDouble(PrixProduitLabel.getText());
         int quantite = Integer.parseInt(quantiteProduit.getText());
         
-        Produit p = new Produit(idProduitstatic,libelle,quantite,prix);
+        produits p = new produits(idProduitstatic,libelle,quantite,prix);
         
             if(gererModification(p)){
                  Stage stage = (Stage) rootPane.getScene().getWindow();
@@ -93,7 +94,7 @@ public class FXMLInterfaceModificationQuantiteController implements Initializabl
         stage.close();
         
     }
-     public void inflateUI(Produit p){
+     public void inflateUI(produits p){
          
          nomProduitLabel.setText(""+p.getNomProduit());
          PrixProduitLabel.setText(""+p.getPrixProduit());
@@ -104,8 +105,13 @@ public class FXMLInterfaceModificationQuantiteController implements Initializabl
          estEnModeEdit=true;
      }
      
-     private Boolean gererModification(Produit p)
+     private Boolean gererModification(produits p)
+             
      {
+         
+         System.out.println("stock   "+p.getQuantiteProduit());
+         System.out.println("clieent   "+p.getQuantiteProduitClient());
+         p.setQuantiteProduitClient(p.getQuantiteProduit());
          if(FonctionPanier.modifierQTeArticle(p, p.getQuantiteProduitClient())){
              
              

@@ -22,7 +22,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import entites.Panier.Commande;
 import entites.Panier.FonctionPanier;
-import entites.Produit.Produit;
+import entites.Produit.produits;
 import java.awt.Font;
 import java.io.FileOutputStream;
 import java.io.IOException;

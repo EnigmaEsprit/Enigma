@@ -2,17 +2,179 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="pass" prefHeight="459.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Magasins.AfficheMagasinsController">
-   <children>
-      <AnchorPane fx:id="anchorPaneA" layoutX="9.0" layoutY="8.0" prefHeight="471.0" prefWidth="889.0">
+<AnchorPane id="AnchorPane" prefHeight="670.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Magasins.AfficheMagasinsController">
+   <stylesheets>
+        <URL value="@/Images/style.css" />
+    </stylesheets>
+    <children>
+      <Pane fx:id="paneimage2" layoutX="261.0" layoutY="75.0" prefHeight="585.0" prefWidth="1340.0" style="-fx-background-color: #c49e564b;" stylesheets="@../../Images/style.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="66.0">
          <children>
-            <ScrollPane fx:id="scrollPaneMagasin" layoutX="-12.0" layoutY="27.0" prefHeight="401.0" prefWidth="900.0" style="-fx-background-color: #FEFEFE;" stylesheets="@../css/affichRes.css" AnchorPane.bottomAnchor="-10.0" AnchorPane.leftAnchor="-12.0" AnchorPane.rightAnchor="1.0" AnchorPane.topAnchor="27.0" />
-            <JFXTextField fx:id="rechercheMag" layoutX="33.0" layoutY="-1.0" maxWidth="336.0" minWidth="291.0" onKeyPressed="#rechercherMagasin" prefHeight="31.0" prefWidth="291.0" promptText="recherche.." />
-  
+            <Pane layoutX="193.0" layoutY="30.0" prefHeight="578.0" prefWidth="948.0">
+               <children>
+                  <AnchorPane fx:id="anchorPaneA" layoutX="-8.0" layoutY="-6.0" prefHeight="578.0" prefWidth="889.0">
+                     <children>
+                        <JFXTextField fx:id="rechercheMag" layoutX="33.0" layoutY="-1.0" maxWidth="336.0" minWidth="291.0" onKeyPressed="#rechercherMagasin" prefHeight="31.0" prefWidth="291.0" promptText="recherche.." />
+                        <ScrollPane fx:id="scrollPaneMagasin" layoutX="-1.0" layoutY="26.0" opacity="0.68" prefHeight="548.0" prefWidth="963.0" stylesheets="@../../Images/style.css" AnchorPane.bottomAnchor="-3.0" AnchorPane.leftAnchor="-1.0" AnchorPane.rightAnchor="-73.0" AnchorPane.topAnchor="33.0" />
+                        <JFXButton layoutX="324.0" layoutY="2.0" onAction="#Speak" text="speak" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </Pane>
          </children>
-      </AnchorPane>
+      </Pane>
+      <Pane layoutX="127.0" layoutY="20.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView fitHeight="61.0" fitWidth="138.0" layoutX="559.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/LOGO_SOUK_Blan.png" />
+               </image>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </Pane>
+      <Pane fx:id="menu" layoutX="63.0" layoutY="60.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
+         <children>
+            <Pane fx:id="menu3" layoutX="197.0" layoutY="423.0" prefHeight="155.0" prefWidth="209.0">
+               <children>
+                  <Button fx:id="Maps" layoutX="1.0" layoutY="79.0" mnemonicParsing="false" onAction="#btnMapsAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #BA55D3;" text="Maps">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="10.0" layoutY="89.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/placeholder.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="recherche" layoutX="2.0" layoutY="1.0" mnemonicParsing="false" onAction="#btnRechercheAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #AFEEEE;" text="   Search Contact">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="8.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/hiring.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Pane fx:id="menu2" layoutX="197.0" layoutY="260.0" prefHeight="224.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="espClient1" layoutX="3.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnespClientAction" onMouseEntered="#afficherSuite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #F4A460;" text="Espace Client">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="espVendeur1" layoutX="2.0" layoutY="87.0" mnemonicParsing="false" onAction="#btnespVendeurAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FFF5EE;" text="Espace Vendeur">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="espAdmin1" layoutX="2.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnespAdminAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #5F9EA0;" text="Espace Admin">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="5.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/man.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="2.0" layoutY="97.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/boss.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../Images/boss%20(1).png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <Button layoutX="2.0" layoutY="40.0" mnemonicParsing="false" onAction="#cataloguesFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #FF6347;" text="Catalogues" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="115.0" mnemonicParsing="false" onAction="#BoutiquesFenetre" prefHeight="61.0" prefWidth="194.0" style="-fx-background-color: #87CEEB;" text="Boutiques">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="195.0" mnemonicParsing="false" onAction="#PanierFenetre" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #2E8B57;" text="Panier">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button layoutX="2.0" layoutY="273.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #708090;" text="Promotion">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Log" layoutX="3.0" layoutY="424.0" mnemonicParsing="false" onMouseEntered="#afficherSuite" onMouseExited="#exite" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #8FBC8F;" text="LogIN">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Event" layoutX="2.0" layoutY="347.0" mnemonicParsing="false" onAction="#btnEventAction" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #E9967A;" text="Evenements">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Contacts" layoutX="2.0" layoutY="500.0" mnemonicParsing="false" onMouseEntered="#afficherSuitemenu3" onMouseExited="#exitemenu3" prefHeight="60.0" prefWidth="194.0" style="-fx-background-color: #DCDCDC;" text="Contacts">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="14.0" layoutY="128.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/store%20(1).png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="13.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/basket.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/online-shop.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="12.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/pantone.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="7.0" layoutY="435.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/login.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="4.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/event.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="39.0" fitWidth="37.0" layoutX="6.0" layoutY="512.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/contacts.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

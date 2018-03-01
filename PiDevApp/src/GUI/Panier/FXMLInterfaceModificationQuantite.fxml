@@ -2,13 +2,13 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
-<?import java.net.URL?>
 
 <AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="279.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.Panier.FXMLInterfaceModificationQuantiteController">
      <stylesheets>
@@ -18,12 +18,12 @@
       <JFXTextField fx:id="nomProduitLabel" focusColor="#c59f54" layoutX="11.0" layoutY="68.0" prefHeight="34.0" prefWidth="372.0" promptText="libelle" />
       <HBox layoutY="231.0" prefHeight="48.0" prefWidth="402.0">
          <children>
-            <JFXButton fx:id="btnok" onAction="#modifierQuantiteSceneBa" prefHeight="58.0" prefWidth="210.0" stylesheets="@paymentCard.css" text="Valider">
+            <JFXButton fx:id="btnok" onAction="#modifierQuantiteSceneBa" prefHeight="58.0" prefWidth="210.0" stylesheets="@2.css" text="Valider">
                <font>
                   <Font size="14.0" />
                </font>
             </JFXButton>
-            <JFXButton fx:id="btnannuler" layoutX="10.0" layoutY="10.0" onAction="#annulermodifierQuantiteSceneBa" prefHeight="58.0" prefWidth="210.0" stylesheets="@paymentCard.css" text="Annuler">
+            <JFXButton fx:id="btnannuler" layoutX="10.0" layoutY="10.0" onAction="#annulermodifierQuantiteSceneBa" prefHeight="58.0" prefWidth="210.0" stylesheets="@2.css" text="Annuler">
                <font>
                   <Font size="14.0" />
                </font>

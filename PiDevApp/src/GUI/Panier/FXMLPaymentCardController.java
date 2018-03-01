@@ -18,8 +18,9 @@ import com.stripe.model.Token;
 import entites.Panier.Commande;
 import entites.Panier.FonctionPanier;
 import entites.Panier.LigneCommande;
-import entites.Produit.Produit;
+
 import entites.Panier.StripePayement;
+import entites.Produit.produits;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -46,7 +47,7 @@ import javafx.stage.StageStyle;
 import javafx.util.Duration;
 import service.Panier.CommandesServices;
 import service.Panier.LigneCommandesServices;
-import service.Produits.ProduitServices2;
+import service.Produits.produitServices;
 
 /**
  * FXML Controller class
@@ -128,7 +129,11 @@ public class FXMLPaymentCardController implements Initializable {
          //email.setText("jean.bikiembida@esprit.tn");
          
          if(Util.connectedUser!= null){
-            email.setText(Util.connectedUser.getEmail());   
+            email.setText(Util.connectedUser.getEmail()); 
+            numeroCarte.setText(Util.connectedUser.getNbc());
+            ccvTextField.setText(Util.connectedUser.getCode_s());
+            
+            
             email.setEditable(false);
           labelPayment.setText("Montant: "+format.format(FonctionPanier.MontantGlobal()));
          }
@@ -171,7 +176,7 @@ public class FXMLPaymentCardController implements Initializable {
                 EnregisterPaiement();
                 
                 AlertMaker.showSimpleAlert("Paiement Succes", "Paiement Effectué avec succès , veuillez télécharger votre facture");
-                 Stage stage = (Stage) rootPane.getScene().getWindow();
+               Stage stage = (Stage) rootPane.getScene().getWindow();
         stage.close();
         }else{
             AlertMaker.showErrorMessage("Erreur de Paiement", "Numéro de Carte Invalide");
@@ -220,9 +225,9 @@ public class FXMLPaymentCardController implements Initializable {
         
          cmdService.modifierEtat(idCmd);
 
-       ProduitServices2 ps = new ProduitServices2();
+       produitServices ps = new produitServices();
 
-        for (Produit p : FonctionPanier.getListeProduit()) {
+        for (produits p : FonctionPanier.getListeProduit()) {
             int i = 0;
             System.out.println(i++);
             LigneCommande lcmd = new LigneCommande();
@@ -234,12 +239,14 @@ public class FXMLPaymentCardController implements Initializable {
             
             
             
-            ps.modifierProduit(p);
+            ps.modifierProduit2(p);
             
             
             lcmd.setPrixUnitaire(p.getPrixProduit());
             lcmd.setPrixTotal(p.prixTotal());
             System.out.println(i++);
+            System.out.println();
+            lcmd.setIdMagasin(p.getIdMagasin());
 
             lcmd.setIdCommande(idCmd);
             System.out.println(idCmd);
@@ -410,6 +417,9 @@ public class FXMLPaymentCardController implements Initializable {
 
     @FXML
     private void btnEventAction(ActionEvent event) {
+    }
+     @FXML
+    private void btnReclamation(ActionEvent event) {
     }
 
 }
