@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/GUI/Produits/AfficheListProduitsController.java</file>
@@ -15,37 +16,5 @@
             <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/GUI/Produits/FXMLInterface2Controller.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/entites/Panier/FonctionPanier.java</file>
         </group>
-<<<<<<< HEAD
-=======
-=======
-<<<<<<< HEAD
-        <group>
-=======
->>>>>>> 0790c3177808e550b2e22389adb0637de268b7a3
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Reclamation/EnvoiDesReclamationsController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ChangePasswordController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Reclamation/InterfaceEnvoiDesReclamationsController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/VendeurInterfaceController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ChangerPassowrdVendeurVContoller.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ClientEditeInterfaceController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Reclamation/ReponseReclamationController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/Images/style.css</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ClientInterfaceController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Reclamation/InterfaceReclamationsClientsController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/LoginAdminController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/GUI/Utilisateur/ChangeEmailController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Enigma/PiDevApp/src/entites/Reclamation/Reclamations.java</file>
-        </group>
-<<<<<<< HEAD
-=======
-=======
-        <group/>
->>>>>>> 9043b60234238954c0c0dace1b20cb8a4b6ba365
-<<<<<<< HEAD
->>>>>>> 0790c3177808e550b2e22389adb0637de268b7a3
-=======
->>>>>>> 0790c3177808e550b2e22389adb0637de268b7a3
->>>>>>> 0d95e5db3164d824ad8f0b98e7c2dca7d6fa8959
->>>>>>> e7b028b04d0d99637c07d7fa98f90f6fa3e438ae
     </open-files>
 </project-private>
