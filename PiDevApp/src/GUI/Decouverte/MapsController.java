@@ -42,6 +42,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.web.WebEngine;
@@ -87,6 +88,8 @@ public class MapsController implements Initializable,MapComponentInitializedList
     private Button Maps;
     @FXML
     private Button Contacts;
+    @FXML
+    private ImageView profil;
 
     /**
      * Initializes the controller class.
@@ -111,6 +114,21 @@ public class MapsController implements Initializable,MapComponentInitializedList
         menuTranslation.setRate(-1);
         menuTranslation.play();
     });
+     if(Util.connectedUser== null)
+        {
+            
+        }
+     else if(Util.connectedUser.getImg()==null)
+                {
+                    
+                profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/user.jpg"));
+                }
+                else
+                {
+                    profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/"+Util.connectedUser.getImg()));
+               
+             
+                }
     menu2.setVisible(false);
     menu3.setVisible(false);
        
@@ -1170,6 +1188,16 @@ public class MapsController implements Initializable,MapComponentInitializedList
         } catch (IOException ex) {
             Logger.getLogger(InscriptionController.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+
+    @FXML
+    private void btncataloguesAction(ActionEvent event) {
+        LoadWindowParent("GUI/Produits/AfficheListProduits.fxml", event);
+    }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+        LoadWindowParent("GUI/Magasins/AfficheMagasins.fxml", event);
     }
 
     

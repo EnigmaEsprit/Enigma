@@ -80,11 +80,7 @@ public class AdminInterfaceController implements Initializable {
     @FXML
     private TableColumn<Client, String> code_s;
     @FXML
-    private Button modifier;
-    @FXML
     private Button supprimer;
-    @FXML
-    private Button loder_D;
     private ObservableList<Client>data;
     private ObservableList<Vendeur>dat;
    Connection con;
@@ -118,8 +114,6 @@ public class AdminInterfaceController implements Initializable {
     private Button modifier1;
     @FXML
     private Button supprimer1;
-    @FXML
-    private Button loder_D1;
     @FXML
     private Button ajouter;
     @FXML
@@ -212,7 +206,6 @@ public class AdminInterfaceController implements Initializable {
         tableclients.setItems(data);
         
     }
-    @FXML
     private void btnModifierClientAction(ActionEvent event) {
          Client c = tableclients.getSelectionModel().getSelectedItem();
          if(c==null)
@@ -277,7 +270,6 @@ public class AdminInterfaceController implements Initializable {
          } 
     }
 
-    @FXML
     private void btnAfficherAction(ActionEvent event) {
         refrachTable();
        
@@ -352,7 +344,6 @@ public class AdminInterfaceController implements Initializable {
             }
     }
 
-    @FXML
     private void btnAfficherVendeurAction(ActionEvent event) {
         refrachTableVendeur();
       
@@ -464,7 +455,6 @@ public class AdminInterfaceController implements Initializable {
         LoadWindowParent("/GUI/Decouverte/Maps.fxml", event);
     }
 
-       @FXML
     private void PanierFenetre(ActionEvent event) {
         LoadWindowParent("/GUI/Panier/FXMLPanierInterface.fxml",event);
     }

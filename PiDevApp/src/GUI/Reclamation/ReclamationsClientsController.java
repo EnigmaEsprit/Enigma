@@ -109,6 +109,8 @@ public class ReclamationsClientsController implements Initializable {
     public static Reclamations reclamationATraiter;
     public static Vendeur vendeurCte = Util.connectedUserVendeur;
 
+    
+    
     /**
      * Initializes the controller class.
      */

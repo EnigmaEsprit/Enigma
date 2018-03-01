@@ -617,6 +617,11 @@ public void sendEmail(){
 
     @FXML
     private void btnReclamation(ActionEvent event) {
+        LoadWindowParent("/GUI/Reclamation/ReclamationsClients.fxml", event);
+    }
+     @FXML
+    private void btncataloguesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AjoutArticle.fxml", event);
     }
 
 }

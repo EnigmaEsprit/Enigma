@@ -424,4 +424,8 @@ public class ListMagasinsController implements Initializable {
     @FXML
     private void btnEventAction(ActionEvent event) {
     }
+      @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/ListMagasins.fxml", event);
+    }
 }

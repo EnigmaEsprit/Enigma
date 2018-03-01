@@ -118,28 +118,7 @@ public class FXMLPanierInterfaceController implements Initializable {
     private Button btnGenererPdf;
     
     static NumberFormat format;
-    @FXML
-    private Pane menu;
-    @FXML
-    private Pane menu3;
-    @FXML
-    private Button Maps;
-    @FXML
-    private Button recherche;
-    @FXML
-    private Pane menu2;
-    @FXML
-    private Button espClient1;
-    @FXML
-    private Button espVendeur1;
-    @FXML
-    private Button espAdmin1;
-    @FXML
-    private Button Log;
-    @FXML
-    private Button Event;
-    @FXML
-    private Button Contacts;
+    
     
     public static Boolean UtilisateurConnectePourPayer=true;
     @FXML
@@ -148,6 +127,30 @@ public class FXMLPanierInterfaceController implements Initializable {
     Image images;
 
     private Button Reclamation;
+    
+    @FXML
+    private Button Maps1;
+    @FXML
+    private Button recherche1;
+    
+    @FXML
+    private Button espClient11;
+    @FXML
+    private Button espVendeur11;
+    @FXML
+    private Button espAdmin11;
+    @FXML
+    private Button Log1;
+    @FXML
+    private Button Event1;
+    @FXML
+    private Button Contacts1;
+    @FXML
+    private Pane menu1;
+    @FXML
+    private Pane menu31;
+    @FXML
+    private Pane menu21;
 
     
     
@@ -155,26 +158,28 @@ public class FXMLPanierInterfaceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-       
-        menu.setTranslateX(-190);
-    TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), menu);
+        menu1.setTranslateX(-190);
+                    TranslateTransition menuTranslation = new TranslateTransition(Duration.millis(500), menu1);
 
     menuTranslation.setFromX(-190);
     menuTranslation.setToX(0);
 
-    menu.setOnMouseEntered(evt -> {
+    menu1.setOnMouseEntered(evt -> {
         menuTranslation.setRate(1);
         menuTranslation.play();
     });
-    menu.setOnMouseExited(evt -> {
+    menu1.setOnMouseExited(evt -> {
         menuTranslation.setRate(-1);
         menuTranslation.play();
     });
+     menu21.setVisible(false);
+     menu31.setVisible(false);
+
         if(Util.connectedUser== null)
         {
             
         }
-         if(Util.connectedUser.getImg()=="")
+        else if(Util.connectedUser.getImg()==null)
                 {
                     
                 profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/user.jpg"));
@@ -185,8 +190,8 @@ public class FXMLPanierInterfaceController implements Initializable {
                
              
                 }
-    menu2.setVisible(false);
-    menu3.setVisible(false);
+    menu21.setVisible(false);
+    menu31.setVisible(false);
         loadData();
         setColumn();
         actualiserPrix();
@@ -563,32 +568,32 @@ public class FXMLPanierInterfaceController implements Initializable {
 
     @FXML
     private void afficherSuite(MouseEvent event) {
-        menu.setVisible(true);
-        menu2.setVisible(true);
+        menu1.setVisible(true);
+        menu21.setVisible(true);
  
     }
 
     @FXML
     private void exite(MouseEvent event) {
-         menu2.setOnMouseEntered(evt -> {menu2.setVisible(true);});
-         menu2.setOnMouseExited(evt -> {menu2.setVisible(false);});
+         menu21.setOnMouseEntered(evt -> {menu21.setVisible(true);});
+         menu21.setOnMouseExited(evt -> {menu21.setVisible(false);});
        
-        menu2.setVisible(false);
+        menu21.setVisible(false);
     }
 
 
     @FXML
     private void exitemenu3(MouseEvent event) {
-        menu3.setOnMouseEntered(evt -> {menu3.setVisible(true);});
-         menu3.setOnMouseExited(evt -> {menu3.setVisible(false);});
+        menu31.setOnMouseEntered(evt -> {menu31.setVisible(true);});
+         menu31.setOnMouseExited(evt -> {menu31.setVisible(false);});
        
-        menu3.setVisible(false);
+        menu31.setVisible(false);
     }
 
     @FXML
     private void afficherSuitemenu3(MouseEvent event) {
-         menu.setVisible(true);
-        menu3.setVisible(true);
+         menu1.setVisible(true);
+        menu31.setVisible(true);
  
     }
 
@@ -648,17 +653,15 @@ public class FXMLPanierInterfaceController implements Initializable {
     private void btnEventAction(ActionEvent event) {
     }
 
-   @FXML
-    private void cataloguesFenetre(ActionEvent event) {
-        LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+  
+    @FXML
+    private void btncataloguesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
     }
 
     @FXML
-    private void BoutiquesFenetre(ActionEvent event) {
-        LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
-    }
-    @FXML
-    private void btnReclamation(ActionEvent event) {
+    private void btnBoutiquesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
     }
 
 }

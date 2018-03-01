@@ -102,7 +102,7 @@ public class ChangePasswordController implements Initializable {
         menuTranslation.setRate(-1);
         menuTranslation.play();
     });
-        if(Util.connectedUser.getImg()=="")
+        if(Util.connectedUser.getImg()==null)
                 {
                     image= new Image("http://localhost/uimg/user.jpg");
                 profil.setImage(image);

@@ -420,4 +420,14 @@ import service.Utilisateur.VendeurService;
     private void btnEventAction(ActionEvent event) {
     }
 
+       @FXML
+    private void btncataloguesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
     }
+
+    @FXML
+    private void btnBoutiquesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
+    }
+    }
+    

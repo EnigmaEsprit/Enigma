@@ -624,14 +624,14 @@ VBox vv = new VBox();
     private void btnEventAction(ActionEvent event) {
     }
 
-    @FXML
-    private void cataloguesFenetre(ActionEvent event) {
-        LoadWindowParent("/GUI/Produits/AfficheListProduits.fxml", event);
+   @FXML
+    private void btncataloguesAction(ActionEvent event) {
+         LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
     }
 
     @FXML
-    private void BoutiquesFenetre(ActionEvent event) {
-        // LoadWindowParent("/GUI/Magasins/AfficheListProduits.fxml", event);
+    private void btnBoutiquesAction(ActionEvent event) {
+        LoadWindowParent("/GUI/Magasins/AfficheMagasins.fxml", event);
     }
     
      
