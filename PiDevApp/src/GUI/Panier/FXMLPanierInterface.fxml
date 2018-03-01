@@ -108,9 +108,13 @@
 <<<<<<< HEAD
       
 =======
+<<<<<<< HEAD
+      
+=======
       <Pane fx:id="menu" layoutX="63.0" layoutY="60.0" prefHeight="584.0" prefWidth="202.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="66.0">
 =======
 >>>>>>> c497db32a246ebfcf498851830ba5edb152670d7
+>>>>>>> 5e121b665ef6365443b5b4567b16a52e450e4056
       <Pane layoutX="127.0" layoutY="20.0" prefHeight="66.0" prefWidth="1340.0" style="-fx-background-color: #000000;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <ImageView fitHeight="61.0" fitWidth="138.0" layoutX="559.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">

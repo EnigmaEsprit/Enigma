@@ -179,7 +179,11 @@ public class FXMLPanierInterfaceController implements Initializable {
         {
             
         }
+<<<<<<< HEAD
+        else if(Util.connectedUser.getImg()=="")
+=======
         else if(Util.connectedUser.getImg()==null)
+>>>>>>> 5e121b665ef6365443b5b4567b16a52e450e4056
                 {
                     
                 profil.setImage(new javafx.scene.image.Image("http://localhost/uimg/user.jpg"));
@@ -438,33 +442,29 @@ public class FXMLPanierInterfaceController implements Initializable {
          Document document =new Document();
         try{
            
-           PdfWriter writer= PdfWriter.getInstance(document, new FileOutputStream("test.pdf"));
+           PdfWriter writer= PdfWriter.getInstance(document, new FileOutputStream("src\\pdf\\Facture.pdf"));
             document.open();
-             Image image = Image.getInstance("src\\Images\\LOGO_SOUK_Noir.png");
-            document.add(new Paragraph("Exemple"));
+             Image image = Image.getInstance("src\\Images\\LOGO_SOUK_Noir2.png");
+            
            
             
             document.add(image);
-            document.add(new Paragraph("Exemple"));
+            document.add(new Paragraph("Facture Client "));
             
-            PdfPTable table = new PdfPTable(5);
+            PdfPTable table = new PdfPTable(4);
             table.setWidthPercentage(105);
             table.setSpacingBefore(11f);
             table.setSpacingAfter(11f);
             
             float[] colWidth={2f,2f,2f,2f,2f};
             table.setWidths(colWidth);
-            PdfPCell c1=new PdfPCell(new Paragraph(""));
+         
              PdfPCell c2=new PdfPCell(new Paragraph("Libelle"));
               PdfPCell c3=new PdfPCell(new Paragraph("Quantite"));
               PdfPCell c4=new PdfPCell(new Paragraph("prix Unitaire"));
               PdfPCell c5=new PdfPCell(new Paragraph("Prix Total"));
               
-              c1.setHorizontalAlignment(Element.ALIGN_CENTER);
-     
-              c1.setBackgroundColor(BaseColor.DARK_GRAY);
               
-              table.addCell(c1);
               table.addCell(c2);
               table.addCell(c3);
               table.addCell(c4);
@@ -483,21 +483,16 @@ public class FXMLPanierInterfaceController implements Initializable {
               
               document.add(table);
               
-              List orderList = new List(List.ORDERED);
-              orderList.add(new ListItem("Fun"));
-              orderList.add(new ListItem("Technology"));
-              orderList.add(new ListItem("Tic"));
-              orderList.add(new ListItem("Java"));
-              orderList.add(new ListItem("mation"));
+
               
-              document.add(orderList);
+             document.add(new Paragraph("\t\t\t\t\t Prix Total: "+FonctionPanier.MontantGlobal()));
               
               
               
             document.close();
             writer.close();
             
-            AlertMaker.showSimpleAlert("Success", "Generation du panier.pdf \n Location:  ");
+            AlertMaker.showSimpleAlert("Success", "Generation du panier.pdf \n Location: G:\\3ieme_annee\\PIDEV\\Atelier\\ApplicationPanier ");
             
         }catch(Exception e){
             System.out.println(e);

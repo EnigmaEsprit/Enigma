@@ -232,6 +232,7 @@ CommentairesServices cs = new CommentairesServices();
           i= new Image("http://localhost/uimg/"+pic);      
           imageproduit.setImage(i);
           
+          produit.setImageProduit(imageproduit);
           
           ajoutPanier.setOnAction((event)->{
               

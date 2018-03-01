@@ -32,6 +32,7 @@
             <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/GUI/Produits/detailProduit.fxml</file>
             <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/service/Produits/ProduitServices2.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/service/Panier/LigneCommandesServices.java</file>
+            <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/GUI/Panier/FXMLCommandesInterfaceController.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/service/Commentaires/CommentairesServices.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/iservice/Commentaires/ICommentaires.java</file>
             <file>file:/G:/3ieme_annee/PIDEV/Enigma/PiDevApp/src/GUI/Produits/FXMLInterface2Controller.java</file>
