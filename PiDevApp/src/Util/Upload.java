@@ -1,4 +1,4 @@
-package Entities;
+package Util;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -27,7 +27,7 @@ public class Upload {
     
     public String upload(File file,String dossier) throws FileNotFoundException, IOException {
         BufferedOutputStream stream = null;
-        String globalPath="C:\\xampp2\\htdocs\\u"+ dossier;
+        String globalPath="C:\\wamp64\\www\\"+ dossier;
         String localPath="localhost:8000/u/";
         String fileName = file.getName();
         for (int i=0; i<4; i++)

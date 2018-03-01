@@ -26,6 +26,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -76,6 +77,8 @@ public class ChangeEmailController implements Initializable {
     private Button Contacts;
     @FXML
     private Button Reclamation;
+    @FXML
+    private ImageView profil;
 
     /**
      * Initializes the controller class.

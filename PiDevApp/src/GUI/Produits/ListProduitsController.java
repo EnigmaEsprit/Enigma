@@ -9,7 +9,7 @@ import entites.Utilisateur.Utilisateur;
 import entites.Magasins.magasins;
 import entites.Produit.produits;
 import service.Magasins.magasinsServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.List;
@@ -46,7 +46,7 @@ public class ListProduitsController implements Initializable {
    produits p;
    //UtilisateurService us;
    Utilisateur u;
-    produitServices ps=new produitServices();
+    ProduitServices ps=new ProduitServices();
     List<produits> produits;
 
     private ObservableList<produits> data = FXCollections.observableArrayList();
@@ -160,7 +160,7 @@ public class ListProduitsController implements Initializable {
          ps.supprimerProduit(tableM.getSelectionModel().getSelectedItem().getIdProduit());
           tableM.getItems().clear();
           tableM.getItems().addAll(ps.rechercherProduitByMagasin(m.getIdMagasin()));
-          tableM.refresh();
+        //  tableM.refresh();
            tfnom.setText("");
             reference.setText("");
             prix.setText("");
@@ -184,7 +184,7 @@ public class ListProduitsController implements Initializable {
         }
          tableM.getItems().clear();
           tableM.getItems().addAll(ps.rechercherProduitByMagasin(m.getIdMagasin()));
-            tableM.refresh();
+        //    tableM.refresh();
             
              tfnom.setText("");
             reference.setText("");

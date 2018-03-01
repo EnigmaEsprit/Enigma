@@ -43,6 +43,8 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -126,6 +128,9 @@ public class ClientEditeInterfaceController implements Initializable {
     private Button Contacts;
     @FXML
     private Button Reclamation;
+    @FXML
+    private ImageView profil;
+    Image image;
 
     /**
      * Initializes the controller class.
@@ -190,6 +195,16 @@ public class ClientEditeInterfaceController implements Initializable {
               datedevalidation.setValue(LocalDate.of(yearV, mounthV, mounthV));
                 numerodetelephone.setText(Util.connectedUser.getNt());
                 eemail = email.getText();
+                    if(Util.connectedUser.getImg()=="")
+                {
+                    image= new Image("http://localhost/uimg/user.jpg");
+                profil.setImage(image);
+                }
+                else
+                {
+                image= new Image("http://localhost/uimg/"+Util.connectedUser.getImg());
+                profil.setImage(image);
+                }
               
             
 

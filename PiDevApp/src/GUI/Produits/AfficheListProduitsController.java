@@ -13,7 +13,7 @@ import com.jfoenix.controls.JFXTextField;
 import entites.Produit.produits;
 
 import service.Magasins.magasinsServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -61,13 +61,13 @@ public class AfficheListProduitsController implements Initializable {
     private JFXTextField rechercheProduit;
 
    
-     produitServices a = new produitServices();
+     ProduitServices a = new ProduitServices();
        ObservableList<produits> data=FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
     
 
-        produitServices evt = new produitServices();
+        ProduitServices evt = new ProduitServices();
 
           Image[] images;
         
@@ -248,7 +248,7 @@ VBox vv = new VBox();
     }
  @FXML
     void rechercherMagasin(KeyEvent event) {
-   produitServices evt = new produitServices();
+   ProduitServices evt = new ProduitServices();
 
           Image[] images;
         

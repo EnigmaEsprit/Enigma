@@ -25,8 +25,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -96,6 +100,9 @@ public class ClientInterfaceController implements Initializable {
     private Button Contacts;
     @FXML
     private Button Reclamation;
+    @FXML
+    private ImageView profil;
+    private Image image;
 
     /**
      * Initializes the controller class.
@@ -135,6 +142,16 @@ public class ClientInterfaceController implements Initializable {
                 numerodecardbancaire.setText(Util.connectedUser.getNbc());
                 datedevalidation.setText(Util.connectedUser.getDate_validation());
                 nt.setText(Util.connectedUser.getNt());
+                if(Util.connectedUser.getImg()=="")
+                {
+                    image= new Image("http://localhost/uimg/user.jpg");
+                profil.setImage(image);
+                }
+                else
+                {
+                image= new Image("http://localhost/uimg/"+Util.connectedUser.getImg());
+                profil.setImage(image);
+                }
               
         }
      
@@ -142,8 +159,16 @@ public class ClientInterfaceController implements Initializable {
     @FXML
     private void btnSupprimerCompteAction(ActionEvent event) {
         ClientService cs = new ClientService();
-        cs.supprimerClient(Util.connectedUser.getEmail());
-        try {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+        alert.setTitle("Confirmation");
+        alert.setHeaderText(null);
+        alert.setContentText("Voulez vous supprimer votre compte?");
+        alert.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK) {
+                cs.supprimerClient(Util.connectedUser.getEmail());
+
+                 try {
             
             FXMLLoader loader = new FXMLLoader(getClass().getResource("Login.fxml"));
             
@@ -162,7 +187,13 @@ public class ClientInterfaceController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(ClientInterfaceController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    
+           
+                
+            }    
+        });
+        
+                 } 
 
     @FXML
     private void btnEditerCompteAvtion(ActionEvent event) {

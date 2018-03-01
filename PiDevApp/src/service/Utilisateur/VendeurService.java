@@ -108,7 +108,7 @@ try {
             ResultSet res = stm.executeQuery("SELECT * FROM users WHERE type ='vendeur' AND email ='" + mail + "' ");
             System.out.println("ooook"); 
             res.next();
-                v = new Vendeur(res.getString(2), res.getString(3),res.getString(4) , res.getString(5), res.getString(6), res.getString(7), res.getInt(8), res.getString(9), res.getString(10), res.getString(11), res.getString(17), res.getString(18));
+                v = new Vendeur(res.getString(2), res.getString(3),res.getString(4) , res.getString(5), res.getString(6), res.getString(7), res.getInt(8), res.getString(9), res.getString(10), res.getString(11),res.getString(13), res.getString(17), res.getString(18));
              System.out.println(v);
         } catch (SQLException ex) {
             Logger.getLogger(ClientService.class.getName()).log(Level.SEVERE, null, ex);

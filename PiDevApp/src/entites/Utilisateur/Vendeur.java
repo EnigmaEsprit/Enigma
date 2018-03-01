@@ -15,13 +15,13 @@ public class Vendeur extends Utilisateur{
     private String sutiation_fiscal;
     private String numero_bancaire;
     
-    public Vendeur(String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw,String sf,String rip) {
-        super(nom, prenom, dn, sexe, ad, vl, zip, nt, email, pw);
+    public Vendeur(String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw,String img,String sf,String rip) {
+        super(nom, prenom, dn, sexe, ad, vl, zip, nt, email, pw,img);
         this.sutiation_fiscal = sf;
         this.numero_bancaire = rip;
     }
-    public Vendeur(int id,String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw,String sf,String rip) {
-        super(id,nom, prenom, dn, sexe, ad, vl, zip, nt, email, pw);
+    public Vendeur(int id,String nom, String prenom, String dn, String sexe, String ad, String vl, int zip, String nt, String email, String pw,String img,String sf,String rip) {
+        super(id,nom, prenom, dn, sexe, ad, vl, zip, nt, email, pw,img);
         this.sutiation_fiscal = sf;
         this.numero_bancaire = rip;
     }

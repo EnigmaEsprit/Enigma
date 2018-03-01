@@ -140,6 +140,9 @@ public class FXMLPanierInterfaceController implements Initializable {
     private Button Contacts;
     
     public static Boolean UtilisateurConnectePourPayer=true;
+    @FXML
+    private ImageView profil;
+    Image images;
     
     
 
@@ -161,6 +164,20 @@ public class FXMLPanierInterfaceController implements Initializable {
         menuTranslation.setRate(-1);
         menuTranslation.play();
     });
+        if(Util.connectedUser== null)
+        {
+            
+        }
+         if(Util.connectedUser.getImg()=="")
+                {
+                    images= new Image("http://localhost/uimg/user.jpg");
+                profil.setImage(image);
+                }
+                else
+                {
+                images= new Image("http://localhost/uimg/"+Util.connectedUser.getImg());
+                profil.setImage(image);
+                }
     menu2.setVisible(false);
     menu3.setVisible(false);
         loadData();
@@ -385,13 +402,11 @@ public class FXMLPanierInterfaceController implements Initializable {
 
   
 
-    @FXML
     private void statitisques(ActionEvent event) {
 
         LoadWindowParent("FXMLStatistiques.fxml",event);
     }
 
-    @FXML
     private void ConsulterCommandes(ActionEvent event) {
         LoadWindowParent("FXMLCommandesInterface.fxml",event);
     }

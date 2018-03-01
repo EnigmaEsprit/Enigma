@@ -5,7 +5,7 @@ import entites.Magasins.magasins;
 import entites.Produit.produits;
 
 import service.Magasins.magasinsServices;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -47,7 +47,7 @@ public class DetailProduitController  implements Initializable {
     public DetailProduitController()
     {
         idProduit= AfficheListProduitsController.recupid;
-          produitServices ps= new produitServices();
+          ProduitServices ps= new ProduitServices();
          magasinsServices ms= new magasinsServices();
       produit= ps.rechercherProduitsById(idProduit);
       nommagasinn=ms.rechercherMagasinsById(produit.getIdMagasin());

@@ -25,6 +25,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -75,6 +77,9 @@ public class ChangePasswordController implements Initializable {
     private Button Contacts;
     @FXML
     private Button Reclamation;
+    Image image;
+    @FXML
+    private ImageView profil;
   
 
     /**
@@ -97,6 +102,16 @@ public class ChangePasswordController implements Initializable {
         menuTranslation.setRate(-1);
         menuTranslation.play();
     });
+        if(Util.connectedUser.getImg()=="")
+                {
+                    image= new Image("http://localhost/uimg/user.jpg");
+                profil.setImage(image);
+                }
+                else
+                {
+                image= new Image("http://localhost/uimg/"+Util.connectedUser.getImg());
+                profil.setImage(image);
+                }
      menu2.setVisible(false);
      menu3.setVisible(false);
     }    

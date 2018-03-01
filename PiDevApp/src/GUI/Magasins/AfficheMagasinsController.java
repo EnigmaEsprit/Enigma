@@ -11,7 +11,7 @@ import com.jfoenix.controls.JFXTextField;
 
 import entites.Magasins.magasins;
 import entites.Produit.produits;
-import service.Produits.produitServices;
+import service.Produits.ProduitServices;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
